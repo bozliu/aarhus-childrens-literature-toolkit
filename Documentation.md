@@ -75,6 +75,9 @@
 - Command: `gh run view 23500389218 --repo bozliu/aarhus-childrens-literature-toolkit --json ...` and `--log`
   Result: the failed `release` run for `v0.1.0` built assets successfully but failed on `Publish release assets` with `Resource not accessible by integration`; the job token only had read access to repository contents.
   Follow-up: update `.github/workflows/release.yml` to request `contents: write` and support manual tag-targeted reruns from `main`.
+- Command: `gh workflow run release.yml --repo bozliu/aarhus-childrens-literature-toolkit --ref main -f tag=v0.1.0` followed by `gh run watch 23502021089 ...`
+  Result: succeeded; the replacement `release` run on `main` rebuilt assets and completed `Publish release assets` for `v0.1.0`.
+  Follow-up: the release is operational again, while the original historical red run remains as an immutable record of the pre-fix workflow.
 
 ## How To Run Or Demo
 
