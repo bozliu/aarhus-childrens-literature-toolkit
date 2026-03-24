@@ -1619,6 +1619,7 @@ def render_quarto_report() -> Path:
     report_qmd = write_report_qmd()
     report_out = root_path("report_html")
     ensure_parent(report_out)
+    support_dir = report_out.parent / "report_files"
     try:
         quarto_bin = shutil.which("quarto")
         if quarto_bin is None and os.environ.get("CHILDLIT_ALLOW_BUNDLED_QUARTO", "0") == "1":
@@ -1627,6 +1628,8 @@ def render_quarto_report() -> Path:
                 quarto_bin = str(local_quarto)
         if quarto_bin is None:
             raise RuntimeError("Quarto CLI not found.")
+        if support_dir.exists():
+            shutil.rmtree(support_dir)
         completed = subprocess.run(
             [quarto_bin, "render", str(report_qmd), "--to", "html", "--output", "index.html"],
             cwd=ROOT,
@@ -1634,6 +1637,8 @@ def render_quarto_report() -> Path:
         )
         if completed.returncode != 0 or not report_out.exists():
             write_fallback_report_html()
+        elif support_dir.exists():
+            shutil.rmtree(support_dir)
     except Exception:
         write_fallback_report_html()
     return report_out

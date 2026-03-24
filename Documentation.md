@@ -25,6 +25,8 @@
   Why: the current local validation shows `transformers` and `torch` available, but `sentence_transformers`, `bertopic`, and `gliner` are still optional and presently missing, so the repo must surface the active fallback backends explicitly.
 - Decision: make the top of `README.md` explicitly answer what the project is, why it matters, what solution it provides, how it differs from related work, and how the public can reuse it.
   Why: the repo is now a public-facing toolkit, so value proposition and reuse guidance need to be visible before readers reach the deeper benchmark and visualization sections.
+- Decision: keep the release workflow repairable from `main` through `workflow_dispatch`, while still publishing assets to a specific existing release tag.
+  Why: the original `v0.1.0` tag run failed due to workflow-level token permissions, so a manual recovery path is needed without having to move or recreate the tag.
 
 ## Validation Log
 
@@ -70,6 +72,9 @@
 - Command: `./scripts/run_r.sh scripts/render_readme.R`
   Result: succeeded after the README positioning update; `README.md` now includes public-facing sections for project definition, importance, solution framing, related-work differentiation, and reuse guidance.
   Follow-up: commit and push the regenerated README and its generator source together so the public repo stays in sync.
+- Command: `gh run view 23500389218 --repo bozliu/aarhus-childrens-literature-toolkit --json ...` and `--log`
+  Result: the failed `release` run for `v0.1.0` built assets successfully but failed on `Publish release assets` with `Resource not accessible by integration`; the job token only had read access to repository contents.
+  Follow-up: update `.github/workflows/release.yml` to request `contents: write` and support manual tag-targeted reruns from `main`.
 
 ## How To Run Or Demo
 
@@ -102,6 +107,8 @@
   Impact: the current validated runtime uses `afinn-fallback`, `tfidf-fallback`, and `heuristic-titlecase`; README and benchmark tables surface that honestly.
 - Issue 3: `dl` currently sees `Rscript` through the machine path rather than a conda-installed R runtime.
   Impact: the project runs correctly through the `dl` workflow on this machine, but a stricter fully-conda R story remains an optional follow-up.
+- Issue 4: the original `v0.1.0` release workflow run is permanently red in GitHub history.
+  Impact: that historical run used the old workflow definition from the tag commit, so it cannot inherit the repaired permissions; the practical fix is to dispatch a new successful release run from `main`.
 
 ## Follow-Ups
 
