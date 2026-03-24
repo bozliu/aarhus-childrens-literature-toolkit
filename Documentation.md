@@ -2,12 +2,13 @@
 
 ## Status
 
-- Current milestone: Milestone 4
+- Current milestone: Released
 - Completed milestones:
   - Milestone 1: durable memory, config, bootstrap contracts, and dual-runtime repo metadata aligned to the approved plan
   - Milestone 2: Python CLI surface and shared R wrappers implemented
   - Milestone 3: expanded analytics, README/report generation, demo media, and release-facing tables/figures implemented
-- Next milestone: publish the public GitHub repo, push `main`, and create the `v0.1.0` release
+  - Milestone 4: CI/release scaffolding validated, public repo created, `main` pushed, and `v0.1.0` released
+- Next milestone: optional post-release improvement pass for heavier modern local backends and true Quarto rendering
 - Last updated: 2026-03-25
 
 ## Decisions
@@ -28,6 +29,15 @@
 - Command: `gh auth status`
   Result: authenticated to `github.com` as `bozliu` with `repo` and `workflow` scopes.
   Follow-up: safe to create the public repo and release from this machine.
+- Command: `gh repo create bozliu/aarhus-childrens-literature-toolkit --public --source=. --remote=origin --push ...`
+  Result: succeeded; public repo created and `main` pushed.
+  Follow-up: remote `origin` now tracks the live public repository.
+- Command: `gh release create v0.1.0 --repo bozliu/aarhus-childrens-literature-toolkit ...`
+  Result: succeeded; release published with bundle/media/table assets.
+  Follow-up: release URL is `https://github.com/bozliu/aarhus-childrens-literature-toolkit/releases/tag/v0.1.0`.
+- Command: `git fetch --tags origin`
+  Result: succeeded; local tag state now matches the remote release tag.
+  Follow-up: local git view is fully synced to the published release.
 - Command: `make setup`
   Result: succeeded; `./scripts/setup_dl_runtime.sh` detected that `Rscript` is already available inside the `dl` runtime path.
   Follow-up: no conda-side R overlay install was required for this machine.
@@ -85,14 +95,12 @@
   Impact: `docs/index.html` is generated via the fallback HTML path rather than an actual Quarto render.
 - Issue 2: the modern local backends are only partially installed.
   Impact: the current validated runtime uses `afinn-fallback`, `tfidf-fallback`, and `heuristic-titlecase`; README and benchmark tables surface that honestly.
-- Issue 3: the public repo and GitHub release have not yet been created.
-  Impact: remote publishing is the only major remaining milestone.
-- Issue 4: the repository has no committed baseline yet.
-  Impact: the first commit must be curated carefully to avoid accidentally adding ignored local-only material.
+- Issue 3: `dl` currently sees `Rscript` through the machine path rather than a conda-installed R runtime.
+  Impact: the project runs correctly through the `dl` workflow on this machine, but a stricter fully-conda R story remains an optional follow-up.
 
 ## Follow-Ups
 
-- Follow-up 1: create `bozliu/aarhus-childrens-literature-toolkit` as a public repo and push `main`.
-- Follow-up 2: create tag `v0.1.0` and publish the GitHub release with README/report/media assets.
-- Follow-up 3: optionally install `sentence_transformers`, `bertopic`, and `gliner` in `dl` to replace the current fallback backends.
-- Follow-up 4: optionally install system Quarto and rerender `docs/index.html` from `docs/report.qmd`.
+- Follow-up 1: optionally install `sentence_transformers`, `bertopic`, and `gliner` in `dl` to replace the current fallback backends.
+- Follow-up 2: optionally install system Quarto and rerender `docs/index.html` from `docs/report.qmd`.
+- Follow-up 3: optionally tighten the public corpus inventory further if a smaller curated validation pack is preferred over the full `LancsBox` corpora subset.
+- Follow-up 4: optionally configure explicit global git author name/email before the next release commit.
