@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "Aarhus Children's Literature Toolkit"
+message: "If you use this repository, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: Liu
+    given-names: Bozhong
+repository-code: "https://github.com/bozliu/aarhus-childrens-literature-toolkit"
+url: "https://github.com/bozliu/aarhus-childrens-literature-toolkit"
+license: Apache-2.0
+version: 0.1.0
+date-released: 2026-03-24
+abstract: >
+  Dual-runtime rebuild of a 2016 Aarhus Summer University children's literature
+  text-mining project with legacy baselines, modern local analysis backends,
+  shared manifests, and public-release reporting assets.

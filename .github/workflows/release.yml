@@ -1,0 +1,38 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build-release-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Install Python runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r environment/python-core.txt
+          python -m pip install -e .
+      - name: Build release bundle
+        run: |
+          python -m childlit_toolkit all
+          tar -czf aarhus-childlit-release-bundle.tar.gz README.md docs results data/manifests
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            aarhus-childlit-release-bundle.tar.gz
+            README.md
+            docs/index.html
+            results/assets/hero.gif
+            results/assets/hero.mp4
+            results/tables/benchmark_overview.csv
+            results/tables/benchmark_sota_comparison.csv
+            results/tables/release_bundle_manifest.csv

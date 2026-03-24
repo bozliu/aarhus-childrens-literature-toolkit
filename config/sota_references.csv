@@ -1,0 +1,11 @@
+component,label,category,url,notes
+legacy_sentiment,AFINN,baseline,https://github.com/fnielsen/afinn,Legacy lexicon baseline reflected in the 2016 project
+legacy_topics,topicmodels::LDA,baseline,https://cran.r-project.org/package=topicmodels,Legacy topic modeling baseline
+modern_topics_stm,STM,modern-r,https://search.r-project.org/CRAN/refmans/stm/html/stm-package.html,Metadata-aware topic modeling in R
+modern_topics_keyatm,keyATM,modern-r,https://keyatm.github.io/keyATM/,Guided topic modeling for interpretable themes
+modern_topics_bertopic,BERTopic,modern-local,https://maartengr.github.io/BERTopic/,Embedding-based topic modeling
+modern_ner_gliner,GLiNER,modern-local,https://github.com/urchade/GLiNER,Local NER backend
+modern_embeddings_qwen,Qwen3-Embedding-0.6B,modern-local,https://huggingface.co/Qwen/Qwen3-Embedding-0.6B,Default local embedding backend
+modern_sentiment_distilbert,DistilBERT SST-2,modern-local,https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english,Default local transformer sentiment classifier
+bridge_reticulate,reticulate,bridge,https://rstudio.github.io/reticulate/,R-to-Python interoperability
+preprocess_quanteda,quanteda,modern-r,https://quanteda.io/,Primary modern R preprocessing workflow

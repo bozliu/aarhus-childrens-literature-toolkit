@@ -1,0 +1,17 @@
+name: dl
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pandoc
+  - quarto
+  - make
+  - ffmpeg
+  - imagemagick
+  - r-base>=4.3
+  - r-renv
+  - r-jsonlite
+  - r-yaml
+  - pip
+  - libxml2
+  - pip

@@ -1,0 +1,11 @@
+## Corpus Summary
+
+- Total books: 25
+- Total words: 1,332,482
+- Legacy-core books: 20
+- Expanded-core books: 5
+
+| split         | n_books | total_words | median_book_words | mean_book_words | mean_afinn_per_10k | mean_type_token_ratio |
+| ------------- | ------- | ----------- | ----------------- | --------------- | ------------------ | --------------------- |
+| expanded-core | 5       | 285618      | 60770.0           | 57123.6         | 201.88             | 0.0874                |
+| legacy-core   | 20      | 1046864     | 50005.0           | 52343.2         | 169.58             | 0.1353                |

@@ -1,0 +1,8 @@
+This repository rebuilds and modernizes a 2016 Aarhus Summer University
+children's literature text-mining project for public release.
+
+The repo preserves original course/project archive materials for provenance and
+adds new manifests, analysis code, generated assets, and documentation.
+
+Third-party corpora, models, and papers are cited in the repository README and
+should be reviewed for their own licenses and usage terms before redistribution.

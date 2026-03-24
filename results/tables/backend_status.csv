@@ -1,0 +1,7 @@
+module,status,purpose,detail
+transformers,available,modern sentiment backend,import ok
+sentence_transformers,missing,embedding and retrieval backend,No module named 'sentence_transformers'
+bertopic,missing,embedding topic modeling,No module named 'bertopic'
+gliner,missing,local named entity recognition,No module named 'gliner'
+torch,available,accelerated local inference,import ok
+networkx,available,entity co-occurrence graphing,import ok

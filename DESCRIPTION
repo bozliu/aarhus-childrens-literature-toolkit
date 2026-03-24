@@ -1,0 +1,37 @@
+Package: aarhusChildrenToolkit
+Title: Aarhus Children's Literature Text Mining Toolkit
+Version: 0.1.0
+Authors@R:
+    person("Boz", "Liu", email = "bozliu@example.com", role = c("aut", "cre"))
+Description: R-first rebuild of a 2016 Aarhus Summer University children’s
+    literature text mining project with legacy baselines, modern local model
+    backends, reproducible manifests, and GitHub-ready reporting assets.
+License: Apache License (>= 2)
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    digest,
+    dplyr,
+    fs,
+    ggplot2,
+    glue,
+    httr2,
+    jsonlite,
+    knitr,
+    purrr,
+    quanteda,
+    readr,
+    reticulate,
+    rmarkdown,
+    stringr,
+    stm,
+    syuzhet,
+    targets,
+    tarchetypes,
+    tibble,
+    tidyr,
+    topicmodels,
+    xml2,
+    yaml
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

@@ -1,0 +1,52 @@
+project:
+  name: aarhus-childrens-literature-toolkit
+  root: .
+  readme_language: en
+  license: Apache-2.0
+  default_runtime_env: dl
+  github_repo: bozliu/aarhus-childrens-literature-toolkit
+  release_tag: v0.1.0
+
+paths:
+  corpus_seed: config/corpus_seed.csv
+  theme_seeds: config/theme_seeds.yml
+  sota_references: config/sota_references.csv
+  corpus_manifest: data/manifests/corpus_manifest.csv
+  local_assets: data/manifests/local_assets.csv
+  legacy_summary: data/manifests/legacy_summary.csv
+  core_text_dir: data/raw/core
+  expanded_text_dir: data/raw/expanded
+  figures_dir: results/figures
+  tables_dir: results/tables
+  fragments_dir: results/fragments
+  assets_dir: results/assets
+  docs_dir: docs
+  report_qmd: docs/report.qmd
+  report_html: docs/index.html
+  dependency_audit: results/tables/dependency_license_audit.csv
+  release_manifest: results/tables/release_bundle_manifest.csv
+  analysis_status: results/tables/analysis_status.csv
+  readme: README.md
+
+models:
+  embeddings:
+    default: Qwen/Qwen3-Embedding-0.6B
+    backend: python
+    fallback: tfidf
+  ner:
+    default: gliner
+    fallback: heuristic-titlecase
+  sentiment:
+    legacy: afinn
+    modern_default: distilbert-base-uncased-finetuned-sst-2-english
+    apple_accelerated: apple/ane-distilbert-base-uncased-finetuned-sst-2-english
+  topics:
+    legacy: lda
+    metadata_aware: stm
+    guided: keyatm
+    embedding_default: bertopic
+
+reporting:
+  hero_gif: results/assets/hero.gif
+  hero_mp4: results/assets/hero.mp4
+  report_html: docs/index.html

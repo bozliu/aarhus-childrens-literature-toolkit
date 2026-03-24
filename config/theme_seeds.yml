@@ -1,0 +1,37 @@
+family:
+  - mother
+  - father
+  - sister
+  - brother
+  - aunt
+  - uncle
+growth:
+  - school
+  - learn
+  - child
+  - grow
+  - lesson
+fantasy:
+  - fairy
+  - magic
+  - wizard
+  - princess
+  - dragon
+adventure:
+  - ship
+  - island
+  - forest
+  - journey
+  - treasure
+animals:
+  - rabbit
+  - toad
+  - fox
+  - bird
+  - dog
+moral_emotion:
+  - love
+  - fear
+  - kind
+  - brave
+  - sorrow

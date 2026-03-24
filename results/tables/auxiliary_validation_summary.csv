@@ -1,0 +1,7 @@
+source,word_count,type_token_ratio,sentence_count,afinn_per_10k
+dr_seuss,804,0.0684,127,1144.28
+kjv,793119,0.0166,30031,70.58
+koran,161130,0.0448,7376,182.77
+j_hansen,185,0.1297,7,0.0
+lancsbox_brown,861989,0.0446,50629,121.66
+lancsbox_lob,1018723,0.0389,59133,124.39
