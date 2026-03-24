@@ -23,6 +23,8 @@
   Why: the bundled local `tools/` Quarto tree is not suitable for the public repo and should not be required for a successful release build.
 - Decision: keep the modern default stack honest about availability.
   Why: the current local validation shows `transformers` and `torch` available, but `sentence_transformers`, `bertopic`, and `gliner` are still optional and presently missing, so the repo must surface the active fallback backends explicitly.
+- Decision: make the top of `README.md` explicitly answer what the project is, why it matters, what solution it provides, how it differs from related work, and how the public can reuse it.
+  Why: the repo is now a public-facing toolkit, so value proposition and reuse guidance need to be visible before readers reach the deeper benchmark and visualization sections.
 
 ## Validation Log
 
@@ -65,6 +67,9 @@
 - Command: `python3 -m py_compile childlit_toolkit/pipeline.py childlit_toolkit/cli.py childlit_toolkit/__main__.py inst/python/build_assets.py`
   Result: succeeded.
   Follow-up: Python packaging/CLI files are syntactically valid.
+- Command: `./scripts/run_r.sh scripts/render_readme.R`
+  Result: succeeded after the README positioning update; `README.md` now includes public-facing sections for project definition, importance, solution framing, related-work differentiation, and reuse guidance.
+  Follow-up: commit and push the regenerated README and its generator source together so the public repo stays in sync.
 
 ## How To Run Or Demo
 
