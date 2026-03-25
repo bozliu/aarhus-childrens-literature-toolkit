@@ -2,13 +2,14 @@
 
 ## Status
 
-- Current milestone: Milestone 5 - product-first cleanup and 2016 archive packaging
+- Current milestone: Milestone 5 - completed product-first cleanup and 2016 archive packaging
 - Completed milestones:
   - Milestone 1: durable memory, config, bootstrap contracts, and dual-runtime repo metadata aligned to the approved plan
   - Milestone 2: Python CLI surface and shared R wrappers implemented
   - Milestone 3: expanded analytics, README/report generation, demo media, and release-facing tables/figures implemented
   - Milestone 4: CI/release scaffolding validated, public repo created, `main` pushed, and `v0.1.0` released
-- Next milestone: push the cleanup/archive pass to `main` and confirm the public repo renders cleanly on GitHub
+  - Milestone 5: repo root cleaned into a product-first layout, `course_2016/` published as a structured archive, and the public README refreshed with a repository tree plus workflow architecture diagram
+- Next milestone: no new milestone scheduled; see follow-ups for optional polish work
 - Last updated: 2026-03-25
 
 ## Decisions
@@ -91,6 +92,9 @@
 - Command: `sed -n '35,78p' README.md` and `sed -n '389,442p' README.md`
   Result: verified that the public README now contains a children’s-literature workflow architecture diagram and a repository tree with purpose annotations for the public-facing structure.
   Follow-up: keep these sections generator-backed in `childlit_toolkit/pipeline.py` so future rebuilds stay consistent.
+- Command: `git push origin main`
+  Result: succeeded; commit `cc97667` is now on `origin/main` for `bozliu/aarhus-childrens-literature-toolkit`.
+  Follow-up: GitHub accepted the push, but warned that `course_2016/slides/supplementary/latent_variables.pdf` is 51.86 MB, which is above the recommended 50 MB threshold while still below the hard 100 MB limit.
 
 ## How To Run Or Demo
 
@@ -125,6 +129,8 @@
   Impact: the project runs correctly through the `dl` workflow on this machine, but a stricter fully-conda R story remains an optional follow-up.
 - Issue 4: the original `v0.1.0` release workflow run is permanently red in GitHub history.
   Impact: that historical run used the old workflow definition from the tag commit, so it cannot inherit the repaired permissions; the practical fix is to dispatch a new successful release run from `main`.
+- Issue 5: `course_2016/slides/supplementary/latent_variables.pdf` is larger than GitHub’s recommended file size.
+  Impact: the file is published successfully, but it may be worth replacing with a smaller archival copy or Git LFS if the repo should minimize clone weight.
 
 ## Follow-Ups
 
