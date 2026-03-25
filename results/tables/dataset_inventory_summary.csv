@@ -1,6 +1,5 @@
 category,usage_role,n_files,total_bytes
-auxiliary-validation,misc,7,42819
-auxiliary-validation,provenance-or-media,11,86990967
+auxiliary-validation,provenance-or-media,1,13263904
 auxiliary-validation,reference-corpora,1104,13892933
 core,reconstructed-corpus,25,7844312
-legacy-demo,course-or-project-archive,108,15715215
+legacy-demo,course-or-project-archive,137,109929802

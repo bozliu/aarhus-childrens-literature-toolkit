@@ -2,13 +2,13 @@
 
 ## Status
 
-- Current milestone: Released
+- Current milestone: Milestone 5 - product-first cleanup and 2016 archive packaging
 - Completed milestones:
   - Milestone 1: durable memory, config, bootstrap contracts, and dual-runtime repo metadata aligned to the approved plan
   - Milestone 2: Python CLI surface and shared R wrappers implemented
   - Milestone 3: expanded analytics, README/report generation, demo media, and release-facing tables/figures implemented
   - Milestone 4: CI/release scaffolding validated, public repo created, `main` pushed, and `v0.1.0` released
-- Next milestone: optional post-release improvement pass for heavier modern local backends and true Quarto rendering
+- Next milestone: push the cleanup/archive pass to `main` and confirm the public repo renders cleanly on GitHub
 - Last updated: 2026-03-25
 
 ## Decisions
@@ -27,6 +27,10 @@
   Why: the repo is now a public-facing toolkit, so value proposition and reuse guidance need to be visible before readers reach the deeper benchmark and visualization sections.
 - Decision: keep the release workflow repairable from `main` through `workflow_dispatch`, while still publishing assets to a specific existing release tag.
   Why: the original `v0.1.0` tag run failed due to workflow-level token permissions, so a manual recovery path is needed without having to move or recreate the tag.
+- Decision: make the public root product-first and move historically important but non-runtime materials into `course_2016/`.
+  Why: the repo homepage should read like a public toolkit first, while the 2016 course archive remains available in a dedicated, browsable surface.
+- Decision: add a repository tree and a process/architecture diagram to the main README.
+  Why: public users should be able to understand both the file layout and the end-to-end children’s literature workflow at a glance.
 
 ## Validation Log
 
@@ -78,6 +82,15 @@
 - Command: `gh workflow run release.yml --repo bozliu/aarhus-childrens-literature-toolkit --ref main -f tag=v0.1.0` followed by `gh run watch 23502021089 ...`
   Result: succeeded; the replacement `release` run on `main` rebuilt assets and completed `Publish release assets` for `v0.1.0`.
   Follow-up: the release is operational again, while the original historical red run remains as an immutable record of the pre-fix workflow.
+- Command: `python3 -m py_compile childlit_toolkit/pipeline.py && python -m childlit_toolkit all`
+  Result: succeeded after the product-first cleanup pass; manifests, figures, tables, `README.md`, `docs/report.qmd`, and `docs/index.html` were regenerated against the moved `course_2016/` paths.
+  Follow-up: the public outputs now point to the structured 2016 archive instead of the old root-level historical paths.
+- Command: `git ls-files | awk -F/ 'NF==1 {print}' | sort` and `rg -n "tm_the_great_unread-master/|other_resources/" README.md data/manifests/local_assets.csv`
+  Result: the tracked root is now limited to product-facing essentials plus durable-memory files, and the generated inventory no longer reports the old root-level `tm_the_great_unread-master/` or `other_resources/` paths.
+  Follow-up: the repo is ready to publish the cleaner top-level layout once the staged rename/add/delete set is committed.
+- Command: `sed -n '35,78p' README.md` and `sed -n '389,442p' README.md`
+  Result: verified that the public README now contains a children’s-literature workflow architecture diagram and a repository tree with purpose annotations for the public-facing structure.
+  Follow-up: keep these sections generator-backed in `childlit_toolkit/pipeline.py` so future rebuilds stay consistent.
 
 ## How To Run Or Demo
 

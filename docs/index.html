@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aarhus Children's Literature Toolkit Report</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 2rem auto; max-width: 1100px; line-height: 1.6; color: #1d1d1f; padding: 0 1rem; }
+    h1, h2 { color: #0b3954; }
+    img { max-width: 100%; border: 1px solid #d7d7d7; border-radius: 8px; margin: 0.75rem 0 1.5rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; }
+    th, td { border: 1px solid #d7d7d7; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f4f7fb; }
+    .lede { font-size: 1.05rem; color: #334; }
+  </style>
+</head>
+<body>
+  <h1>Aarhus Children's Literature Toolkit Report</h1>
+  <p class="lede">Fallback HTML report generated without Quarto. The repo still keeps <code>docs/report.qmd</code> as the canonical report source.</p>
+  <p>This report covers 25 books and 1,332,482 words across the rebuilt corpus.</p>
+  <section><h2>Corpus Summary</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>split</th>
+      <th>n_books</th>
+      <th>total_words</th>
+      <th>median_book_words</th>
+      <th>mean_book_words</th>
+      <th>mean_afinn_per_10k</th>
+      <th>mean_type_token_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>expanded-core</td>
+      <td>5</td>
+      <td>285618</td>
+      <td>60770.0</td>
+      <td>57123.6</td>
+      <td>201.88</td>
+      <td>0.0874</td>
+    </tr>
+    <tr>
+      <td>legacy-core</td>
+      <td>20</td>
+      <td>1046864</td>
+      <td>50005.0</td>
+      <td>52343.2</td>
+      <td>169.58</td>
+      <td>0.1353</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>Legacy Baseline</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>cohort</th>
+      <th>min</th>
+      <th>q1</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>q3</th>
+      <th>max</th>
+      <th>perplexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>men</td>
+      <td>-245.0</td>
+      <td>-41.0</td>
+      <td>-3.0</td>
+      <td>-13.76</td>
+      <td>23.0</td>
+      <td>195.0</td>
+      <td>3369.274</td>
+    </tr>
+    <tr>
+      <td>women</td>
+      <td>-232.0</td>
+      <td>-21.0</td>
+      <td>9.0</td>
+      <td>13.88</td>
+      <td>54.0</td>
+      <td>190.0</td>
+      <td>4628.327</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>Benchmark Framing</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>component</th>
+      <th>repo_metric</th>
+      <th>legacy_2016_baseline</th>
+      <th>external_reference</th>
+      <th>published_reference_or_sota</th>
+      <th>comparability_note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sentiment</td>
+      <td>afinn-fallback; mean window score 0.02</td>
+      <td>AFINN cohort means: men -13.76 / women 13.88</td>
+      <td>distilbert-base-uncased-finetuned-sst-2-english</td>
+      <td>Official model card only</td>
+      <td>No directly comparable literary benchmark in the local archive.</td>
+    </tr>
+    <tr>
+      <td>Topic modeling</td>
+      <td>Guided themes + sklearn LDA; mean dominant topic share 0.844</td>
+      <td>topicmodels::LDA perplexity men 3,369.3 / women 4,628.3</td>
+      <td>bertopic</td>
+      <td>Method docs only</td>
+      <td>Cross-corpus SOTA numbers are not directly comparable to this literary corpus.</td>
+    </tr>
+    <tr>
+      <td>NER</td>
+      <td>heuristic-titlecase; top-10 entity mean density 41.60 per 10k</td>
+      <td>Incomplete openNLP sketch</td>
+      <td>gliner</td>
+      <td>Upstream docs</td>
+      <td>Local entity density and co-occurrence are project-specific.</td>
+    </tr>
+    <tr>
+      <td>Embeddings / retrieval</td>
+      <td>tfidf-fallback; mean top-1 neighbor cosine 0.151</td>
+      <td>not available</td>
+      <td>Qwen/Qwen3-Embedding-0.6B</td>
+      <td>Model card / MTEB-style references</td>
+      <td>Neighbor quality is corpus-specific; external numbers are only reference context.</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>Auxiliary Validation</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>source</th>
+      <th>word_count</th>
+      <th>type_token_ratio</th>
+      <th>sentence_count</th>
+      <th>afinn_per_10k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dr_seuss</td>
+      <td>804</td>
+      <td>0.0684</td>
+      <td>127</td>
+      <td>1144.28</td>
+    </tr>
+    <tr>
+      <td>kjv</td>
+      <td>793119</td>
+      <td>0.0166</td>
+      <td>30031</td>
+      <td>70.58</td>
+    </tr>
+    <tr>
+      <td>koran</td>
+      <td>161130</td>
+      <td>0.0448</td>
+      <td>7376</td>
+      <td>182.77</td>
+    </tr>
+    <tr>
+      <td>j_hansen</td>
+      <td>185</td>
+      <td>0.1297</td>
+      <td>7</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>lancsbox_brown</td>
+      <td>861989</td>
+      <td>0.0446</td>
+      <td>50629</td>
+      <td>121.66</td>
+    </tr>
+    <tr>
+      <td>lancsbox_lob</td>
+      <td>1018723</td>
+      <td>0.0389</td>
+      <td>59133</td>
+      <td>124.39</td>
+    </tr>
+  </tbody>
+</table></section>
+  <h2>Figures</h2>
+  <section><h2>Timeline</h2><img src="../results/figures/corpus_timeline.png" alt="Timeline" /></section>
+<section><h2>Provenance coverage</h2><img src="../results/figures/provenance_coverage.png" alt="Provenance coverage" /></section>
+<section><h2>Book Lengths</h2><img src="../results/figures/core_book_lengths.png" alt="Book Lengths" /></section>
+<section><h2>Chunking risk</h2><img src="../results/figures/chunking_risk.png" alt="Chunking risk" /></section>
+<section><h2>Metadata balance</h2><img src="../results/figures/author_gender_mix.png" alt="Metadata balance" /></section>
+<section><h2>Sentiment</h2><img src="../results/figures/sentiment_trajectories.png" alt="Sentiment" /></section>
+<section><h2>Themes</h2><img src="../results/figures/topic_prevalence_heatmap.png" alt="Themes" /></section>
+<section><h2>Neighborhood</h2><img src="../results/figures/embedding_book_map.png" alt="Neighborhood" /></section>
+<section><h2>Entities</h2><img src="../results/figures/entity_network.png" alt="Entities" /></section>
+<section><h2>Auxiliary Validation</h2><img src="../results/figures/auxiliary_validation_panel.png" alt="Auxiliary Validation" /></section>
+</body>
+</html>

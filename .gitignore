@@ -31,9 +31,9 @@ renv/python/
 *.html
 !README.md
 !docs/index.html
-index.html
+/index.html
 *.MOV
-*-2016-07-26.zip
-LancsBox.zip
-latent_variables.pdf
+/*-2016-07-26.zip
+/LancsBox.zip
+/latent_variables.pdf
 -.r

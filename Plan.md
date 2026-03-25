@@ -3,6 +3,7 @@
 ## Summary
 
 - Convert the current rebuild into a dual-runtime, public-release repository with shared manifests/results, deeper visual analytics, a Quarto report, CI, and a GitHub release.
+- Complete a post-release productization pass that cleans the repo root, adds explicit children’s literature framing, and packages the 2016 Aarhus course materials into a structured archive.
 
 ## Architecture Notes
 
@@ -41,6 +42,13 @@
 - Acceptance criteria: CI config is present, repo metadata is publication-ready, GitHub remote exists, and `v0.1.0` is published with release assets.
 - Validation commands: Local smoke suite, CI workflow lint-by-inspection, `git status --short`, `git remote -v`, and `gh release view v0.1.0`.
 
+### Milestone 5
+
+- Goal: Reorganize the repo into a product-first public layout and publish the 2016 course archive.
+- Scope: Move historical root files into `course_2016/`, create `course_2016/README.md`, update README/report framing for children’s literature, add a root-level repo tree plus process/architecture diagram to the main README, and refresh inventory/reporting paths for the moved archive.
+- Acceptance criteria: The root is clean, the archive is browsable on GitHub, README framing is field-specific, the repo tree and workflow diagram are visible on the public homepage, and generated manifests/docs reflect the new paths.
+- Validation commands: `git status --short`; root directory inspection; asset/render commands; link checks by inspection; `git ls-files course_2016`.
+
 ## Stop-And-Fix Rule
 
 - If a validation step fails, fix it before starting the next milestone.
@@ -51,3 +59,4 @@
 - Decision 1: The repo remains R-led conceptually, but Python is elevated from backend-only support to a full first-class public interface.
 - Decision 2: The `dl` conda environment remains the default managed runtime for both languages.
 - Decision 3: The public repo name is `aarhus-childrens-literature-toolkit`, and the first public release is `v0.1.0`.
+- Decision 4: The public repo root should be product-first, with the historical 2016 materials discoverable through `course_2016/` rather than scattered across the first level.

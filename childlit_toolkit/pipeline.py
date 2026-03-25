@@ -133,7 +133,10 @@ def load_seed() -> pd.DataFrame:
 
 def load_afinn() -> dict[str, int]:
     afinn: dict[str, int] = {}
-    with (ROOT / "AFINN-111.txt").open(encoding="utf-8") as handle:
+    afinn_path = ROOT / "inst" / "extdata" / "AFINN-111.txt"
+    if not afinn_path.exists():
+        afinn_path = ROOT / "AFINN-111.txt"
+    with afinn_path.open(encoding="utf-8") as handle:
         for line in handle:
             term, score = line.rstrip("\n").split("\t")
             afinn[term] = int(score)
@@ -276,11 +279,10 @@ def classify_local_asset(path: Path) -> tuple[str, str]:
     relp = rel(path)
     if relp.startswith("data/raw/core") or relp.startswith("data/raw/expanded"):
         return "core", "reconstructed-corpus"
+    if relp.startswith("course_2016/"):
+        return "legacy-demo", "course-or-project-archive"
     if (
         relp.startswith("data/")
-        or relp.startswith("code/")
-        or relp.startswith("other_resources/")
-        or relp.startswith("tm_the_great_unread-master/")
         or relp.startswith("tm_great_unread_files/")
     ):
         return "legacy-demo", "course-or-project-archive"
@@ -317,10 +319,8 @@ def inventory_candidate(path: Path) -> bool:
     if relp.startswith(
         (
             "data/",
-            "other_resources/",
-            "code/",
+            "course_2016/",
             "LancsBox/corpora/",
-            "tm_the_great_unread-master/",
         )
     ):
         return True
@@ -373,7 +373,10 @@ def parse_perplexity(text: str, label: str) -> float:
 
 
 def build_legacy_summary() -> pd.DataFrame:
-    text = (ROOT / "data.txt").read_text(encoding="utf-8", errors="ignore")
+    legacy_path = ROOT / "course_2016" / "legacy_outputs" / "data.txt"
+    if not legacy_path.exists():
+        legacy_path = ROOT / "data.txt"
+    text = legacy_path.read_text(encoding="utf-8", errors="ignore")
     men = parse_summary_block(text, "Men")
     women = parse_summary_block(text, "Women")
     df = pd.DataFrame(
@@ -1154,6 +1157,81 @@ An open, dual-runtime rebuild of a 2016 Aarhus Summer University project on chil
 3. First-class R and Python entrypoints over the same manifests, figures, tables, and report outputs.
 4. A public-release surface that favors interpretable charts, benchmark tables, and reusable SOP documentation instead of screenshots.
 
+## Project Aim
+
+This repo modernizes a 2016 Aarhus Summer University final project on children’s literature while preserving the original R-based teaching and research context. The goal is not just to rerun an old assignment, but to turn that project into a reusable public workflow for studying children’s literature with transparent corpus construction, interpretable analysis, and release-ready documentation.
+
+## Why Children’s Literature
+
+- Children’s literature is culturally foundational: it shapes early reading habits, moral vocabularies, character archetypes, and shared narrative worlds.
+- It is analytically strong for text mining because the books often contain clear story arcs, recurring character systems, theme-rich plots, and accessible language patterns.
+- It works well as an R text-mining case because the outputs are legible to non-technical readers, making it useful for both teaching and public scholarship.
+- The public-domain corpus makes the workflow reproducible, legally shareable, and easy for other researchers or product teams to extend.
+
+## What This Analysis Can Do In Children’s Literature
+
+- Compare themes, sentiment arcs, named entities, and vocabulary patterns across books instead of relying only on close reading of a few canonical titles.
+- Audit canon bias, metadata imbalance, and historical clustering in the selected corpus before making broader literary claims.
+- Support literary scholarship, classroom teaching, collection design, recommendation prototypes, discovery tooling, and reproducible digital-humanities workflows.
+
+## 2016 Course Archive
+
+The historical Aarhus course materials now live in [`course_2016/README.md`](course_2016/README.md). That folder keeps the 2016 slides, teaching code, project work, supporting resources, and raw archives in one browsable place so the public repo can stay product-first at the top level without losing provenance.
+
+## Workflow Architecture
+
+```mermaid
+flowchart TD
+    subgraph Inputs["Inputs And Provenance"]
+        A["2016 Course Archive<br/>(course_2016/)"]
+        B["Corpus Seed And Config<br/>config/corpus_seed.csv + project.yml"]
+        C["Local Validation Corpora<br/>data/ + LancsBox/"]
+    end
+
+    subgraph Build["Corpus Build Layer"]
+        D["Text Reconstruction<br/>Project Gutenberg recovery + checksums"]
+        E["Shared Manifest Contract<br/>book metadata + inventory tables"]
+        F["Shared Preprocessing<br/>cleaning, tokenization, metadata, chunking"]
+    end
+
+    subgraph Runtime["Dual Runtime Surface"]
+        G["R Interface<br/>targets + scripts + renv"]
+        H["Python Interface<br/>CLI + package + shared generators"]
+    end
+
+    subgraph Analysis["Analysis Layers"]
+        I["Legacy 2016 Baseline<br/>AFINN + classic LDA + archived comparisons"]
+        J["Modern 2026 Stack<br/>sentiment, themes, entities, embeddings, retrieval"]
+        K["Benchmark Framing<br/>project results vs 2016 baseline vs cited references"]
+    end
+
+    subgraph Outputs["Public Release Outputs"]
+        L["Figures And Tables<br/>results/figures + results/tables"]
+        M["GitHub Narrative Surface<br/>README.md + course_2016/README.md"]
+        N["Deep-Dive Report<br/>docs/index.html"]
+        O["Reuse Paths<br/>research, teaching, DH workflows, discovery products"]
+    end
+
+    A --> D
+    B --> D
+    C --> E
+    D --> E --> F
+    F --> G
+    F --> H
+    G --> I
+    G --> J
+    H --> I
+    H --> J
+    I --> K
+    J --> K
+    K --> L
+    K --> M
+    K --> N
+    L --> O
+    M --> O
+    N --> O
+```
+
 ## What It Is
 
 This repository is a public children’s literature analysis toolkit built from a 2016 Aarhus Summer University project. It reconstructs the original Gutenberg-based corpus [1], keeps the legacy baseline visible, and wraps modern local text-mining workflows around the same materials so that the project can be reused outside the classroom.
@@ -1393,15 +1471,83 @@ What this means:
 - Mixed: model and corpus redistribution still require title-level and model-card checks, so the audit deliberately marks uncertain items instead of overclaiming.
 - Reuse value: this table is the operational handoff for public/commercial review.
 
-## Project Layout
+## Repository Tree
 
-- `R/`: R-side wrappers, targets pipeline, and report helpers.
-- `childlit_toolkit/`: first-class Python CLI and asset-generation pipeline.
-- `config/`: corpus seed, theme seeds, and method references.
-- `data/manifests/`: shared manifests and run-status outputs.
-- `results/`: figures, tables, fragments, and demo assets.
-- `docs/`: Quarto report source and rendered HTML.
-- `.github/workflows/`: public CI for the release path.
+```text
+.
+├── README.md                  # generated public homepage for the GitHub repo
+├── README.Rmd                 # R-facing note pointing to the shared README generation flow
+├── Prompt.md                  # durable memory: current task specification
+├── Plan.md                    # durable memory: milestone plan and acceptance criteria
+├── Implement.md               # durable memory: execution runbook
+├── Documentation.md           # durable memory: live status, decisions, and validation log
+├── LICENSE                    # Apache-2.0 license for the repository source
+├── NOTICE                     # release notice and attribution surface
+├── CITATION.cff               # machine-readable citation metadata
+├── CONTRIBUTING.md            # contributor guidance for public reuse
+├── CODE_OF_CONDUCT.md         # community conduct policy
+├── SECURITY.md                # security disclosure policy
+├── Makefile                   # language-neutral convenience commands
+├── pyproject.toml             # Python packaging and CLI metadata
+├── DESCRIPTION                # R package metadata
+├── _targets.R                 # optional R targets entrypoint
+├── renv.lock                  # pinned R dependency lockfile
+├── .gitignore                 # git ignore policy, including local-only clutter
+├── .Rbuildignore              # R build exclusions
+├── .Rprofile                  # project-level R startup behavior
+├── .github/                   # CI and release workflows
+├── R/                         # R wrappers, utilities, and reporting helpers
+│   ├── manifests.R            # shared manifest/inventory helpers used by the R interface
+│   ├── legacy.R               # R-side helpers for reproducing the 2016 baseline workflow
+│   ├── modern.R               # R-side wrappers for the modern analysis flow
+│   └── reporting.R            # R-side helpers for rendering and asset orchestration
+├── childlit_toolkit/          # Python CLI and shared asset-generation pipeline
+│   ├── __main__.py            # `python -m childlit_toolkit` command entrypoint
+│   └── pipeline.py            # core generator for manifests, figures, tables, README, and report assets
+├── config/                    # corpus seed, theme seeds, and project settings
+│   ├── corpus_seed.csv        # canonical children’s literature book list for rebuilding the corpus
+│   ├── project.yml            # single source of truth for paths, runtime profile, and release settings
+│   ├── sota_references.csv    # cited external references used in benchmark framing
+│   └── theme_seeds.yml        # guided theme labels used in modern topic visualization
+├── data/                      # active datasets, reconstructed texts, and generated manifests
+│   ├── manifests/             # machine-readable corpus inventory and provenance tables
+│   └── raw/                   # reconstructed book texts and local validation corpora
+├── docs/                      # report source and rendered HTML
+│   ├── report.qmd             # Quarto-style report source
+│   └── index.html             # rendered public report surface
+├── environment/               # runtime bootstrap and dependency specs
+│   ├── dl-r-overlay.yml       # adds R into the shared `dl` conda runtime
+│   ├── python-core.txt        # core Python dependencies for the default CLI/runtime path
+│   └── python-backends.txt    # optional heavier model backends for richer local analysis
+├── inst/                      # package support assets, including Python helper scripts
+│   ├── extdata/               # bundled runtime resources such as the legacy AFINN lexicon
+│   │   └── AFINN-111.txt      # legacy sentiment lexicon used for baseline scoring
+│   └── python/                # build helpers used by the R-first packaging surface
+│       └── build_assets.py    # Python helper invoked by R wrappers for shared asset generation
+├── renv/                      # R environment bootstrap scaffolding
+├── reports/                   # report-related support artifacts
+├── results/                   # figures, tables, fragments, and demo assets
+│   ├── figures/               # README-safe static visualizations
+│   ├── tables/                # benchmark and inventory CSV outputs
+│   ├── fragments/             # reusable markdown snippets for docs/release notes
+│   └── assets/                # hero GIF and other release media
+├── scripts/                   # public entrypoint scripts for setup, render, and runs
+│   ├── bootstrap.R            # install/restore R-side dependencies
+│   ├── run_targets.R          # R CLI for legacy and modern pipeline targets
+│   ├── render_readme.R        # rebuild the public homepage
+│   ├── render_report.R        # rebuild the deep-dive report
+│   ├── run_r.sh               # run the R path inside the shared `dl` workflow
+│   └── setup_dl_runtime.sh    # bootstrap the shared dual-runtime environment
+├── LancsBox/                  # auxiliary validation corpora kept in the modern toolkit surface
+└── course_2016/               # structured archive of the 2016 course slides, code, outputs, and raw materials
+    ├── README.md              # guided table of contents for the original course materials
+    ├── slides/                # official and supplementary 2016 lecture decks
+    ├── code/                  # teaching scripts and project-era analysis scripts
+    ├── resources/             # corpus specification docs and course-support files
+    ├── legacy_outputs/        # archived text outputs from the original project
+    ├── legacy_repo/           # cleaned snapshot of the historical course repository
+    └── archives/              # raw 2016 zip bundles preserved for provenance
+```
 
 ## Public Release Notes
 
@@ -1453,6 +1599,10 @@ format:
 # Why this report exists
 
 This report is the deeper public-release companion to `README.md`. It keeps the GitHub front page dense and practical while offering more context, larger tables, and a fuller explanation of how the rebuilt children’s literature workflow can be reused.
+
+The children’s literature focus is intentional rather than incidental: the corpus offers interpretable narrative structure, recurring characters, theme-rich plots, and public-domain availability that make it unusually useful for transparent text-mining workflows.
+
+The original 2016 teaching materials now live in [`../course_2016/README.md`](../course_2016/README.md), while this report stays focused on the modern public toolkit surface.
 
 ## Shared entrypoints
 

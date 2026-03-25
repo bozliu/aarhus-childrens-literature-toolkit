@@ -1,8 +1,4 @@
 path,extension,bytes,category,usage_role
-AFINN-111.txt,.txt,28093,auxiliary-validation,misc
-Corpus of gold-2.docx,.docx,14262,auxiliary-validation,provenance-or-media
-Corpus of gold.docx,.docx,14262,auxiliary-validation,provenance-or-media
-Important Book R.pdf,.pdf,6049903,auxiliary-validation,provenance-or-media
 LancsBox/corpora/Climate_Change/GRD_2011-01-01000953.txt,.txt,1942,auxiliary-validation,reference-corpora
 LancsBox/corpora/Climate_Change/GRD_2011-01-01000954.txt,.txt,1431,auxiliary-validation,reference-corpora
 LancsBox/corpora/Climate_Change/GRD_2011-01-01000955.txt,.txt,1250,auxiliary-validation,reference-corpora
@@ -1108,11 +1104,49 @@ LancsBox/corpora/lob_corpus/LOB_N.txt,.txt,341867,auxiliary-validation,reference
 LancsBox/corpora/lob_corpus/LOB_P.txt,.txt,338843,auxiliary-validation,reference-corpora
 LancsBox/corpora/lob_corpus/LOB_R.txt,.txt,107564,auxiliary-validation,reference-corpora
 LancsBox.zip,.zip,13263904,auxiliary-validation,provenance-or-media
-code/art_of_r.R,.r,2698,legacy-demo,course-or-project-archive
-code/counting_words.R,.r,3172,legacy-demo,course-or-project-archive
-code/data_preparation.R,.r,6850,legacy-demo,course-or-project-archive
-code/r_basics.R,.r,4686,legacy-demo,course-or-project-archive
-code-2016-07-26.zip,.zip,7845,auxiliary-validation,provenance-or-media
+course_2016/README.md,.md,11749,legacy-demo,course-or-project-archive
+course_2016/archives/raw/code-2016-07-26.zip,.zip,7845,legacy-demo,course-or-project-archive
+course_2016/archives/raw/data-2016-07-26.zip,.zip,3753930,legacy-demo,course-or-project-archive
+course_2016/archives/raw/other_resources-2016-07-26.zip,.zip,4068983,legacy-demo,course-or-project-archive
+course_2016/archives/raw/slides-2016-07-26.zip,.zip,4515625,legacy-demo,course-or-project-archive
+course_2016/code/project_work/Cleaning_metadata_from_Gutenberg_Corpus.r,.r,1183,legacy-demo,course-or-project-archive
+course_2016/code/project_work/Java.R.troubleshooting.R,.r,4207,legacy-demo,course-or-project-archive
+course_2016/code/project_work/Updated_project_script.r,.r,9532,legacy-demo,course-or-project-archive
+course_2016/code/project_work/data_preparation (1).R,.r,6668,legacy-demo,course-or-project-archive
+course_2016/code/project_work/data_preparation.R,.r,6687,legacy-demo,course-or-project-archive
+course_2016/code/project_work/scraping.R,.r,2730,legacy-demo,course-or-project-archive
+course_2016/code/project_work/sentiment_gender.R,.r,2058,legacy-demo,course-or-project-archive
+course_2016/code/project_work/util_fun.R,.r,299,legacy-demo,course-or-project-archive
+course_2016/code/teaching/art_of_r.R,.r,2698,legacy-demo,course-or-project-archive
+course_2016/code/teaching/counting_words.R,.r,3172,legacy-demo,course-or-project-archive
+course_2016/code/teaching/data_preparation.R,.r,6850,legacy-demo,course-or-project-archive
+course_2016/code/teaching/r_basics.R,.r,4686,legacy-demo,course-or-project-archive
+course_2016/legacy_outputs/data-2.txt,.txt,3051,legacy-demo,course-or-project-archive
+course_2016/legacy_outputs/data.txt,.txt,3051,legacy-demo,course-or-project-archive
+course_2016/legacy_outputs/english1.dat,.dat,1137,legacy-demo,course-or-project-archive
+course_2016/legacy_outputs/final_t_models.txt,.txt,2547,legacy-demo,course-or-project-archive
+course_2016/legacy_outputs/loading_the_directory_and_most_cleaning.txt,.txt,3322,legacy-demo,course-or-project-archive
+course_2016/legacy_outputs/t_models.txt,.txt,1618,legacy-demo,course-or-project-archive
+course_2016/legacy_repo/tm_the_great_unread_master/README.md,.md,2148,legacy-demo,course-or-project-archive
+course_2016/legacy_repo/tm_the_great_unread_master/art_of_r.R,.r,2578,legacy-demo,course-or-project-archive
+course_2016/legacy_repo/tm_the_great_unread_master/r_basics.R,.r,4498,legacy-demo,course-or-project-archive
+course_2016/legacy_repo/tm_the_great_unread_master/syllabus.tex,.tex,5666,legacy-demo,course-or-project-archive
+course_2016/resources/corpus_specs/Corpus of gold-2.docx,.docx,14262,legacy-demo,course-or-project-archive
+course_2016/resources/corpus_specs/Corpus of gold.docx,.docx,14262,legacy-demo,course-or-project-archive
+course_2016/resources/course_support/Important Book R.pdf,.pdf,6049903,legacy-demo,course-or-project-archive
+course_2016/resources/course_support/kjv.RData,.rdata,4064827,legacy-demo,course-or-project-archive
+course_2016/resources/course_support/kjv_metadata.csv,.csv,2441,legacy-demo,course-or-project-archive
+course_2016/resources/course_support/stoplist.csv,.csv,3821,legacy-demo,course-or-project-archive
+course_2016/slides/official/art_of_r.pdf,.pdf,148436,legacy-demo,course-or-project-archive
+course_2016/slides/official/counting_words.pdf,.pdf,7156428,legacy-demo,course-or-project-archive
+course_2016/slides/official/data_preparation.pdf,.pdf,1528543,legacy-demo,course-or-project-archive
+course_2016/slides/official/language_models.pdf,.pdf,325233,legacy-demo,course-or-project-archive
+course_2016/slides/official/paradigm_4.pdf,.pdf,8572431,legacy-demo,course-or-project-archive
+course_2016/slides/official/r_basic.pdf,.pdf,147989,legacy-demo,course-or-project-archive
+course_2016/slides/official/text_analytics_in_dh.pdf,.pdf,2556407,legacy-demo,course-or-project-archive
+course_2016/slides/supplementary/design_communication.pdf,.pdf,279764,legacy-demo,course-or-project-archive
+course_2016/slides/supplementary/latent_variables.pdf,.pdf,54376295,legacy-demo,course-or-project-archive
+course_2016/slides/supplementary/sentiments.pdf,.pdf,646194,legacy-demo,course-or-project-archive
 data/dr_seuss.txt,.txt,3668,legacy-demo,course-or-project-archive
 data/j_hansen.txt,.txt,895,legacy-demo,course-or-project-archive
 data/kjv.txt,.txt,4552291,legacy-demo,course-or-project-archive
@@ -1200,7 +1234,7 @@ data/kjv_books/Zeph.txt,.txt,9135,legacy-demo,course-or-project-archive
 data/koran.txt,.txt,899842,legacy-demo,course-or-project-archive
 data/manifests/corpus_manifest.csv,.csv,7317,legacy-demo,course-or-project-archive
 data/manifests/legacy_summary.csv,.csv,142,legacy-demo,course-or-project-archive
-data/manifests/local_assets.csv,.csv,132757,legacy-demo,course-or-project-archive
+data/manifests/local_assets.csv,.csv,129404,legacy-demo,course-or-project-archive
 data/nt_hist/Acts.txt,.txt,140676,legacy-demo,course-or-project-archive
 data/nt_hist/John.txt,.txt,106980,legacy-demo,course-or-project-archive
 data/nt_hist/Luke.txt,.txt,146949,legacy-demo,course-or-project-archive
@@ -1232,25 +1266,3 @@ data/raw/expanded/113.txt,.txt,475318,core,reconstructed-corpus
 data/raw/expanded/289.txt,.txt,358361,core,reconstructed-corpus
 data/raw/expanded/498.txt,.txt,439167,core,reconstructed-corpus
 data/raw/expanded/55.txt,.txt,237235,core,reconstructed-corpus
-data-2.txt,.txt,3051,auxiliary-validation,misc
-data-2016-07-26.zip,.zip,3753930,auxiliary-validation,provenance-or-media
-data.txt,.txt,3051,auxiliary-validation,misc
-design_communication.pdf,.pdf,279764,auxiliary-validation,provenance-or-media
-english1.dat,.dat,1137,auxiliary-validation,misc
-final_t_models.txt,.txt,2547,auxiliary-validation,misc
-latent_variables.pdf,.pdf,54376295,auxiliary-validation,provenance-or-media
-loading_the_directory_and_most_cleaning.txt,.txt,3322,auxiliary-validation,misc
-other_resources/kjv.RData,.rdata,4064827,legacy-demo,course-or-project-archive
-other_resources/kjv_metadata.csv,.csv,2441,legacy-demo,course-or-project-archive
-other_resources/stoplist.csv,.csv,3821,legacy-demo,course-or-project-archive
-other_resources-2016-07-26.zip,.zip,4068983,auxiliary-validation,provenance-or-media
-sentiments.pdf,.pdf,646194,auxiliary-validation,provenance-or-media
-slides-2016-07-26.zip,.zip,4515625,auxiliary-validation,provenance-or-media
-t_models.txt,.txt,1618,auxiliary-validation,misc
-tm_the_great_unread-master/.RData,,2964,legacy-demo,course-or-project-archive
-tm_the_great_unread-master/.Rapp.history,.history,0,legacy-demo,course-or-project-archive
-tm_the_great_unread-master/.Rhistory,,1465,legacy-demo,course-or-project-archive
-tm_the_great_unread-master/README.md,.md,2148,legacy-demo,course-or-project-archive
-tm_the_great_unread-master/art_of_r.R,.r,2578,legacy-demo,course-or-project-archive
-tm_the_great_unread-master/r_basics.R,.r,4498,legacy-demo,course-or-project-archive
-tm_the_great_unread-master/syllabus.tex,.tex,5666,legacy-demo,course-or-project-archive

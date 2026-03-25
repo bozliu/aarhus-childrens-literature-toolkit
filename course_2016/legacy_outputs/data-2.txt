@@ -1,0 +1,55 @@
+##### Sentiment data ####
+
+——————
+### AFINN ####
+
+##Men:
+> summary(text.v)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-245.00  -41.00   -3.00  -13.76   23.00  195.00 
+
+###Women:
+> summary(women.v)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-232.00  -21.00    9.00   13.88   54.00  190.00 
+
+————————————
+
+#### LDA ####
+
+##Women:
+> perplexity(mdl1)
+[1] 4628.327
+> terms(mdl1,10)
+      Topic 1    Topic 2     Topic 3   Topic 4  Topic 5  Topic 6  Topic 7  Topic 8     Topic 9  Topic 10  
+ [1,] "king"     "polly"     "anne"    "katy"   "polly"  "mary"   "mrs"    "philip"    "oswald" "sara"    
+ [2,] "prince"   "phronsie"  "mrs"     "mrs"    "mrs"    "marco"  "girls"  "cornelli"  "peter"  "mrs"     
+ [3,] "princess" "joel"      "marilla" "clover" "tom"    "rat"    "amy"    "diamond"   "heidi"  "rebecca" 
+ [4,] "queen"    "jasper"    "gilbert" "master" "dan"    "mrs"    "aunt"   "salemina"  "alice"  "aunt"    
+ [5,] "daughter" "mrs"       "diana"   "nancy"  "bhaer"  "master" "ben"    "francesca" "anthea" "felicity"
+ [6,] "son"      "pepper"    "aunt"    "carey"  "nat"    "horse"  "meg"    "lucy"      "cyril"  "peter"   
+ [7,] "palace"   "king"      "school"  "cousin" "demi"   "earl"   "laurie" "sea"       "uncle"  "rilla"   
+ [8,] "horse"    "ben"       "ann"     "nurse"  "nan"    "river"  "jack"   "fairy"     "robert" "susan"   
+ [9,] "replied"  "around"    "isn"     "aunt"   "uncle"  "colin"  "mac"    "north"     "jane"   "cecily"  
+[10,] "fairy"    "grandpapa" "davy"    "sir"    "school" "lord"   "uncle"  "leaves"    "dicky"  "jane"    
+
+
+
+##Men:
+> perplexity(mdl1)
+[1] 3369.274
+> terms(mdl1,10)
+      Topic 1    Topic 2    Topic 3       Topic 4  Topic 5    Topic 6        Topic 7     Topic 8     Topic 9   Topic 10  
+ [1,] "king"     "children" "peter"       "brer"   "till"     "kim"          "reddy"     "dorothy"   "diamond" "king"    
+ [2,] "trot"     "king"     "edward"      "dat"    "peter"    "thou"         "brown"     "ozma"      "dick"    "prince"  
+ [3,] "cap"      "story"    "rabbit"      "rabbit" "within"   "illustration" "fox"       "asked"     "sir"     "princess"
+ [4,] "don"      "mother"   "billy"       "ter"    "hiawatha" "toad"         "farmer"    "scarecrow" "men"     "answered"
+ [5,] "bill"     "poor"     "johnny"      "dey"    "woman"    "thee"         "lightfoot" "king"      "wind"    "father"  
+ [6,] "curdie"   "stories"  "jimmy"       "fer"    "water"    "men"          "boy"       "girl"      "don"     "palace"  
+ [7,] "queen"    "boy"      "chuck"       "ain"    "forth"    "till"         "didn"      "wizard"    "father"  "till"    
+ [8,] "alice"    "jack"     "humphrey"    "fox"    "years"    "lama"         "mrs"       "tin"       "mother"  "son"     
+ [9,] "boy"      "woman"    "grandfather" "uncle"  "door"     "rat"          "granny"    "magic"     "got"     "replied" 
+[10,] "princess" "tree"     "unc"         "ole"    "men"      "thy"          "blacky"    "replied"   "alan"    "mother"  
+
+———————————————
+

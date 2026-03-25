@@ -10,13 +10,15 @@
 ## Goal
 
 - Primary objective: Rebuild the 2016 Aarhus Summer University children’s literature text-mining project into a dual-runtime public repository where R and Python are equal first-class entrypoints over the same manifests, results, and release assets.
+- Current implementation objective: Reorganize the public repository into a product-first root layout, add explicit children’s literature research framing to the public README, and publish the 2016 Aarhus course materials as a structured `course_2016/` archive.
 - Intended audience or user: Public GitHub users, digital humanities researchers, text mining practitioners, and commercial teams who want a reusable SOP for analyzing children’s literature corpora with local methods.
 
 ## Deliverables
 
 - Deliverable 1: A reproducible dual-runtime project with shared manifests, `targets`-based R entrypoints, Python CLI entrypoints, and synchronized output contracts.
-- Deliverable 2: A public-release documentation surface with `README.md`, `README.Rmd`, a Quarto HTML report in `docs/`, dense visual analytics, benchmark tables, and IEEE-style references.
+- Deliverable 2: A public-release documentation surface with `README.md`, `README.Rmd`, a Quarto HTML report in `docs/`, dense visual analytics, benchmark tables, IEEE-style references, a root-level repository tree, and a children’s literature process/architecture diagram.
 - Deliverable 3: Release-ready assets and repo metadata including CI, citation/community files, dependency/license audits, hero media, and a GitHub `v0.1.0` release bundle.
+- Deliverable 4: A browsable `course_2016/` folder that contains the 2016 course slides, teaching code, project work, supporting resources, legacy outputs, and raw archives, with a detailed archive README and slide-level table of contents.
 
 ## Non-Goals
 
@@ -39,6 +41,10 @@
 - [ ] The repo produces additional visual analytics, benchmark tables, and a Quarto HTML report under `docs/`.
 - [ ] Public-release metadata, CI, citation/community docs, and dependency/license audit artifacts are present.
 - [ ] The repo is pushed to `bozliu/aarhus-childrens-literature-toolkit` and tagged/released as `v0.1.0`.
+- [ ] The repo root is cleaned up into a product-first public layout with historical materials moved out of the first level.
+- [ ] `README.md` explicitly explains the project aim, why children’s literature was chosen, what the analysis contributes to the field, and where the `course_2016/` archive lives.
+- [ ] `README.md` includes a public-friendly repository tree and a visual architecture/process diagram for the children’s literature workflow.
+- [ ] `course_2016/README.md` provides a detailed course archive guide with slide deck table of contents and navigation indexes.
 
 ## Fixed Assumptions
 

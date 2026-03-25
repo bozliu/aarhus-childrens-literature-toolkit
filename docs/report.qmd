@@ -13,6 +13,10 @@ format:
 
 This report is the deeper public-release companion to `README.md`. It keeps the GitHub front page dense and practical while offering more context, larger tables, and a fuller explanation of how the rebuilt children’s literature workflow can be reused.
 
+The children’s literature focus is intentional rather than incidental: the corpus offers interpretable narrative structure, recurring characters, theme-rich plots, and public-domain availability that make it unusually useful for transparent text-mining workflows.
+
+The original 2016 teaching materials now live in [`../course_2016/README.md`](../course_2016/README.md), while this report stays focused on the modern public toolkit surface.
+
 ## Shared entrypoints
 
 ```bash
@@ -138,14 +142,14 @@ Rscript scripts/run_targets.R modern
 
 | path                                         | exists | bytes  |
 | -------------------------------------------- | ------ | ------ |
-| README.md                                    | True   | 18642  |
+| README.md                                    | True   | 31554  |
 | data/manifests/corpus_manifest.csv           | True   | 7317   |
-| data/manifests/local_assets.csv              | True   | 132757 |
+| data/manifests/local_assets.csv              | True   | 129404 |
 | data/manifests/legacy_summary.csv            | True   | 142    |
 | results/tables/benchmark_overview.csv        | True   | 229    |
 | results/tables/benchmark_sota_comparison.csv | True   | 982    |
 | results/tables/dependency_license_audit.csv  | True   | 1019   |
-| docs/report.qmd                              | True   | 7319   |
+| docs/report.qmd                              | True   | 7762   |
 | docs/index.html                              | True   | 6517   |
 | results/assets/hero.gif                      | True   | 525945 |
 | results/assets/hero.mp4                      | True   | 318171 |
