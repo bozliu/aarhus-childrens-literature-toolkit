@@ -22,11 +22,26 @@ This repo modernizes a 2016 Aarhus Summer University final project on children�
 - It works well as an R text-mining case because the outputs are legible to non-technical readers, making it useful for both teaching and public scholarship.
 - The public-domain corpus makes the workflow reproducible, legally shareable, and easy for other researchers or product teams to extend.
 
+## Why The 20-Book Legacy Corpus Matters
+
+- The legacy baseline stays at **20 books** because that is the canonical corpus defined in the original `Corpus of gold` course documents, so keeping those titles intact preserves historical comparability with the 2016 final project.
+- Twenty books is small enough to audit title by title, metadata row by metadata row, and provenance source by provenance source, which matters for a public digital-humanities workflow.
+- At the same time, those 20 books are large enough to support corpus-level analysis: the current rebuilt legacy core contains **20 books and 1,046,864 words**, which is enough to expose differences in sentiment, theme prevalence, named entities, and narrative structure across books.
+- The modern release expands beyond that baseline with 5 extra books, but the 20-book set remains the anchor corpus because it is the cleanest bridge between course history, reproducibility, and present-day reuse.
+
 ## What This Analysis Can Do In Children’s Literature
 
 - Compare themes, sentiment arcs, named entities, and vocabulary patterns across books instead of relying only on close reading of a few canonical titles.
 - Audit canon bias, metadata imbalance, and historical clustering in the selected corpus before making broader literary claims.
 - Support literary scholarship, classroom teaching, collection design, recommendation prototypes, discovery tooling, and reproducible digital-humanities workflows.
+
+## What We Find From The Analysis
+
+- The rebuilt corpus is useful but not neutral: the current public release covers **25 books and 1,332,482 words**, while the legacy core remains historically clustered around a public-domain Anglo-American canon. That is good for reproducibility, but it means the repo should be read as a canon-aware benchmark, not as a universal map of all children’s literature.
+- Book length varies enough to change downstream behavior. Some titles are long enough to dominate naive whole-corpus averages, so chunking and windowed analysis are not optional engineering details here; they are necessary to make literary comparisons fair.
+- The corpus separates into interpretable thematic neighborhoods rather than one flat “children’s books” cluster. For example, the similarity table places `The Wonderful Wizard of Oz` near `The Emerald City of Oz`, while `Little Women` sits closer to `Anne of Green Gables` and `Peter Pan`, showing that the modern retrieval layer can recover meaningful narrative neighborhoods instead of random lexical overlap.
+- Entity and theme outputs confirm that children’s literature in this corpus is strongly character-centered and plot-driven. The entity leaderboard is dominated by recurring named characters such as Dorothy, Wendy, Polly, and Mowgli, while the guided theme layer makes it easy to contrast family, growth, fantasy, adventure, animals, and moral-emotion signals book by book.
+- Sentiment trajectories are more informative than one global score. The analysis shows that these books move through distinct narrative arcs, which makes the repo useful for teaching plot structure, comparing storytelling patterns, and building downstream discovery or recommendation prototypes.
 
 ## 2016 Course Archive
 

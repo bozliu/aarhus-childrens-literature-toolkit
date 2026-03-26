@@ -2,7 +2,7 @@
 
 | path                                         | exists | bytes  |
 | -------------------------------------------- | ------ | ------ |
-| README.md                                    | True   | 31554  |
+| README.md                                    | True   | 32326  |
 | data/manifests/corpus_manifest.csv           | True   | 7317   |
 | data/manifests/local_assets.csv              | True   | 129404 |
 | data/manifests/legacy_summary.csv            | True   | 142    |
