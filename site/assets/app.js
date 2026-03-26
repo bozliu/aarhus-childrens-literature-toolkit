@@ -8,6 +8,43 @@ const ROUTE_THEME_REFERENCE = {
   moral_emotion: "family",
 };
 const SERIES_COLORS = ["#0f3d43", "#b16f3e", "#73876f", "#c89c43", "#734b38"];
+const APP_NAVIGATION = [
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    href: "/dashboard",
+    description: "See collection KPIs and recommended next actions.",
+    icon: "dashboard",
+  },
+  {
+    id: "explorer",
+    label: "Book Explorer",
+    href: "/explorer",
+    description: "Search titles and inspect related-book neighborhoods.",
+    icon: "explorer",
+  },
+  {
+    id: "themes",
+    label: "Theme Analysis",
+    href: "/themes",
+    description: "Build reading lists from interpretable theme signals.",
+    icon: "themes",
+  },
+  {
+    id: "sentiment",
+    label: "Sentiment Arcs",
+    href: "/sentiment",
+    description: "Compare calmer and more turbulent narrative pacing.",
+    icon: "sentiment",
+  },
+  {
+    id: "corpus",
+    label: "Corpus Insights",
+    href: "/corpus",
+    description: "Audit provenance, balance, and historical clustering.",
+    icon: "corpus",
+  },
+];
 
 document.addEventListener("DOMContentLoaded", async () => {
   const page = document.body.dataset.page || "home";
@@ -36,21 +73,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 function renderShell(root, page, data) {
   const pageMarkup = renderPage(page, data);
   root.innerHTML = `
-    <div class="site-shell">
-      ${renderSidebar(page, data)}
-      <main class="main-pane">
-        <header class="mobile-header reveal">
-          <div>
-            <div class="brand-kicker">LitScope</div>
-            <div class="mobile-brand">Children's Literature Discovery</div>
-          </div>
-          <a class="ghost-cta" href="/explorer">Open Explorer</a>
-        </header>
-        <div class="page">${pageMarkup}</div>
-        <footer class="footer">
-          Built from the Aarhus 2016 project and rebuilt as a public discovery surface. Use <a class="inline-link" href="/report">Research Report</a> for method detail and <a class="inline-link" href="https://github.com/bozliu/aarhus-childrens-literature-toolkit">GitHub</a> for the full repo.
-        </footer>
-      </main>
+    <div class="app-shell">
+      ${renderTopbar(page, data)}
+      <div class="site-shell">
+        ${renderSidebar(page, data)}
+        <main class="main-pane">
+          <div class="page">${pageMarkup}</div>
+          <footer class="footer">
+            Built from the Aarhus 2016 project and rebuilt as a public discovery surface. Use <a class="inline-link" href="/report">Research Report</a> for method detail and <a class="inline-link" href="https://github.com/bozliu/aarhus-childrens-literature-toolkit">GitHub</a> for the full repo.
+          </footer>
+        </main>
+      </div>
     </div>
   `;
 
@@ -63,33 +96,105 @@ function renderShell(root, page, data) {
 function renderSidebar(page, data) {
   return `
     <aside class="sidebar">
-      <div class="brand-lockup">
-        <div class="brand-mark">LitScope</div>
-        <div class="brand-kicker">Children's Literature Discovery</div>
-        <h1 class="brand-title">A public-facing corpus product for Libraries & EdTech.</h1>
-        <p class="brand-copy">Compare books, trace themes, inspect sentiment arcs, and audit the canon without pretending the corpus predicts plot or market outcomes.</p>
+      <div class="sidebar-section">
+        <div class="sidebar-eyebrow">Workspace</div>
+        <nav class="sidebar-nav">
+          ${APP_NAVIGATION.map((item) => renderAppNavLink(item, page)).join("")}
+        </nav>
       </div>
-      <nav class="sidebar-nav">
-        ${data.navigation
-          .map(
-            (item) => `
-            <a class="nav-link ${isActiveRoute(page, item.href) ? "active" : ""}" href="${item.href}">
-              <span class="nav-label">${escapeHtml(item.label)}</span>
-              <span class="nav-description">${escapeHtml(item.description)}</span>
-            </a>
-          `
-          )
-          .join("")}
-      </nav>
-      <div class="sidebar-actions">
-        <a class="cta" href="/dashboard">Open overview</a>
-        <a class="ghost-cta" href="/explorer">Search titles</a>
-        <div class="sidebar-note">
-          <strong>${formatNumber(data.summary.nBooks)} books</strong>, ${formatNumber(data.summary.totalWords)} words, and a stable 20-book legacy benchmark remain visible throughout the app.
+      <div class="sidebar-section sidebar-summary-card">
+        <div class="sidebar-eyebrow">Collection snapshot</div>
+        <div class="sidebar-summary-grid">
+          <div class="sidebar-stat">
+            <strong>${formatNumber(data.summary.nBooks)}</strong>
+            <span>books</span>
+          </div>
+          <div class="sidebar-stat">
+            <strong>${formatCompactNumber(data.summary.totalWords)}</strong>
+            <span>words</span>
+          </div>
+          <div class="sidebar-stat">
+            <strong>${formatNumber(data.summary.legacyBooks)}</strong>
+            <span>legacy core</span>
+          </div>
+          <div class="sidebar-stat">
+            <strong>${data.summary.minYear}-${data.summary.maxYear}</strong>
+            <span>year span</span>
+          </div>
         </div>
+        <p class="sidebar-note">The site uses committed repo data, keeps the 20-book legacy benchmark visible, and does not claim story prediction.</p>
+      </div>
+      <div class="sidebar-section sidebar-actions">
+        <a class="cta" href="/explorer">Open Explorer</a>
+        <a class="ghost-cta" href="/report">Methodology</a>
       </div>
     </aside>
   `;
+}
+
+function renderTopbar(page, data) {
+  return `
+    <header class="topbar">
+      <div class="topbar-brand">
+        <a class="brand-home" href="/">
+          <span class="brand-glyph" aria-hidden="true">${renderBrandGlyph()}</span>
+          <span>
+            <strong>LitScope</strong>
+            <small>Children's Literature Discovery</small>
+          </span>
+        </a>
+      </div>
+      <div class="topbar-meta">
+        <span class="topbar-kicker">Libraries & EdTech</span>
+        <span class="topbar-divider"></span>
+        <span>${formatNumber(data.summary.nBooks)} titles</span>
+        <span class="topbar-divider"></span>
+        <span>Not a story predictor</span>
+      </div>
+      <div class="topbar-actions">
+        <a class="ghost-cta" href="/dashboard">Dashboard</a>
+        <a class="ghost-cta" href="/report">Research report</a>
+        <a class="ghost-cta" href="https://github.com/bozliu/aarhus-childrens-literature-toolkit">GitHub</a>
+      </div>
+      <nav class="mobile-nav">
+        ${APP_NAVIGATION.map((item) => renderAppNavLink(item, page, true)).join("")}
+      </nav>
+    </header>
+  `;
+}
+
+function renderAppNavLink(item, page, compact = false) {
+  return `
+    <a class="nav-link ${compact ? "compact" : ""} ${isActiveRoute(page, item.href) ? "active" : ""}" href="${item.href}">
+      <span class="nav-icon" aria-hidden="true">${renderNavIcon(item.icon)}</span>
+      <span class="nav-text">
+        <span class="nav-label">${escapeHtml(item.label)}</span>
+        ${compact ? "" : `<span class="nav-description">${escapeHtml(item.description)}</span>`}
+      </span>
+    </a>
+  `;
+}
+
+function renderBrandGlyph() {
+  return `
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 4.5h7.4a4.1 4.1 0 0 1 0 8.2H8.6V19H6z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M8.6 6.7h4.5a1.9 1.9 0 1 1 0 3.8H8.6z" fill="currentColor" opacity="0.18"></path>
+      <path d="M16.6 7.2v9.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+      <path d="M19 9.1v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.55"></path>
+    </svg>
+  `;
+}
+
+function renderNavIcon(icon) {
+  const icons = {
+    dashboard: `<svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4.5" width="7" height="6.5" rx="1.5"></rect><rect x="13.5" y="4.5" width="7" height="10" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="6" rx="1.5"></rect><rect x="13.5" y="17" width="7" height="2.5" rx="1.25"></rect></svg>`,
+    explorer: `<svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>`,
+    themes: `<svg viewBox="0 0 24 24" fill="none"><path d="M12 4.5c3.8 0 7 3.2 7 7 0 4.6-3.8 8-7 8s-7-3.4-7-8c0-3.8 3.2-7 7-7z"></path><path d="M12 4.5c-1.1 3.8 1.8 6.8 5.6 6.1"></path></svg>`,
+    sentiment: `<svg viewBox="0 0 24 24" fill="none"><path d="M4 15.5c2.4 0 2.7-7 5.1-7 2.1 0 2.7 7 4.8 7 2 0 2.4-4 4.1-4h2"></path></svg>`,
+    corpus: `<svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6.5" rx="6.5" ry="2.7"></ellipse><path d="M5.5 6.5v10.7c0 1.5 2.9 2.8 6.5 2.8s6.5-1.3 6.5-2.8V6.5"></path><path d="M5.5 11.9c0 1.5 2.9 2.8 6.5 2.8s6.5-1.3 6.5-2.8"></path></svg>`,
+  };
+  return icons[icon] || icons.dashboard;
 }
 
 function renderPage(page, data) {
@@ -134,10 +239,10 @@ function renderHomePage(data) {
           <div class="floating-card reveal" style="--delay:1">
             <p class="metric-label">Collection snapshot</p>
             <div class="metric-grid">
-              ${metricCard("Books", formatNumber(data.summary.nBooks), "Public-domain titles in the current live catalog.")}
-              ${metricCard("Words", formatCompactNumber(data.summary.totalWords), "Shared across the same R and Python outputs. Exact totals stay visible deeper in the dashboard.")}
-              ${metricCard("Legacy core", formatNumber(data.summary.legacyBooks), "Canonical 2016 benchmark titles kept intact.")}
-              ${metricCard("Year span", `${data.summary.minYear}-${data.summary.maxYear}`, "Makes historical clustering visible rather than hidden.")}
+              ${metricCard("Books", formatNumber(data.summary.nBooks), "Public-domain titles in the current live catalog.", { compact: true })}
+              ${metricCard("Words", formatCompactNumber(data.summary.totalWords), "Shared across the same R and Python outputs. Exact totals stay visible deeper in the dashboard.", { compact: true })}
+              ${metricCard("Legacy core", formatNumber(data.summary.legacyBooks), "Canonical 2016 benchmark titles kept intact.", { compact: true })}
+              ${metricCard("Year span", `${data.summary.minYear}-${data.summary.maxYear}`, "Makes historical clustering visible rather than hidden.", { compact: true })}
             </div>
           </div>
           <div class="panel reveal" style="--delay:2">
@@ -294,10 +399,10 @@ function renderDashboardPage(data) {
       </div>
     </section>
     <section class="metric-grid">
-      ${metricCard("Titles", formatNumber(data.summary.nBooks), "Current live books available to compare.")}
-      ${metricCard("Total words", formatNumber(data.summary.totalWords), "Shared across manifests, charts, and routes.")}
-      ${metricCard("Legacy anchor", formatNumber(data.summary.legacyBooks), "Trusted 2016 benchmark titles kept intact.")}
-      ${metricCard("Coverage", `${data.summary.minYear}-${data.summary.maxYear}`, "Historical span visible in the corpus audit.")}
+      ${metricCard("Titles", formatNumber(data.summary.nBooks), "Current live books available to compare.", { compact: true })}
+      ${metricCard("Total words", formatNumber(data.summary.totalWords), "Shared across manifests, charts, and routes.", { compact: true })}
+      ${metricCard("Legacy anchor", formatNumber(data.summary.legacyBooks), "Trusted 2016 benchmark titles kept intact.", { compact: true })}
+      ${metricCard("Coverage", `${data.summary.minYear}-${data.summary.maxYear}`, "Historical span visible in the corpus audit.", { compact: true })}
     </section>
     <section class="surface-grid">
       <article class="panel reveal" style="--delay:1">
@@ -436,10 +541,10 @@ function renderCorpusPage(data) {
       <span class="tag">Canon-aware by design</span>
     </section>
     <section class="metric-grid">
-      ${metricCard("Decades covered", formatNumber(data.corpus.timeline.length), "Grouped from the real manifest publication years.")}
-      ${metricCard("Dominant decade", `${dominantDecade.decade}s`, "A reminder that the corpus is historically concentrated.")}
-      ${metricCard("Top metadata share", genderLeader ? `${genderLeader.authorGender}: ${formatNumber(genderLeader.nBooks)}` : "n/a", "Visible so balance issues stay explicit.")}
-      ${metricCard("Audit rows", formatNumber(data.corpus.inventory.reduce((sum, row) => sum + row.n_files, 0)), "Files currently tracked across core, legacy, and validation sets.")}
+      ${metricCard("Decades covered", formatNumber(data.corpus.timeline.length), "Grouped from the real manifest publication years.", { compact: true })}
+      ${metricCard("Dominant decade", `${dominantDecade.decade}s`, "A reminder that the corpus is historically concentrated.", { compact: true })}
+      ${metricCard("Top metadata share", genderLeader ? `${genderLeader.authorGender}: ${formatNumber(genderLeader.nBooks)}` : "n/a", "Visible so balance issues stay explicit.", { compact: true, textual: true })}
+      ${metricCard("Audit rows", formatNumber(data.corpus.inventory.reduce((sum, row) => sum + row.n_files, 0)), "Files currently tracked across core, legacy, and validation sets.", { compact: true })}
     </section>
     <section class="two-column">
       <article class="panel reveal" style="--delay:1">
@@ -547,10 +652,10 @@ function attachExplorer(data) {
           </div>
         </div>
         <div class="metric-grid">
-          ${metricCard("Words", formatNumber(selected.wordCount), "Used for chunking and comparability." )}
-          ${metricCard("Sentences", formatNumber(selected.sentenceCount), "Approximate sentence-level scale." )}
-          ${metricCard("Pacing", escapeHtml(selected.sentiment.label), "Windowed sentiment summary." )}
-          ${metricCard("Type/token", formatFloat(selected.typeTokenRatio, 4), "Lexical variety in the cleaned text." )}
+          ${metricCard("Words", formatNumber(selected.wordCount), "Used for chunking and comparability.", { compact: true })}
+          ${metricCard("Sentences", formatNumber(selected.sentenceCount), "Approximate sentence-level scale.", { compact: true })}
+          ${metricCard("Pacing", selected.sentiment.label, "Windowed sentiment summary.", { compact: true, textual: true })}
+          ${metricCard("Type/token", formatFloat(selected.typeTokenRatio, 4), "Lexical variety in the cleaned text.", { compact: true })}
         </div>
         <div class="two-column">
           <div class="panel">
@@ -676,10 +781,10 @@ function attachThemes(data) {
           <h2 class="section-title">${escapeHtml(theme.label)}</h2>
           <p class="section-copy">${escapeHtml(theme.description)}</p>
           <div class="metric-grid">
-            ${metricCard("Mean score", formatFloat(theme.stats.mean, 2), "Average score across the live corpus.")}
-            ${metricCard("Median score", formatFloat(theme.stats.median, 2), "Typical title-level intensity for this theme.")}
-            ${metricCard("Peak score", formatFloat(theme.stats.max, 2), "Strongest current title in the corpus.")}
-            ${metricCard("Reference axis", escapeHtml(labelizeTheme(referenceTheme)), "Secondary comparison axis in the scatter view.")}
+            ${metricCard("Mean score", formatFloat(theme.stats.mean, 2), "Average score across the live corpus.", { compact: true })}
+            ${metricCard("Median score", formatFloat(theme.stats.median, 2), "Typical title-level intensity for this theme.", { compact: true })}
+            ${metricCard("Peak score", formatFloat(theme.stats.max, 2), "Strongest current title in the corpus.", { compact: true })}
+            ${metricCard("Reference axis", labelizeTheme(referenceTheme), "Secondary comparison axis in the scatter view.", { compact: true, textual: true })}
           </div>
           <div class="signal-list">
             ${theme.topBooks
@@ -843,11 +948,18 @@ function renderFeaturedBook(book, index) {
   `;
 }
 
-function metricCard(label, value, copy) {
+function metricCard(label, value, copy, options = {}) {
+  const text = String(value ?? "");
+  const inferredTextual = /[A-Za-z]/.test(text) || text.includes("/") || text.length > 14;
+  const isCompact = Boolean(options.compact || text.length >= 7 || inferredTextual);
+  const isTextual = Boolean(options.textual || inferredTextual);
+  const classes = ["metric-card", "reveal"];
+  if (isCompact) classes.push("compact");
+  if (isTextual) classes.push("textual");
   return `
-    <div class="metric-card reveal">
+    <div class="${classes.join(" ")}">
       <div class="metric-label">${escapeHtml(label)}</div>
-      <div class="metric-value">${escapeHtml(value)}</div>
+      <div class="metric-value">${escapeHtml(text)}</div>
       <div class="metric-copy">${escapeHtml(copy)}</div>
     </div>
   `;

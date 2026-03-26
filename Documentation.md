@@ -2,14 +2,16 @@
 
 ## Status
 
-- Current milestone: Milestone 6 - dashboard-first commercial repositioning and Vercel live deployment
+- Current milestone: Milestone 7 - Figma-aligned frontend parity and overflow fixes
 - Completed milestones:
   - Milestone 1: durable memory, config, bootstrap contracts, and dual-runtime repo metadata aligned to the approved plan
   - Milestone 2: Python CLI surface and shared R wrappers implemented
   - Milestone 3: expanded analytics, README/report generation, demo media, and release-facing tables/figures implemented
   - Milestone 4: CI/release scaffolding validated, public repo created, `main` pushed, and `v0.1.0` released
   - Milestone 5: repo root cleaned into a product-first layout, `course_2016/` published as a structured archive, and the public README refreshed with a repository tree plus workflow architecture diagram
-- Next milestone: commit and push the dashboard-first narrative plus Vercel deployment config, then confirm the repo homepage points at the live site
+- Milestone 6: dashboard-first product framing shipped to README/report and published on Vercel
+- Milestone 7: Figma Make connectivity restored; live shell refactored toward the user’s Figma design; theme/explorer overflow bugs fixed; hero media regenerated from the updated site; Vercel redeployed
+- Next milestone: optional polish only, such as bringing more of the remaining Figma page-specific micro-layout details into `/dashboard` and `/sentiment`
 - Last updated: 2026-03-26
 
 ## Decisions
@@ -40,6 +42,8 @@
   Why: the repo already has multiple decision surfaces beyond similarity, including theme profiles, sentiment arcs, entity structure, and corpus bias audit panels.
 - Decision: deploy the live website as a thin Vercel static surface over the generated `docs/index.html` report rather than rebuilding the repo into a new frontend app.
   Why: the current product is already most honest as a generated report/dashboard, so Vercel can expose it quickly without inventing a fake SaaS layer.
+- Decision: use the user-owned Figma Make file as the canonical visual and layout reference now that the updated Figma account can read it.
+  Why: this allows the public dashboard to converge on the user’s intended product design without giving up the current real-data implementation.
 - Decision: keep exact corpus totals in the deeper dashboard/report, but use compact display values in the homepage `Collection Snapshot`.
   Why: landing-page KPI cards need to stay legible at common desktop widths; `1.33M` communicates scale cleanly while the exact count remains one click deeper.
 - Decision: generate README hero media from real dashboard routes first, with the old analysis-figure carousel only as a fallback.
@@ -134,6 +138,18 @@
 - Command: `python -m childlit_toolkit smoke`, `python -m py_compile childlit_toolkit/pipeline.py childlit_toolkit/cli.py inst/python/build_assets.py`, and `Rscript -e "source('R/utils.R'); cat('R + Python interface files are present\n')"`
   Result: all local equivalents of the failing CI smoke checks passed after unignoring and staging the missing route HTML files.
   Follow-up: push the CI repair to `main` and let the workflow re-run on the new commit.
+- Command: `mcp__figma__whoami` and `mcp__figma__get_design_context` on Make file `NWI8ONQiw6SGJYMVEUsRLS`
+  Result: succeeded under the updated Figma identity `bozhongliu.aiesec.unnc@gmail.com / sampsonliu`; the MCP now exposes the Make file source tree including `Layout.tsx`, route pages, and styles.
+  Follow-up: use the Make file plus `https://swarm-flower-21555203.figma.site` as the UI reference for the next frontend pass.
+- Command: `node --check site/assets/app.js`, `python3 -m py_compile childlit_toolkit/pipeline.py`, `python -m childlit_toolkit report`, and `python -m childlit_toolkit smoke`
+  Result: all succeeded after the Figma-aligned shell rewrite; the site assets, mirrored `public/` deploy surface, report outputs, and hero media were regenerated without syntax or smoke failures.
+  Follow-up: deploy the regenerated `public/` bundle to the existing production Vercel alias and verify the repaired Theme Analysis and Book Explorer layouts in a real browser.
+- Command: `vercel deploy --prod -y --scope bozlius-projects` from `public/`
+  Result: succeeded; production deployment `https://aarhus-childrens-literature-toolkit-pc6joqx5y-bozlius-projects.vercel.app` was aliased back to `https://aarhus-childrens-literature-toolkit.vercel.app`.
+  Follow-up: keep using the generated `public/` surface for future live updates so GitHub, README media, and the production site stay aligned.
+- Command: Chrome DevTools screenshot inspection on `https://aarhus-childrens-literature-toolkit.vercel.app/`, `/themes`, and `/explorer?book=sleepy-hollow`
+  Result: confirmed that the new light app shell is live, the Figma-inspired navigation hierarchy is in place, `Family` theme metrics no longer overflow, and `Sleepy Hollow` pacing/metric cards now wrap cleanly instead of colliding with their containers.
+  Follow-up: no further emergency frontend repair is required before pushing the GitHub update.
 
 ## How To Run Or Demo
 
@@ -172,6 +188,8 @@
   Impact: the file is published successfully, but it may be worth replacing with a smaller archival copy or Git LFS if the repo should minimize clone weight.
 - Issue 6: the first Vercel production attempt uploaded only `vercel.json` because the initial `.vercelignore` allowlist was too aggressive.
   Impact: the issue was fixed in the same session by switching `.vercelignore` to a blacklist-style deploy filter and redeploying the same production alias.
+- Issue 7: the live home route still keeps a more editorial hero than the stricter Figma Make dashboard homepage.
+  Impact: the current release is already closer to the Figma shell and route hierarchy, but a future polish pass could make `/` even more like the Figma dashboard if the product direction prefers a less editorial landing page.
 
 ## Follow-Ups
 

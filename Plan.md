@@ -5,6 +5,7 @@
 - Convert the current rebuild into a dual-runtime, public-release repository with shared manifests/results, deeper visual analytics, a Quarto report, CI, and a GitHub release.
 - Complete a post-release productization pass that cleans the repo root, adds explicit children’s literature framing, and packages the 2016 Aarhus course materials into a structured archive.
 - Clarify the repo’s analytical meaning and commercial value so the public README explains what the project does today, what it does not do, and which product direction best fits the current implementation.
+- Align the live dashboard UI with the user’s Figma Make design while preserving the current real-data routes, analytics features, and deployment workflow.
 
 ## Architecture Notes
 
@@ -57,6 +58,13 @@
 - Acceptance criteria: A public reader can tell who the product is for, what decisions it supports, why recommendation is only one layer inside the dashboard, what the repo cannot yet do, what the phased product roadmap looks like, and where the live website is hosted.
 - Validation commands: `python3 -m py_compile childlit_toolkit/pipeline.py`; `python -m childlit_toolkit report`; top-of-README inspection; report-section inspection; `vercel deploy --prod -y`; `gh repo view --json homepageUrl`.
 
+### Milestone 7
+
+- Goal: Bring the live dashboard into closer parity with the accessible Figma Make design and fix the current frontend overflow bugs.
+- Scope: Pull layout and route guidance from the Figma Make resources plus the public `figma.site`, refactor the shared shell and page sections, fix theme/explorer metric overflow, regenerate hero media from the updated site, and redeploy.
+- Acceptance criteria: The public Vercel site uses the Figma-aligned navigation and page hierarchy, the reported overflow issues are resolved, the real-data routes/features remain intact, and the README hero media shows the updated website.
+- Validation commands: `python3 -m py_compile childlit_toolkit/pipeline.py`; `node --check site/assets/app.js`; browser screenshot inspection of `/`, `/explorer`, `/themes`; `python -m childlit_toolkit report`; `vercel deploy --prod -y`; GitHub/README visual inspection.
+
 ## Stop-And-Fix Rule
 
 - If a validation step fails, fix it before starting the next milestone.
@@ -70,3 +78,4 @@
 - Decision 4: The public repo root should be product-first, with the historical 2016 materials discoverable through `course_2016/` rather than scattered across the first level.
 - Decision 5: The clearest near-term product framing is editorial and discovery intelligence for children’s literature, not direct story-path prediction.
 - Decision 6: The homepage and roadmap should target Libraries & EdTech first, with recommendation positioned as a feature inside a children’s literature discovery dashboard rather than as the whole product.
+- Decision 7: The Figma Make file now serves as the canonical UI reference for the public dashboard, but the live site must keep using real repo data instead of the Figma demo dataset.

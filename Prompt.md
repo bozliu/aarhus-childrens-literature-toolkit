@@ -11,6 +11,7 @@
 
 - Primary objective: Rebuild the 2016 Aarhus Summer University children’s literature text-mining project into a dual-runtime public repository where R and Python are equal first-class entrypoints over the same manifests, results, and release assets.
 - Current implementation objective: Reposition the public repo narrative around a dashboard-first children’s literature product for Libraries & EdTech, make the generated report/dashboard live on Vercel, and keep recommendation/discovery as a feature layer inside that dashboard while preserving research/DH value as a secondary proof surface.
+- Current implementation objective: Reconnect to the user-owned Figma Make file, use it as the canonical UI reference, and restyle the live Vercel dashboard so it matches the Figma information architecture and visual direction while preserving the repo’s real-data routes, analytics features, and public-product framing.
 - Intended audience or user: Libraries, reading platforms, curriculum/reading products, and title-discovery teams first; researchers, teachers, publishers, and editors second.
 
 ## Deliverables
@@ -20,6 +21,7 @@
 - Deliverable 3: A dashboard-first product narrative that clearly states the primary audience, the practical decisions the repo supports, the current capability boundaries, and the honest MVP product shape.
 - Deliverable 4: Release-ready assets and repo metadata including CI, citation/community files, dependency/license audits, hero media, and a GitHub `v0.1.0` release bundle.
 - Deliverable 5: A browsable `course_2016/` folder that contains the 2016 course slides, teaching code, project work, supporting resources, legacy outputs, and raw archives, with a detailed archive README and slide-level table of contents.
+- Deliverable 6: A Figma-aligned public web UI that keeps the current real-data dashboard functionality, fixes current frontend overflow/responsive issues, refreshes the README hero media from the updated website, and republishes the changes to GitHub and Vercel.
 
 ## Non-Goals
 
@@ -50,6 +52,9 @@
 - [ ] `docs/report.qmd` and rendered report include a concrete product roadmap: current capability, current limits, MVP dashboard shape, primary user workflow, phased roadmap, and a clear explanation of why story prediction is not yet justified.
 - [ ] The current dashboard/report website is deployed live on Vercel with the repo homepage pointing at the stable production URL.
 - [ ] `course_2016/README.md` provides a detailed course archive guide with slide deck table of contents and navigation indexes.
+- [ ] The live Vercel site visually aligns with the latest accessible Figma Make design while keeping current real-data functionality.
+- [ ] The reported frontend overflow problems on the Theme Analysis and Book Explorer routes are fixed.
+- [ ] README hero media is regenerated from the updated website flows.
 
 ## Fixed Assumptions
 
