@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aarhus Children's Literature Toolkit Report</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 2rem auto; max-width: 1100px; line-height: 1.6; color: #1d1d1f; padding: 0 1rem; }
+    h1, h2 { color: #0b3954; }
+    img { max-width: 100%; border: 1px solid #d7d7d7; border-radius: 8px; margin: 0.75rem 0 1.5rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 2rem; }
+    th, td { border: 1px solid #d7d7d7; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f4f7fb; }
+    .lede { font-size: 1.05rem; color: #334; }
+  </style>
+</head>
+<body>
+  <h1>Aarhus Children's Literature Toolkit Report</h1>
+  <p class="lede">Fallback HTML report generated without Quarto. The repo still keeps <code>docs/report.qmd</code> as the canonical report source.</p>
+  <p><a href="https://aarhus-childrens-literature-toolkit.vercel.app">Back to the live dashboard</a></p>
+  <p>This report covers 25 books and 1,332,482 words across the rebuilt corpus.</p>
+  <section><h2>Who This Report Is For</h2><p>Libraries, reading platforms, and curriculum teams that need better title discovery, themed list building, and catalog interpretation than age labels and manual tags alone.</p></section>
+<section><h2>Current Capability</h2><ul><li>Rebuild a transparent children’s literature corpus from the 20-book legacy baseline plus a small expansion layer.</li><li>Compare books through theme profiles, sentiment trajectories, recurring entities, and semantic neighborhoods.</li><li>Audit provenance, historical clustering, metadata balance, and processing constraints before making broader claims.</li><li>Publish the results as reusable figures, tables, README/report surfaces, and release assets across both R and Python.</li></ul></section>
+<section><h2>What It Cannot Yet Do</h2><ul><li>No chapter-level or scene-level story forecasting.</li><li>No personalized reader model.</li><li>No validated pedagogy scoring, reading-level scoring, or curriculum suitability labels.</li><li>No market-success, sales, or literary-quality prediction.</li></ul></section>
+<section><h2>MVP Product Shape</h2><ul><li>A searchable children’s literature dashboard.</li><li>A similar-title panel for related-book navigation.</li><li>A theme profile panel for reading-list and shelf design.</li><li>A sentiment arc viewer for narrative pacing comparison.</li><li>A corpus bias and provenance audit panel for collection review.</li></ul></section>
+<section><h2>Primary User Workflow</h2><ol><li>Start from a known title, author, or reading theme.</li><li>Inspect neighboring books, theme profiles, character prominence, and sentiment pacing.</li><li>Compare titles before building a reading list, recommendation surface, or classroom collection.</li><li>Export or reuse the evidence in discovery, curation, and collection-audit workflows.</li></ol></section>
+<section><h2>Roadmap</h2><ul><li>Phase 1: ship the current dashboard MVP using existing similarity, theme, sentiment, entity, and corpus-audit outputs.</li><li>Phase 2: add institution-facing tooling such as filters, cohort comparison, exportable reading lists, and stronger collection views.</li><li>Phase 3: add sequence-aware modeling only after chapter-level structure, labels, and evaluation data exist.</li></ul></section>
+<section><h2>Why Not Story Prediction Yet</h2><p>Story prediction is a different task from similarity, theme profiling, and pacing comparison. It requires sequence data, labels, and evaluation that the current repo does not yet have, so this product should be read as editorial and discovery intelligence rather than a forecasting engine.</p></section>
+  <section><h2>Corpus Summary</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>split</th>
+      <th>n_books</th>
+      <th>total_words</th>
+      <th>median_book_words</th>
+      <th>mean_book_words</th>
+      <th>mean_afinn_per_10k</th>
+      <th>mean_type_token_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>expanded-core</td>
+      <td>5</td>
+      <td>285618</td>
+      <td>60770.0</td>
+      <td>57123.6</td>
+      <td>201.88</td>
+      <td>0.0874</td>
+    </tr>
+    <tr>
+      <td>legacy-core</td>
+      <td>20</td>
+      <td>1046864</td>
+      <td>50005.0</td>
+      <td>52343.2</td>
+      <td>169.58</td>
+      <td>0.1353</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>Legacy Baseline</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>cohort</th>
+      <th>min</th>
+      <th>q1</th>
+      <th>median</th>
+      <th>mean</th>
+      <th>q3</th>
+      <th>max</th>
+      <th>perplexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>men</td>
+      <td>-245.0</td>
+      <td>-41.0</td>
+      <td>-3.0</td>
+      <td>-13.76</td>
+      <td>23.0</td>
+      <td>195.0</td>
+      <td>3369.274</td>
+    </tr>
+    <tr>
+      <td>women</td>
+      <td>-232.0</td>
+      <td>-21.0</td>
+      <td>9.0</td>
+      <td>13.88</td>
+      <td>54.0</td>
+      <td>190.0</td>
+      <td>4628.327</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>Benchmark Framing</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>component</th>
+      <th>repo_metric</th>
+      <th>legacy_2016_baseline</th>
+      <th>external_reference</th>
+      <th>published_reference_or_sota</th>
+      <th>comparability_note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sentiment</td>
+      <td>afinn-fallback; mean window score 0.02</td>
+      <td>AFINN cohort means: men -13.76 / women 13.88</td>
+      <td>distilbert-base-uncased-finetuned-sst-2-english</td>
+      <td>Official model card only</td>
+      <td>No directly comparable literary benchmark in the local archive.</td>
+    </tr>
+    <tr>
+      <td>Topic modeling</td>
+      <td>Guided themes + sklearn LDA; mean dominant topic share 0.844</td>
+      <td>topicmodels::LDA perplexity men 3,369.3 / women 4,628.3</td>
+      <td>bertopic</td>
+      <td>Method docs only</td>
+      <td>Cross-corpus SOTA numbers are not directly comparable to this literary corpus.</td>
+    </tr>
+    <tr>
+      <td>NER</td>
+      <td>heuristic-titlecase; top-10 entity mean density 41.60 per 10k</td>
+      <td>Incomplete openNLP sketch</td>
+      <td>gliner</td>
+      <td>Upstream docs</td>
+      <td>Local entity density and co-occurrence are project-specific.</td>
+    </tr>
+    <tr>
+      <td>Embeddings / retrieval</td>
+      <td>tfidf-fallback; mean top-1 neighbor cosine 0.151</td>
+      <td>not available</td>
+      <td>Qwen/Qwen3-Embedding-0.6B</td>
+      <td>Model card / MTEB-style references</td>
+      <td>Neighbor quality is corpus-specific; external numbers are only reference context.</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>Auxiliary Validation</h2><table class="dataframe dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>source</th>
+      <th>word_count</th>
+      <th>type_token_ratio</th>
+      <th>sentence_count</th>
+      <th>afinn_per_10k</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dr_seuss</td>
+      <td>804</td>
+      <td>0.0684</td>
+      <td>127</td>
+      <td>1144.28</td>
+    </tr>
+    <tr>
+      <td>kjv</td>
+      <td>793119</td>
+      <td>0.0166</td>
+      <td>30031</td>
+      <td>70.58</td>
+    </tr>
+    <tr>
+      <td>koran</td>
+      <td>161130</td>
+      <td>0.0448</td>
+      <td>7376</td>
+      <td>182.77</td>
+    </tr>
+    <tr>
+      <td>j_hansen</td>
+      <td>185</td>
+      <td>0.1297</td>
+      <td>7</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>lancsbox_brown</td>
+      <td>861989</td>
+      <td>0.0446</td>
+      <td>50629</td>
+      <td>121.66</td>
+    </tr>
+    <tr>
+      <td>lancsbox_lob</td>
+      <td>1018723</td>
+      <td>0.0389</td>
+      <td>59133</td>
+      <td>124.39</td>
+    </tr>
+  </tbody>
+</table></section>
+  <h2>Figures</h2>
+  <section><h2>Timeline</h2><img src="../results/figures/corpus_timeline.png" alt="Timeline" /><ul><li><strong>Signal:</strong> historical concentration in the current corpus.</li><li><strong>Decision:</strong> whether the collection is balanced enough for discovery or classroom use.</li><li><strong>Limit:</strong> this reflects the curated public-domain corpus, not the whole field.</li></ul></section>
+<section><h2>Provenance coverage</h2><img src="../results/figures/provenance_coverage.png" alt="Provenance coverage" /><ul><li><strong>Signal:</strong> source reliability and reconstruction transparency.</li><li><strong>Decision:</strong> whether a title is stable enough to expose in benchmark or dashboard views.</li><li><strong>Limit:</strong> provenance quality does not guarantee interpretive quality.</li></ul></section>
+<section><h2>Book Lengths</h2><img src="../results/figures/core_book_lengths.png" alt="Book Lengths" /><ul><li><strong>Signal:</strong> which titles are large enough to distort naive comparisons.</li><li><strong>Decision:</strong> whether to compare books as full texts, chapters, or windows.</li><li><strong>Limit:</strong> length is an engineering and comparability factor, not a quality signal.</li></ul></section>
+<section><h2>Chunking risk</h2><img src="../results/figures/chunking_risk.png" alt="Chunking risk" /><ul><li><strong>Signal:</strong> long-context processing pressure per title.</li><li><strong>Decision:</strong> which segmentation strategy is safe for a live dashboard pipeline.</li><li><strong>Limit:</strong> chunk counts depend on preprocessing and model context windows.</li></ul></section>
+<section><h2>Metadata balance</h2><img src="../results/figures/author_gender_mix.png" alt="Metadata balance" /><ul><li><strong>Signal:</strong> representational imbalance in the current catalog.</li><li><strong>Decision:</strong> where to rebalance or qualify the collection before making broader claims.</li><li><strong>Limit:</strong> this depends on the available metadata fields and corpus scope.</li></ul></section>
+<section><h2>Sentiment</h2><img src="../results/figures/sentiment_trajectories.png" alt="Sentiment" /><ul><li><strong>Signal:</strong> narrative pacing over the course of a book.</li><li><strong>Decision:</strong> compare calmer versus more turbulent reading experiences for list building or classroom use.</li><li><strong>Limit:</strong> this is a pacing feature, not a literary-quality score.</li></ul></section>
+<section><h2>Themes</h2><img src="../results/figures/topic_prevalence_heatmap.png" alt="Themes" /><ul><li><strong>Signal:</strong> title-level theme profiles for reading-list and discovery work.</li><li><strong>Decision:</strong> which books fit family, growth, fantasy, adventure, animal, or moral-emotion collections.</li><li><strong>Limit:</strong> the view is seed-guided, so it reflects the configured theme vocabulary.</li></ul></section>
+<section><h2>Neighborhood</h2><img src="../results/figures/embedding_book_map.png" alt="Neighborhood" /><ul><li><strong>Signal:</strong> related-title neighborhoods beyond flat subject tags.</li><li><strong>Decision:</strong> which adjacent books a library or reading platform should surface next.</li><li><strong>Limit:</strong> this is not personalized recommendation and depends on the embedding backend.</li></ul></section>
+<section><h2>Entities</h2><img src="../results/figures/entity_network.png" alt="Entities" /><ul><li><strong>Signal:</strong> whether a book is strongly character-driven and which names dominate it.</li><li><strong>Decision:</strong> which books are especially useful for character-centered discussion or comparison.</li><li><strong>Limit:</strong> fallback extraction is heuristic when the stronger local NER backend is unavailable.</li></ul></section>
+<section><h2>Auxiliary Validation</h2><img src="../results/figures/auxiliary_validation_panel.png" alt="Auxiliary Validation" /><ul><li><strong>Signal:</strong> how the core corpus compares with local reference corpora.</li><li><strong>Decision:</strong> whether a new dashboard corpus looks unusually narrow or skewed before productization.</li><li><strong>Limit:</strong> these are calibration references, not replacements for the core benchmark.</li></ul></section>
+</body>
+</html>

@@ -128,6 +128,12 @@
 - Command: Chrome DevTools production screenshot check on `https://aarhus-childrens-literature-toolkit.vercel.app/`
   Result: confirmed the main-page `Collection Snapshot` no longer overflows and now displays `Words` as `1.33M` within the stable 2x2 metric grid.
   Follow-up: no additional homepage layout repair is required for the current desktop breakpoint.
+- Command: `gh run view --repo bozliu/aarhus-childrens-literature-toolkit 23597390394 --job ... --log`
+  Result: both failing CI jobs (`python-smoke` and `macos-dual-runtime-smoke`) failed for the same reason: `python -m childlit_toolkit smoke` reported missing required files `site/index.html` and `public/index.html`.
+  Follow-up: repair `.gitignore` so generated route HTML under `site/` and `public/` is tracked, then recommit those files and rerun CI.
+- Command: `python -m childlit_toolkit smoke`, `python -m py_compile childlit_toolkit/pipeline.py childlit_toolkit/cli.py inst/python/build_assets.py`, and `Rscript -e "source('R/utils.R'); cat('R + Python interface files are present\n')"`
+  Result: all local equivalents of the failing CI smoke checks passed after unignoring and staging the missing route HTML files.
+  Follow-up: push the CI repair to `main` and let the workflow re-run on the new commit.
 
 ## How To Run Or Demo
 
