@@ -4,6 +4,7 @@ import argparse
 import csv
 import hashlib
 import html
+import io
 import json
 import math
 import os
@@ -11,6 +12,9 @@ import re
 import shutil
 import subprocess
 import sys
+import textwrap
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from threading import Thread
 from collections import Counter
 from pathlib import Path
 from typing import Iterable
@@ -21,7 +25,7 @@ import numpy as np
 import pandas as pd
 import requests
 import yaml
-from PIL import Image, ImageDraw, ImageOps
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 from sklearn.decomposition import LatentDirichletAllocation, PCA, TruncatedSVD
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -77,6 +81,28 @@ ENTITY_STOPWORDS = {
     "No",
 }
 
+LIVE_DASHBOARD_URL = "https://aarhus-childrens-literature-toolkit.vercel.app"
+THEME_LABELS = {
+    "family": "Family",
+    "growth": "Growth",
+    "fantasy": "Fantasy",
+    "adventure": "Adventure",
+    "animals": "Animals",
+    "moral_emotion": "Moral & Emotion",
+}
+THEME_DESCRIPTIONS = {
+    "family": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery.",
+    "growth": "Highlights books useful for maturity, learning, and coming-of-age comparisons.",
+    "fantasy": "Surfaces imaginative worlds, magical systems, and speculative storytelling.",
+    "adventure": "Finds titles driven by journeys, quests, travel, and high-motion plotting.",
+    "animals": "Pulls together animal-forward narratives that work well for younger discovery journeys.",
+    "moral_emotion": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use.",
+}
+SPLIT_LABELS = {
+    "legacy-core": "Legacy Core",
+    "expanded-core": "Expanded Core",
+}
+
 
 def rel(path: Path) -> str:
     return path.relative_to(ROOT).as_posix()
@@ -91,6 +117,12 @@ def ensure_parent(path: Path) -> Path:
     return path
 
 
+def write_json(data: dict | list, path: Path) -> Path:
+    ensure_parent(path)
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=True), encoding="utf-8")
+    return path
+
+
 def fmt_int(value: float | int | None) -> str:
     if value is None or (isinstance(value, float) and math.isnan(value)):
         return "n/a"
@@ -101,6 +133,14 @@ def fmt_float(value: float | int | None, digits: int = 2) -> str:
     if value is None or (isinstance(value, float) and math.isnan(value)):
         return "n/a"
     return f"{float(value):,.{digits}f}"
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def theme_label(theme_key: str) -> str:
+    return THEME_LABELS.get(theme_key, theme_key.replace("_", " ").title())
 
 
 def markdown_table(df: pd.DataFrame) -> str:
@@ -1016,12 +1056,376 @@ def build_benchmark_tables(
     return benchmark, comparison
 
 
+def classify_pacing(mean_score: float, min_score: float, max_score: float) -> dict[str, float | str]:
+    volatility = max_score - min_score
+    if volatility >= 0.08:
+        shape = "Turbulent"
+    elif volatility >= 0.04:
+        shape = "Mixed"
+    else:
+        shape = "Steady"
+
+    if mean_score >= 0.03:
+        tone = "Warm"
+    elif mean_score <= 0:
+        tone = "Shadowed"
+    else:
+        tone = "Balanced"
+
+    return {
+        "mean": round(mean_score, 4),
+        "min": round(min_score, 4),
+        "max": round(max_score, 4),
+        "volatility": round(volatility, 4),
+        "shape": shape,
+        "tone": tone,
+        "label": f"{tone} / {shape}",
+    }
+
+
+def build_collection_recommendations(manifest: pd.DataFrame) -> list[dict[str, str]]:
+    recommendations: list[dict[str, str]] = []
+    decade_counts = (
+        manifest.assign(decade=(manifest["publication_year"] // 10) * 10)
+        .groupby("decade")
+        .size()
+        .sort_values(ascending=False)
+    )
+    if not decade_counts.empty:
+        dominant_decade = int(decade_counts.index[0])
+        dominant_share = float(decade_counts.iloc[0] / manifest.shape[0])
+        recommendations.append(
+            {
+                "title": "Historical clustering",
+                "detail": (
+                    f"{fmt_float(dominant_share * 100, 1)}% of the current titles cluster in the {dominant_decade}s. "
+                    "Treat the dashboard as a canon-aware benchmark and expand the collection if you need broader temporal coverage."
+                ),
+            }
+        )
+
+    gender_counts = manifest["author_gender"].fillna("unknown").value_counts(normalize=True)
+    if not gender_counts.empty:
+        dominant_gender = gender_counts.index[0]
+        dominant_gender_share = float(gender_counts.iloc[0])
+        recommendations.append(
+            {
+                "title": "Metadata balance",
+                "detail": (
+                    f"{fmt_float(dominant_gender_share * 100, 1)}% of the titles currently fall under `{dominant_gender}` authorship metadata. "
+                    "Use the corpus audit before presenting this set as a fully balanced map of the field."
+                ),
+            }
+        )
+
+    long_titles = int((manifest["word_count"] >= 70000).sum())
+    recommendations.append(
+        {
+            "title": "Windowed comparison",
+            "detail": (
+                f"{long_titles} titles already exceed 70,000 words, so sentiment and theme views should be read as windowed comparisons rather than naive full-text averages."
+            ),
+        }
+    )
+    return recommendations[:3]
+
+
+def build_dashboard_dataset(manifest: pd.DataFrame, records: list[dict]) -> Path:
+    overview = pd.read_csv(root_path("tables_dir") / "corpus_manifest_overview.csv")
+    theme_scores = pd.read_csv(root_path("tables_dir") / "theme_prevalence_by_book.csv")
+    topic_prevalence = pd.read_csv(root_path("tables_dir") / "topic_prevalence_by_book.csv")
+    topic_terms = pd.read_csv(root_path("tables_dir") / "topic_top_terms.csv").set_index("topic")["top_terms"].to_dict()
+    embedding_neighbors = pd.read_csv(root_path("tables_dir") / "embedding_neighbors.csv").set_index("title")
+    embedding_projection = pd.read_csv(root_path("tables_dir") / "embedding_projection.csv").set_index("title")
+    sentiment_summary = pd.read_csv(root_path("tables_dir") / "sentiment_window_summary.csv").set_index("title")
+    sentiment_windows = pd.read_csv(root_path("tables_dir") / "sentiment_windows.csv")
+    auxiliary = pd.read_csv(root_path("tables_dir") / "auxiliary_validation_summary.csv")
+    inventory = pd.read_csv(root_path("tables_dir") / "dataset_inventory_summary.csv")
+    analysis_status = pd.read_csv(root_path("analysis_status"))
+    backend_status = pd.read_csv(root_path("tables_dir") / "backend_status.csv")
+    dependency = pd.read_csv(root_path("dependency_audit"))
+    legacy = pd.read_csv(root_path("legacy_summary"))
+
+    theme_pivot = theme_scores.pivot(index="title", columns="theme", values="score_per_10k").fillna(0.0)
+    theme_pivot = theme_pivot.reindex(columns=list(THEMES.keys()), fill_value=0.0)
+    sentiment_series = {
+        title: [
+            {"window": int(row["window"]), "score": round(float(row["score"]), 4)}
+            for _, row in subset.sort_values("window").iterrows()
+        ]
+        for title, subset in sentiment_windows.groupby("title")
+    }
+    record_map = {record["title"]: record for record in records}
+
+    book_entities: dict[str, list[dict[str, float | int | str]]] = {}
+    for title, record in record_map.items():
+        counts: Counter[str] = Counter()
+        for entity in ENTITY_RE.findall(record["clean_text"]):
+            entity = entity.strip()
+            if entity in ENTITY_STOPWORDS or len(entity) < 3:
+                continue
+            counts[entity] += 1
+        top_entities = []
+        for name, count in counts.most_common(6):
+            top_entities.append(
+                {
+                    "name": name,
+                    "count": int(count),
+                    "per10k": round((count / max(record["word_count"], 1)) * 10000, 2),
+                }
+            )
+        book_entities[title] = top_entities
+
+    books = []
+    for row in manifest.sort_values(["publication_year", "title"]).to_dict(orient="records"):
+        title = row["title"]
+        theme_map = {
+            key: round(float(theme_pivot.loc[title, key]), 2) if title in theme_pivot.index else 0.0
+            for key in THEMES.keys()
+        }
+        theme_entries = sorted(
+            (
+                {"id": key, "label": theme_label(key), "score": score, "description": THEME_DESCRIPTIONS[key]}
+                for key, score in theme_map.items()
+            ),
+            key=lambda item: item["score"],
+            reverse=True,
+        )
+        pacing = classify_pacing(
+            float(sentiment_summary.loc[title, "mean_score"]),
+            float(sentiment_summary.loc[title, "min_score"]),
+            float(sentiment_summary.loc[title, "max_score"]),
+        )
+        neighbors = []
+        if title in embedding_neighbors.index:
+            neighbor_row = embedding_neighbors.loc[title]
+            for idx in range(1, 4):
+                neighbors.append(
+                    {
+                        "title": str(neighbor_row[f"neighbor_{idx}"]),
+                        "score": round(float(neighbor_row[f"neighbor_{idx}_score"]), 4),
+                    }
+                )
+        dominant_topic = None
+        if title in topic_prevalence["title"].values:
+            topic_row = topic_prevalence.loc[topic_prevalence["title"] == title].iloc[0]
+            topic_columns = [column for column in topic_prevalence.columns if column.startswith("topic_")]
+            top_topic = max(topic_columns, key=lambda column: float(topic_row[column]))
+            dominant_topic = {
+                "id": top_topic,
+                "share": round(float(topic_row[top_topic]), 4),
+                "terms": topic_terms.get(top_topic, ""),
+            }
+        projection = {
+            "x": round(float(embedding_projection.loc[title, "x"]), 4) if title in embedding_projection.index else 0.0,
+            "y": round(float(embedding_projection.loc[title, "y"]), 4) if title in embedding_projection.index else 0.0,
+        }
+        top_themes = ", ".join(entry["label"] for entry in theme_entries[:2] if entry["score"] > 0)
+        if not top_themes:
+            top_themes = "low-intensity guided themes"
+        neighbor_phrase = ", ".join(item["title"] for item in neighbors[:2]) if neighbors else "no close neighbors available yet"
+        derived_summary = (
+            f"{row['publication_year']} {SPLIT_LABELS.get(row['split'], row['split'])} title by {row['author']}. "
+            f"Strongest signals: {top_themes}. Narrative pacing reads as {pacing['label']}. "
+            f"Closest neighbors in the current corpus: {neighbor_phrase}."
+        )
+        books.append(
+            {
+                "id": slugify(title),
+                "title": title,
+                "author": row["author"],
+                "authorGender": row["author_gender"],
+                "publicationYear": int(row["publication_year"]),
+                "split": row["split"],
+                "splitLabel": SPLIT_LABELS.get(row["split"], row["split"]),
+                "sourceUrl": row["source_url"],
+                "localPath": row["local_path"],
+                "wordCount": int(row["word_count"]),
+                "sentenceCount": int(row["sentence_count"]),
+                "typeTokenRatio": round(float(row["type_token_ratio"]), 4),
+                "afinnPer10k": round(float(row["afinn_per_10k_tokens"]), 2),
+                "ageBand": None,
+                "ageBandLabel": "Unavailable in current corpus metadata",
+                "summary": derived_summary,
+                "themes": theme_entries,
+                "sentiment": {**pacing, "windows": sentiment_series.get(title, [])},
+                "similar": neighbors,
+                "projection": projection,
+                "entities": book_entities.get(title, []),
+                "dominantTopic": dominant_topic,
+            }
+        )
+
+    decade_summary = (
+        manifest.assign(decade=(manifest["publication_year"] // 10) * 10)
+        .groupby("decade")
+        .agg(n_books=("title", "size"), total_words=("word_count", "sum"))
+        .reset_index()
+        .sort_values("decade")
+    )
+    gender_summary = (
+        manifest.assign(author_gender=manifest["author_gender"].fillna("unknown"))
+        .groupby("author_gender")
+        .size()
+        .reset_index(name="n_books")
+        .sort_values("n_books", ascending=False)
+    )
+    split_summary = (
+        manifest.groupby("split")
+        .agg(n_books=("title", "size"), total_words=("word_count", "sum"))
+        .reset_index()
+    )
+
+    theme_catalog = []
+    for theme_key in THEMES.keys():
+        subset = (
+            theme_scores.loc[theme_scores["theme"] == theme_key, ["title", "score_per_10k"]]
+            .sort_values("score_per_10k", ascending=False)
+            .reset_index(drop=True)
+        )
+        stats = {
+            "mean": round(float(subset["score_per_10k"].mean()), 2),
+            "median": round(float(subset["score_per_10k"].median()), 2),
+            "max": round(float(subset["score_per_10k"].max()), 2),
+        }
+        top_books = []
+        for _, item in subset.head(8).iterrows():
+            match = next(book for book in books if book["title"] == item["title"])
+            top_books.append(
+                {
+                    "title": match["title"],
+                    "author": match["author"],
+                    "publicationYear": match["publicationYear"],
+                    "score": round(float(item["score_per_10k"]), 2),
+                    "summary": match["summary"],
+                }
+            )
+        theme_catalog.append(
+            {
+                "id": theme_key,
+                "label": theme_label(theme_key),
+                "description": THEME_DESCRIPTIONS[theme_key],
+                "stats": stats,
+                "topBooks": top_books,
+            }
+        )
+
+    dashboard_payload = {
+        "generatedAt": pd.Timestamp.utcnow().isoformat(),
+        "liveUrl": LIVE_DASHBOARD_URL,
+        "reportUrl": f"{LIVE_DASHBOARD_URL}/report",
+        "summary": {
+            "nBooks": int(manifest.shape[0]),
+            "totalWords": int(manifest["word_count"].sum()),
+            "legacyBooks": int((manifest["split"] == "legacy-core").sum()),
+            "expandedBooks": int((manifest["split"] == "expanded-core").sum()),
+            "minYear": int(manifest["publication_year"].min()),
+            "maxYear": int(manifest["publication_year"].max()),
+        },
+        "navigation": [
+            {"href": "/", "label": "Home", "description": "Product landing page"},
+            {"href": "/dashboard", "label": "Dashboard", "description": "Collection overview and quick entrypoints"},
+            {"href": "/explorer", "label": "Book Explorer", "description": "Search, inspect, and compare titles"},
+            {"href": "/themes", "label": "Theme Analysis", "description": "Theme-led reading-list design"},
+            {"href": "/sentiment", "label": "Sentiment Arcs", "description": "Narrative pacing comparison"},
+            {"href": "/corpus", "label": "Corpus Insights", "description": "Collection audit and provenance review"},
+            {"href": "/report", "label": "Research Report", "description": "Long-form methodology and benchmark notes"},
+        ],
+        "insights": [
+            {
+                "title": "Canon-aware benchmark",
+                "detail": (
+                    f"The live corpus covers {manifest.shape[0]} books and {fmt_int(manifest['word_count'].sum())} words, "
+                    "but it still clusters around a public-domain Anglo-American canon. Treat it as an auditable benchmark, not a universal map of the field."
+                ),
+            },
+            {
+                "title": "Meaningful book neighborhoods",
+                "detail": (
+                    "Similarity signals already produce interpretable neighbors such as Oz-to-Oz and Little Women-to-Anne of Green Gables style adjacency, "
+                    "which is the right shape for discovery and list extension."
+                ),
+            },
+            {
+                "title": "Character-driven corpus",
+                "detail": (
+                    "Recurring names and dense entity surfaces make the dashboard especially useful for character-centered classroom comparison and catalog storytelling."
+                ),
+            },
+            {
+                "title": "Windowing matters",
+                "detail": (
+                    "Book length varies enough that sentiment and theme views should be read as chunked comparisons rather than one-number summaries."
+                ),
+            },
+        ],
+        "books": books,
+        "themes": theme_catalog,
+        "sentiment": {
+            "books": [
+                {
+                    "title": book["title"],
+                    "author": book["author"],
+                    "splitLabel": book["splitLabel"],
+                    "pacingLabel": book["sentiment"]["label"],
+                    "mean": book["sentiment"]["mean"],
+                    "min": book["sentiment"]["min"],
+                    "max": book["sentiment"]["max"],
+                    "volatility": book["sentiment"]["volatility"],
+                    "windows": book["sentiment"]["windows"],
+                }
+                for book in books
+            ]
+        },
+        "corpus": {
+            "overview": overview.to_dict(orient="records"),
+            "legacyBaseline": legacy.to_dict(orient="records"),
+            "timeline": [
+                {
+                    "decade": int(row["decade"]),
+                    "nBooks": int(row["n_books"]),
+                    "totalWords": int(row["total_words"]),
+                }
+                for _, row in decade_summary.iterrows()
+            ],
+            "genderMix": [
+                {"authorGender": row["author_gender"], "nBooks": int(row["n_books"])}
+                for _, row in gender_summary.iterrows()
+            ],
+            "splitMix": [
+                {
+                    "split": row["split"],
+                    "splitLabel": SPLIT_LABELS.get(row["split"], row["split"]),
+                    "nBooks": int(row["n_books"]),
+                    "totalWords": int(row["total_words"]),
+                }
+                for _, row in split_summary.iterrows()
+            ],
+            "inventory": inventory.to_dict(orient="records"),
+            "auxiliaryValidation": auxiliary.to_dict(orient="records"),
+            "analysisStatus": analysis_status.to_dict(orient="records"),
+            "backendStatus": backend_status.to_dict(orient="records"),
+            "dependencyAudit": dependency.to_dict(orient="records"),
+            "recommendations": build_collection_recommendations(manifest),
+        },
+    }
+    return write_json(dashboard_payload, root_path("dashboard_data"))
+
+
 def build_release_manifest() -> pd.DataFrame:
     paths = [
+        root_path("dashboard_data"),
         root_path("readme"),
         root_path("corpus_manifest"),
         root_path("local_assets"),
         root_path("legacy_summary"),
+        root_path("app_dir") / "index.html",
+        root_path("app_dir") / "assets" / "app.css",
+        root_path("app_dir") / "assets" / "app.js",
+        root_path("app_dir") / "assets" / "favicon.svg",
+        root_path("public_dir") / "index.html",
+        root_path("public_dir") / "dashboard" / "index.html",
+        root_path("public_dir") / "report" / "index.html",
         root_path("tables_dir") / "benchmark_overview.csv",
         root_path("tables_dir") / "benchmark_sota_comparison.csv",
         root_path("dependency_audit"),
@@ -1083,12 +1487,132 @@ def build_fragments(manifest: pd.DataFrame) -> None:
     (root_path("fragments_dir") / "release_readiness.md").write_text(release_readiness, encoding="utf-8")
 
 
-def build_hero_assets() -> tuple[Path, Path]:
-    try:
-        import imageio.v2 as imageio  # type: ignore
-    except Exception as exc:  # noqa: BLE001
-        raise RuntimeError("Package 'imageio' is required for hero video generation. Run python -m childlit_toolkit bootstrap.") from exc
+def load_presentation_font(size: int, *, bold: bool = False) -> ImageFont.ImageFont:
+    candidates = [
+        "/System/Library/Fonts/Supplemental/Avenir Next.ttc",
+        "/System/Library/Fonts/Supplemental/Helvetica.ttc",
+        "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
+    ]
+    if bold:
+        candidates = [
+            "/System/Library/Fonts/Supplemental/Avenir Next Demi Bold.ttf",
+            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+            "/System/Library/Fonts/Supplemental/Helvetica.ttc",
+            *candidates,
+        ]
+    for candidate in candidates:
+        path = Path(candidate)
+        if not path.exists():
+            continue
+        try:
+            return ImageFont.truetype(str(path), size=size)
+        except Exception:
+            continue
+    return ImageFont.load_default()
 
+
+def build_hero_assets_from_site() -> list[Image.Image]:
+    try:
+        from playwright.sync_api import sync_playwright
+    except Exception as exc:  # noqa: BLE001
+        raise RuntimeError("Package 'playwright' is required for site-driven hero media generation.") from exc
+
+    route_specs = [
+        {
+            "path": "/",
+            "kicker": "Landing page",
+            "title": "Discovery dashboard for Libraries & EdTech",
+            "copy": "Lead with the value proposition, collection snapshot, and capability boundaries before users ever reach the deeper methods.",
+        },
+        {
+            "path": "/dashboard",
+            "kicker": "Dashboard",
+            "title": "Turn corpus outputs into quick decisions",
+            "copy": "Open with KPIs, recommended next actions, and explainable entrypoints for similarity, themes, pacing, and audit work.",
+        },
+        {
+            "path": "/explorer?book=anne-of-green-gables",
+            "kicker": "Explorer",
+            "title": "Inspect one title and its closest neighbors",
+            "copy": "A known book becomes a reusable discovery anchor with metadata, top themes, pacing signals, and related-title suggestions in one panel.",
+        },
+        {
+            "path": "/themes?theme=fantasy",
+            "kicker": "Themes",
+            "title": "Build reading lists from interpretable themes",
+            "copy": "Theme-led comparison is clearer for librarians and teachers than relying on weak or inconsistent catalog tags.",
+        },
+        {
+            "path": "/sentiment",
+            "kicker": "Sentiment arcs",
+            "title": "Compare narrative pacing across books",
+            "copy": "Windowed trajectories help teams contrast calmer and more turbulent reading experiences without pretending to predict plot.",
+        },
+        {
+            "path": "/corpus",
+            "kicker": "Corpus audit",
+            "title": "Keep bias, provenance, and coverage visible",
+            "copy": "Historical concentration and metadata balance stay in the product surface so collection claims remain auditable.",
+        },
+    ]
+
+    class SiteHandler(SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=str(root_path("app_dir")), **kwargs)
+
+        def log_message(self, format: str, *args) -> None:  # noqa: A003
+            return
+
+    httpd = ThreadingHTTPServer(("127.0.0.1", 0), SiteHandler)
+    thread = Thread(target=httpd.serve_forever, daemon=True)
+    thread.start()
+
+    try:
+        base_url = f"http://127.0.0.1:{httpd.server_address[1]}"
+        raw_frames: list[Image.Image] = []
+        with sync_playwright() as playwright:
+            try:
+                browser = playwright.chromium.launch(channel="chrome", headless=True)
+            except Exception:
+                browser = playwright.chromium.launch(headless=True)
+            context = browser.new_context(viewport={"width": 1440, "height": 960}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            for spec in route_specs:
+                page.goto(f"{base_url}{spec['path']}", wait_until="networkidle")
+                page.evaluate("window.scrollTo(0, 0)")
+                page.wait_for_timeout(250)
+                if spec["path"].startswith("/sentiment"):
+                    page.wait_for_timeout(250)
+                screenshot = page.screenshot(type="png")
+                raw_frames.append(Image.open(io.BytesIO(screenshot)).convert("RGB"))
+            context.close()
+            browser.close()
+    finally:
+        httpd.shutdown()
+        thread.join(timeout=2)
+
+    title_font = load_presentation_font(40, bold=True)
+    copy_font = load_presentation_font(24)
+    kicker_font = load_presentation_font(18, bold=True)
+    brand_font = load_presentation_font(20, bold=True)
+    frames: list[Image.Image] = []
+    for spec, raw in zip(route_specs, raw_frames, strict=False):
+        fitted = ImageOps.fit(raw, (1344, 840), method=Image.Resampling.LANCZOS)
+        canvas = Image.new("RGB", (1440, 1024), "#f4efe5")
+        canvas.paste(fitted, (48, 132))
+        draw = ImageDraw.Draw(canvas)
+        draw.rounded_rectangle((32, 24, 1408, 108), radius=24, fill="#11363a")
+        draw.text((60, 40), "LitScope feature walkthrough", font=brand_font, fill="#f8f1e3")
+        draw.text((60, 76), spec["kicker"].upper(), font=kicker_font, fill="#d9c18c")
+        draw.rounded_rectangle((32, 900, 1408, 992), radius=28, fill=(255, 250, 243))
+        draw.text((64, 920), spec["title"], font=title_font, fill="#152526")
+        draw.multiline_text((64, 958), textwrap.fill(spec["copy"], width=92), font=copy_font, fill="#53615d", spacing=4)
+        frames.append(canvas)
+    return frames
+
+
+def build_hero_assets_from_figures() -> list[Image.Image]:
     figure_paths = [
         root_path("figures_dir") / "corpus_timeline.png",
         root_path("figures_dir") / "sentiment_trajectories.png",
@@ -1098,7 +1622,7 @@ def build_hero_assets() -> tuple[Path, Path]:
     source_images = [Image.open(fig_path).convert("RGB") for fig_path in figure_paths]
     frame_width = max(image.width for image in source_images)
     frame_height = max(image.height for image in source_images)
-    frames = []
+    frames: list[Image.Image] = []
     for index, img in enumerate(source_images, start=1):
         fitted = ImageOps.pad(img, (frame_width, frame_height), color="white")
         canvas = Image.new("RGB", (frame_width, frame_height + 90), "white")
@@ -1113,10 +1637,24 @@ def build_hero_assets() -> tuple[Path, Path]:
         ):
             draw.text((18, 16 + 24 * line_index), line, fill="black")
         frames.append(canvas)
+    return frames
+
+
+def build_hero_assets() -> tuple[Path, Path]:
+    try:
+        import imageio.v2 as imageio  # type: ignore
+    except Exception as exc:  # noqa: BLE001
+        raise RuntimeError("Package 'imageio' is required for hero video generation. Run python -m childlit_toolkit bootstrap.") from exc
+
+    try:
+        frames = build_hero_assets_from_site()
+    except Exception as exc:  # noqa: BLE001
+        print(f"Site-driven hero media fallback triggered: {exc}", file=sys.stderr, flush=True)
+        frames = build_hero_assets_from_figures()
 
     gif_path = ROOT / REPORTING["hero_gif"]
     ensure_parent(gif_path)
-    frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=1500, loop=0)
+    frames[0].save(gif_path, save_all=True, append_images=frames[1:], duration=1500, loop=0, optimize=True)
 
     mp4_path = ROOT / REPORTING["hero_mp4"]
     ensure_parent(mp4_path)
@@ -1156,6 +1694,16 @@ An open, dual-runtime rebuild of a 2016 Aarhus Summer University project on chil
 2. A documented expansion layer with five additional public-domain titles.
 3. First-class R and Python entrypoints over the same manifests, figures, tables, and report outputs.
 4. A public-release surface that favors interpretable charts, benchmark tables, and reusable SOP documentation instead of screenshots.
+
+## Live Dashboard
+
+- Public app: [{LIVE_DASHBOARD_URL}]({LIVE_DASHBOARD_URL})
+- Overview route: [{LIVE_DASHBOARD_URL}/dashboard]({LIVE_DASHBOARD_URL}/dashboard)
+- Title search: [{LIVE_DASHBOARD_URL}/explorer]({LIVE_DASHBOARD_URL}/explorer)
+- Theme analysis: [{LIVE_DASHBOARD_URL}/themes]({LIVE_DASHBOARD_URL}/themes)
+- Sentiment arcs: [{LIVE_DASHBOARD_URL}/sentiment]({LIVE_DASHBOARD_URL}/sentiment)
+- Corpus audit: [{LIVE_DASHBOARD_URL}/corpus]({LIVE_DASHBOARD_URL}/corpus)
+- Methodology report: [{LIVE_DASHBOARD_URL}/report]({LIVE_DASHBOARD_URL}/report)
 
 ## Who This Is For
 
@@ -1258,6 +1806,7 @@ flowchart TD
     end
 
     subgraph Outputs["Public Release Outputs"]
+        P["Interactive Dashboard App<br/>Vercel routes for search, theme, pacing, and corpus audit"]
         L["Figures And Tables<br/>results/figures + results/tables"]
         M["GitHub Narrative Surface<br/>README.md + course_2016/README.md"]
         N["Deep-Dive Report<br/>docs/index.html"]
@@ -1276,9 +1825,11 @@ flowchart TD
     H --> J
     I --> K
     J --> K
+    K --> P
     K --> L
     K --> M
     K --> N
+    P --> O
     L --> O
     M --> O
     N --> O
@@ -1345,7 +1896,7 @@ make modern
 python -m childlit_toolkit modern
 ```
 
-The full HTML deep-dive report is rendered to [`{report_path}`]({report_path}).
+The full HTML deep-dive report is rendered to [`{report_path}`]({report_path}), while the public dashboard lives at [{LIVE_DASHBOARD_URL}]({LIVE_DASHBOARD_URL}).
 
 ## Corpus Snapshot
 
@@ -1544,10 +2095,22 @@ What this means:
 ├── DESCRIPTION                # R package metadata
 ├── _targets.R                 # optional R targets entrypoint
 ├── renv.lock                  # pinned R dependency lockfile
+├── vercel.json                # Vercel project metadata for the public deployment
 ├── .gitignore                 # git ignore policy, including local-only clutter
+├── .vercelignore              # deploy filter so Vercel ships the deployment surface instead of the full workspace
 ├── .Rbuildignore              # R build exclusions
 ├── .Rprofile                  # project-level R startup behavior
 ├── .github/                   # CI and release workflows
+├── site/                      # Figma-inspired static front-end served by Vercel
+│   ├── index.html             # product landing page
+│   ├── dashboard/             # overview route with quick-start and KPI surfaces
+│   ├── explorer/              # searchable title explorer and similarity detail pane
+│   ├── themes/                # theme-led reading-list and comparison route
+│   ├── sentiment/             # narrative pacing comparison route
+│   ├── corpus/                # provenance, diversity, and collection-audit route
+│   ├── data/                  # generated JSON payload consumed by the front-end
+│   └── assets/                # shared CSS and JavaScript for the live dashboard
+├── public/                    # deploy-ready static output synced from site/ and docs/
 ├── R/                         # R wrappers, utilities, and reporting helpers
 │   ├── manifests.R            # shared manifest/inventory helpers used by the R interface
 │   ├── legacy.R               # R-side helpers for reproducing the 2016 baseline workflow
@@ -1651,6 +2214,8 @@ format:
 # Why this report exists
 
 This report is the deeper public-release companion to `README.md`. It keeps the GitHub front page dense and practical while offering more context, larger tables, and a fuller explanation of how the rebuilt children’s literature workflow can be reused.
+
+The interactive product surface now lives at [`{LIVE_DASHBOARD_URL}`]({LIVE_DASHBOARD_URL}), while this report stays focused on methodology, benchmark framing, and deeper reuse guidance.
 
 The children’s literature focus is intentional rather than incidental: the corpus offers interpretable narrative structure, recurring characters, theme-rich plots, and public-domain availability that make it unusually useful for transparent text-mining workflows.
 
@@ -1989,6 +2554,7 @@ def write_fallback_report_html() -> Path:
 <body>
   <h1>Aarhus Children's Literature Toolkit Report</h1>
   <p class="lede">Fallback HTML report generated without Quarto. The repo still keeps <code>docs/report.qmd</code> as the canonical report source.</p>
+  <p><a href="{LIVE_DASHBOARD_URL}">Back to the live dashboard</a></p>
   <p>This report covers {manifest.shape[0]} books and {fmt_int(manifest['word_count'].sum())} words across the rebuilt corpus.</p>
   {intro_html}
   {section_html}
@@ -1999,6 +2565,30 @@ def write_fallback_report_html() -> Path:
 """
     report_out.write_text(page, encoding="utf-8")
     return report_out
+
+
+def sync_public_site() -> Path:
+    public_dir = root_path("public_dir")
+    site_dir = root_path("app_dir")
+    report_html = root_path("report_html")
+    report_assets = report_html.parent / "report_files"
+    results_dir = root_path("figures_dir").parent
+
+    if public_dir.exists():
+        shutil.rmtree(public_dir)
+
+    shutil.copytree(site_dir, public_dir)
+
+    report_dir = public_dir / "report"
+    report_dir.mkdir(parents=True, exist_ok=True)
+    if report_html.exists():
+        shutil.copy2(report_html, report_dir / "index.html")
+    if report_assets.exists():
+        shutil.copytree(report_assets, public_dir / "report_files", dirs_exist_ok=True)
+    if results_dir.exists():
+        shutil.copytree(results_dir, public_dir / "results", dirs_exist_ok=True)
+
+    return public_dir
 
 
 def render_quarto_report() -> Path:
@@ -2027,6 +2617,9 @@ def render_quarto_report() -> Path:
             shutil.rmtree(support_dir)
     except Exception:
         write_fallback_report_html()
+    sync_public_site()
+    build_release_manifest()
+    build_fragments(pd.read_csv(root_path("corpus_manifest")))
     return report_out
 
 
@@ -2062,8 +2655,12 @@ def build_modern_outputs() -> pd.DataFrame:
     print("Writing audit and benchmark tables...", flush=True)
     build_dependency_audit()
     build_benchmark_tables(manifest, pd.read_csv(root_path("legacy_summary")), sentiment_backend, embedding_backend, ner_backend)
+    print("Exporting dashboard dataset...", flush=True)
+    build_dashboard_dataset(manifest, records)
     print("Building release media and fragments...", flush=True)
     build_hero_assets()
+    if root_path("report_html").exists():
+        sync_public_site()
     build_release_manifest()
     build_fragments(manifest)
     print("Modern asset build complete.", flush=True)
@@ -2079,6 +2676,7 @@ def build_modern_outputs() -> pd.DataFrame:
                 "results/figures/auxiliary_validation_panel.png",
                 "results/assets/hero.gif",
                 "results/assets/hero.mp4",
+                "site/data/dashboard.json",
             ]
         }
     )
@@ -2100,6 +2698,11 @@ def smoke() -> None:
         ROOT / "config" / "corpus_seed.csv",
         ROOT / "config" / "theme_seeds.yml",
         ROOT / "childlit_toolkit" / "pipeline.py",
+        ROOT / "site" / "index.html",
+        ROOT / "site" / "assets" / "app.css",
+        ROOT / "site" / "assets" / "app.js",
+        ROOT / "public" / "index.html",
+        ROOT / "vercel.json",
     ]
     missing = [rel(path) for path in required if not path.exists()]
     if missing:

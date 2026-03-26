@@ -1,0 +1,26 @@
+title,neighbor_1,neighbor_1_score,neighbor_2,neighbor_2_score,neighbor_3,neighbor_3_score
+Alice's Adventures in Wonderland,The Velveteen Rabbit,0.2181,Little Women,0.1469,The Wonderful Wizard of Oz,0.1391
+The Wonderful Wizard of Oz,The Emerald City of Oz,0.2092,Little Women,0.173,What Katy Did,0.1499
+Rebecca of Sunnybrook Farm,What Katy Did,0.1349,The Land of the Blue Flower,0.1304,The Secret Garden,0.1271
+The Wind in the Willows,Little Women,0.1315,Alice's Adventures in Wonderland,0.127,The Wonderful Wizard of Oz,0.118
+The Secret Garden,What Katy Did,0.1324,"We and the World, Part I",0.1298,The Land of the Blue Flower,0.1297
+Sleepy Hollow,The Land of the Blue Flower,0.1247,What Katy Did,0.1214,"We and the World, Part I",0.1085
+The White Old Maid,The Land of the Blue Flower,0.1262,Treasure Island,0.1168,The Secret Garden,0.1116
+The Children of the New Forest,The Land of the Blue Flower,0.1477,The Emerald City of Oz,0.1392,Prince Prigio,0.1389
+Rab and His Friends,"We and the World, Part I",0.1181,What Katy Did,0.1132,The Pink Fairy Book,0.1127
+Little Women,Anne of Green Gables,0.1762,The Wonderful Wizard of Oz,0.173,Peter Pan,0.1687
+What Katy Did,The Wonderful Wizard of Oz,0.1499,Rebecca of Sunnybrook Farm,0.1349,The Secret Garden,0.1324
+Five Little Peppers and How They Grew,Little Women,0.0936,Sky Island,0.0871,What Katy Did,0.0868
+Treasure Island,The Land of the Blue Flower,0.1453,The White Old Maid,0.1168,"We and the World, Part I",0.1155
+"We and the World, Part I",What Katy Did,0.1311,The Secret Garden,0.1298,At the Back of the North Wind,0.1208
+Prince Prigio,The Pink Fairy Book,0.1936,The Land of the Blue Flower,0.1898,The Emerald City of Oz,0.1857
+The Pink Fairy Book,Prince Prigio,0.1936,The Land of the Blue Flower,0.1384,The Secret Garden,0.1276
+The Jungle Book,"We and the World, Part I",0.1077,The Secret Garden,0.0852,The Land of the Blue Flower,0.0764
+Peter Pan,Little Women,0.1687,Anne of Green Gables,0.1667,The Wonderful Wizard of Oz,0.1182
+Anne of Green Gables,Little Women,0.1762,Peter Pan,0.1667,The Wonderful Wizard of Oz,0.1435
+The Land of the Blue Flower,The Emerald City of Oz,0.202,Prince Prigio,0.1898,The Children of the New Forest,0.1477
+The Emerald City of Oz,The Wonderful Wizard of Oz,0.2092,The Land of the Blue Flower,0.202,Prince Prigio,0.1857
+Sky Island,The Velveteen Rabbit,0.1191,Prince Prigio,0.1137,Treasure Island,0.1112
+At the Back of the North Wind,The Wonderful Wizard of Oz,0.1294,"We and the World, Part I",0.1208,The Velveteen Rabbit,0.1011
+The Adventures of Old Mr. Toad,Prince Prigio,0.0116,The Pink Fairy Book,0.0065,"We and the World, Part I",0.0036
+The Velveteen Rabbit,Alice's Adventures in Wonderland,0.2181,Sky Island,0.1191,What Katy Did,0.1122

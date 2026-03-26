@@ -40,6 +40,10 @@
   Why: the repo already has multiple decision surfaces beyond similarity, including theme profiles, sentiment arcs, entity structure, and corpus bias audit panels.
 - Decision: deploy the live website as a thin Vercel static surface over the generated `docs/index.html` report rather than rebuilding the repo into a new frontend app.
   Why: the current product is already most honest as a generated report/dashboard, so Vercel can expose it quickly without inventing a fake SaaS layer.
+- Decision: keep exact corpus totals in the deeper dashboard/report, but use compact display values in the homepage `Collection Snapshot`.
+  Why: landing-page KPI cards need to stay legible at common desktop widths; `1.33M` communicates scale cleanly while the exact count remains one click deeper.
+- Decision: generate README hero media from real dashboard routes first, with the old analysis-figure carousel only as a fallback.
+  Why: the public README should show the actual website product surface and key workflows rather than a disconnected rotation of analysis plots.
 
 ## Validation Log
 
@@ -115,6 +119,15 @@
 - Command: `gh repo edit bozliu/aarhus-childrens-literature-toolkit --homepage https://aarhus-childrens-literature-toolkit.vercel.app`
   Result: succeeded; the GitHub repo homepage now points at the live Vercel site.
   Follow-up: future public references can use the stable alias instead of the one-off deployment URL.
+- Command: `python -m childlit_toolkit report`
+  Result: succeeded after the homepage KPI refinement and site-driven hero-media upgrade; `site/`, `public/`, `README.md`, `docs/index.html`, and `results/assets/hero.gif` / `hero.mp4` were regenerated together.
+  Follow-up: the public README demo now reflects real website routes instead of only static chart assets.
+- Command: `vercel deploy --prod -y --scope bozlius-projects` from `public/`
+  Result: succeeded; the production alias `https://aarhus-childrens-literature-toolkit.vercel.app` now serves the compact homepage KPI cards and refreshed hero media.
+  Follow-up: keep the `public/` deploy surface in sync via the report pipeline before future production deploys.
+- Command: Chrome DevTools production screenshot check on `https://aarhus-childrens-literature-toolkit.vercel.app/`
+  Result: confirmed the main-page `Collection Snapshot` no longer overflows and now displays `Words` as `1.33M` within the stable 2x2 metric grid.
+  Follow-up: no additional homepage layout repair is required for the current desktop breakpoint.
 
 ## How To Run Or Demo
 

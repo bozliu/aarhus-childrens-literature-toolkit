@@ -8,6 +8,9 @@ project:
   release_tag: v0.1.0
 
 paths:
+  app_dir: site
+  dashboard_data: site/data/dashboard.json
+  public_dir: public
   corpus_seed: config/corpus_seed.csv
   theme_seeds: config/theme_seeds.yml
   sota_references: config/sota_references.csv

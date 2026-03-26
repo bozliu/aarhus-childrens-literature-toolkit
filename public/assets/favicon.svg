@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Children's Literature Discovery Dashboard">
+  <defs>
+    <linearGradient id="cover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f3d43" />
+      <stop offset="100%" stop-color="#b16f3e" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="10" width="48" height="44" rx="10" fill="url(#cover)" />
+  <path d="M22 20h16c6.627 0 12 5.373 12 12v12H34c-6.627 0-12-5.373-12-12V20Z" fill="#f8f1e5" opacity="0.9"/>
+  <path d="M14 20h18v12c0 6.627 5.373 12 12 12H26c-6.627 0-12-5.373-12-12V20Z" fill="#f8f1e5"/>
+  <circle cx="24" cy="30" r="2.2" fill="#b16f3e"/>
+  <circle cx="40" cy="34" r="2.2" fill="#0f3d43"/>
+</svg>

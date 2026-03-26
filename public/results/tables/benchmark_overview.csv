@@ -1,0 +1,3 @@
+corpus_split,n_books,total_words,mean_words_per_book,median_words_per_book,mean_afinn_per_10k_tokens,mean_type_token_ratio
+expanded-core,5,285618,57123.6,60770.0,201.88,0.0874
+legacy-core,20,1046864,52343.2,50005.0,169.58,0.1353

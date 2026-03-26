@@ -13,6 +13,8 @@ format:
 
 This report is the deeper public-release companion to `README.md`. It keeps the GitHub front page dense and practical while offering more context, larger tables, and a fuller explanation of how the rebuilt children’s literature workflow can be reused.
 
+The interactive product surface now lives at [`https://aarhus-childrens-literature-toolkit.vercel.app`](https://aarhus-childrens-literature-toolkit.vercel.app), while this report stays focused on methodology, benchmark framing, and deeper reuse guidance.
+
 The children’s literature focus is intentional rather than incidental: the corpus offers interpretable narrative structure, recurring characters, theme-rich plots, and public-domain availability that make it unusually useful for transparent text-mining workflows.
 
 The current stack should be read as editorial and discovery intelligence rather than as a full story-forecasting system. It is already useful for comparing books, auditing corpora, surfacing thematic neighborhoods, and supporting recommendation/editorial workflows, but it does not yet justify a strong claim that it can predict plot outcomes or literary success.
@@ -227,19 +229,27 @@ Rscript scripts/run_targets.R modern
 ```{=markdown}
 ## Release Bundle
 
-| path                                         | exists | bytes  |
-| -------------------------------------------- | ------ | ------ |
-| README.md                                    | True   | 37138  |
-| data/manifests/corpus_manifest.csv           | True   | 7317   |
-| data/manifests/local_assets.csv              | True   | 129404 |
-| data/manifests/legacy_summary.csv            | True   | 142    |
-| results/tables/benchmark_overview.csv        | True   | 229    |
-| results/tables/benchmark_sota_comparison.csv | True   | 982    |
-| results/tables/dependency_license_audit.csv  | True   | 1019   |
-| docs/report.qmd                              | True   | 8127   |
-| docs/index.html                              | True   | 6517   |
-| results/assets/hero.gif                      | True   | 525945 |
-| results/assets/hero.mp4                      | True   | 318171 |
+| path                                         | exists | bytes   |
+| -------------------------------------------- | ------ | ------- |
+| site/data/dashboard.json                     | True   | 173585  |
+| README.md                                    | True   | 42192   |
+| data/manifests/corpus_manifest.csv           | True   | 7317    |
+| data/manifests/local_assets.csv              | True   | 129404  |
+| data/manifests/legacy_summary.csv            | True   | 142     |
+| site/index.html                              | True   | 1010    |
+| site/assets/app.css                          | True   | 13176   |
+| site/assets/app.js                           | True   | 48882   |
+| site/assets/favicon.svg                      | True   | 723     |
+| public/index.html                            | True   | 1010    |
+| public/dashboard/index.html                  | True   | 812     |
+| public/report/index.html                     | True   | 12399   |
+| results/tables/benchmark_overview.csv        | True   | 229     |
+| results/tables/benchmark_sota_comparison.csv | True   | 982     |
+| results/tables/dependency_license_audit.csv  | True   | 1019    |
+| docs/report.qmd                              | True   | 14050   |
+| docs/index.html                              | True   | 12399   |
+| results/assets/hero.gif                      | True   | 2121466 |
+| results/assets/hero.mp4                      | True   | 604844  |
 
 ```
 

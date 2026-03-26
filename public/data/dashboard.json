@@ -1,0 +1,6552 @@
+{
+  "generatedAt": "2026-03-26T13:36:47.302362+00:00",
+  "liveUrl": "https://aarhus-childrens-literature-toolkit.vercel.app",
+  "reportUrl": "https://aarhus-childrens-literature-toolkit.vercel.app/report",
+  "summary": {
+    "nBooks": 25,
+    "totalWords": 1332482,
+    "legacyBooks": 20,
+    "expandedBooks": 5,
+    "minYear": 1820,
+    "maxYear": 1922
+  },
+  "navigation": [
+    {
+      "href": "/",
+      "label": "Home",
+      "description": "Product landing page"
+    },
+    {
+      "href": "/dashboard",
+      "label": "Dashboard",
+      "description": "Collection overview and quick entrypoints"
+    },
+    {
+      "href": "/explorer",
+      "label": "Book Explorer",
+      "description": "Search, inspect, and compare titles"
+    },
+    {
+      "href": "/themes",
+      "label": "Theme Analysis",
+      "description": "Theme-led reading-list design"
+    },
+    {
+      "href": "/sentiment",
+      "label": "Sentiment Arcs",
+      "description": "Narrative pacing comparison"
+    },
+    {
+      "href": "/corpus",
+      "label": "Corpus Insights",
+      "description": "Collection audit and provenance review"
+    },
+    {
+      "href": "/report",
+      "label": "Research Report",
+      "description": "Long-form methodology and benchmark notes"
+    }
+  ],
+  "insights": [
+    {
+      "title": "Canon-aware benchmark",
+      "detail": "The live corpus covers 25 books and 1,332,482 words, but it still clusters around a public-domain Anglo-American canon. Treat it as an auditable benchmark, not a universal map of the field."
+    },
+    {
+      "title": "Meaningful book neighborhoods",
+      "detail": "Similarity signals already produce interpretable neighbors such as Oz-to-Oz and Little Women-to-Anne of Green Gables style adjacency, which is the right shape for discovery and list extension."
+    },
+    {
+      "title": "Character-driven corpus",
+      "detail": "Recurring names and dense entity surfaces make the dashboard especially useful for character-centered classroom comparison and catalog storytelling."
+    },
+    {
+      "title": "Windowing matters",
+      "detail": "Book length varies enough that sentiment and theme views should be read as chunked comparisons rather than one-number summaries."
+    }
+  ],
+  "books": [
+    {
+      "id": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "author": "Washington Irving",
+      "authorGender": "male",
+      "publicationYear": 1820,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/41",
+      "localPath": "data/raw/core/41.txt",
+      "wordCount": 12376,
+      "sentenceCount": 354,
+      "typeTokenRatio": 0.2582,
+      "afinnPer10k": 223.82,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1820 Legacy Core title by Washington Irving. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: The Land of the Blue Flower, What Katy Did.",
+      "themes": [
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 12.12,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 9.7,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 4.04,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 1.62,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 1.62,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.81,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0224,
+        "min": -0.0242,
+        "max": 0.0581,
+        "volatility": 0.0824,
+        "shape": "Turbulent",
+        "tone": "Balanced",
+        "label": "Balanced / Turbulent",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0136
+          },
+          {
+            "window": 2,
+            "score": 0.0233
+          },
+          {
+            "window": 3,
+            "score": -0.0029
+          },
+          {
+            "window": 4,
+            "score": 0.0572
+          },
+          {
+            "window": 5,
+            "score": 0.0329
+          },
+          {
+            "window": 6,
+            "score": 0.0436
+          },
+          {
+            "window": 7,
+            "score": 0.0426
+          },
+          {
+            "window": 8,
+            "score": 0.0581
+          },
+          {
+            "window": 9,
+            "score": 0.0184
+          },
+          {
+            "window": 10,
+            "score": -0.0174
+          },
+          {
+            "window": 11,
+            "score": -0.0242
+          },
+          {
+            "window": 12,
+            "score": 0.0234
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1247
+        },
+        {
+          "title": "What Katy Did",
+          "score": 0.1214
+        },
+        {
+          "title": "We and the World, Part I",
+          "score": 0.1085
+        }
+      ],
+      "projection": {
+        "x": 0.3422,
+        "y": 0.0977
+      },
+      "entities": [
+        {
+          "name": "Ichabod",
+          "count": 37,
+          "per10k": 29.9
+        },
+        {
+          "name": "Dutch",
+          "count": 13,
+          "per10k": 10.5
+        },
+        {
+          "name": "Sleepy Hollow",
+          "count": 12,
+          "per10k": 9.7
+        },
+        {
+          "name": "His",
+          "count": 12,
+          "per10k": 9.7
+        },
+        {
+          "name": "Brom Bones",
+          "count": 9,
+          "per10k": 7.27
+        },
+        {
+          "name": "Gunpowder",
+          "count": 9,
+          "per10k": 7.27
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_2",
+        "share": 0.3141,
+        "terms": "jo, amy, mother, mr, aunt, mrs, girls, miss"
+      }
+    },
+    {
+      "id": "the-white-old-maid",
+      "title": "The White Old Maid",
+      "author": "Nathaniel Hawthorne",
+      "authorGender": "male",
+      "publicationYear": 1837,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/9214",
+      "localPath": "data/raw/core/9214.txt",
+      "wordCount": 3965,
+      "sentenceCount": 197,
+      "typeTokenRatio": 0.3077,
+      "afinnPer10k": -239.6,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1837 Legacy Core title by Nathaniel Hawthorne. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Shadowed / Turbulent. Closest neighbors in the current corpus: The Land of the Blue Flower, Treasure Island.",
+      "themes": [
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 7.57,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 7.57,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 0.0,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.0,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.0,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 0.0,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": -0.0239,
+        "min": -0.0876,
+        "max": 0.0634,
+        "volatility": 0.1511,
+        "shape": "Turbulent",
+        "tone": "Shadowed",
+        "label": "Shadowed / Turbulent",
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0211
+          },
+          {
+            "window": 2,
+            "score": -0.0876
+          },
+          {
+            "window": 3,
+            "score": -0.0755
+          },
+          {
+            "window": 4,
+            "score": 0.0634
+          },
+          {
+            "window": 5,
+            "score": -0.0393
+          },
+          {
+            "window": 6,
+            "score": -0.0363
+          },
+          {
+            "window": 7,
+            "score": -0.0272
+          },
+          {
+            "window": 8,
+            "score": -0.0332
+          },
+          {
+            "window": 9,
+            "score": -0.0121
+          },
+          {
+            "window": 10,
+            "score": 0.0
+          },
+          {
+            "window": 11,
+            "score": -0.0151
+          },
+          {
+            "window": 12,
+            "score": -0.0031
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1262
+        },
+        {
+          "title": "Treasure Island",
+          "score": 0.1168
+        },
+        {
+          "title": "The Secret Garden",
+          "score": 0.1116
+        }
+      ],
+      "projection": {
+        "x": 0.3292,
+        "y": 0.0831
+      },
+      "entities": [
+        {
+          "name": "Old Maid",
+          "count": 17,
+          "per10k": 42.88
+        },
+        {
+          "name": "Winding",
+          "count": 8,
+          "per10k": 20.18
+        },
+        {
+          "name": "Sheet",
+          "count": 8,
+          "per10k": 20.18
+        },
+        {
+          "name": "Edith",
+          "count": 4,
+          "per10k": 10.09
+        },
+        {
+          "name": "Caesar",
+          "count": 4,
+          "per10k": 10.09
+        },
+        {
+          "name": "Still",
+          "count": 3,
+          "per10k": 7.57
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_2",
+        "share": 0.6668,
+        "terms": "jo, amy, mother, mr, aunt, mrs, girls, miss"
+      }
+    },
+    {
+      "id": "the-children-of-the-new-forest",
+      "title": "The Children of the New Forest",
+      "author": "Captain Marryat",
+      "authorGender": "male",
+      "publicationYear": 1847,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/6471",
+      "localPath": "data/raw/core/6471.txt",
+      "wordCount": 114549,
+      "sentenceCount": 5681,
+      "typeTokenRatio": 0.0516,
+      "afinnPer10k": 126.58,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1847 Legacy Core title by Captain Marryat. Strongest signals: Adventure, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Land of the Blue Flower, The Emerald City of Oz.",
+      "themes": [
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 18.86,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 18.25,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 8.99,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 6.29,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 3.75,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.17,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0127,
+        "min": -0.0081,
+        "max": 0.0322,
+        "volatility": 0.0402,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0081
+          },
+          {
+            "window": 2,
+            "score": 0.0091
+          },
+          {
+            "window": 3,
+            "score": 0.0163
+          },
+          {
+            "window": 4,
+            "score": 0.0123
+          },
+          {
+            "window": 5,
+            "score": 0.0076
+          },
+          {
+            "window": 6,
+            "score": 0.0142
+          },
+          {
+            "window": 7,
+            "score": -0.0069
+          },
+          {
+            "window": 8,
+            "score": 0.0322
+          },
+          {
+            "window": 9,
+            "score": 0.0112
+          },
+          {
+            "window": 10,
+            "score": 0.017
+          },
+          {
+            "window": 11,
+            "score": 0.019
+          },
+          {
+            "window": 12,
+            "score": 0.028
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1477
+        },
+        {
+          "title": "The Emerald City of Oz",
+          "score": 0.1392
+        },
+        {
+          "title": "Prince Prigio",
+          "score": 0.1389
+        }
+      ],
+      "projection": {
+        "x": 0.2721,
+        "y": 0.3635
+      },
+      "entities": [
+        {
+          "name": "Edward",
+          "count": 1228,
+          "per10k": 107.2
+        },
+        {
+          "name": "Humphrey",
+          "count": 677,
+          "per10k": 59.1
+        },
+        {
+          "name": "Jacob",
+          "count": 278,
+          "per10k": 24.27
+        },
+        {
+          "name": "Pablo",
+          "count": 256,
+          "per10k": 22.35
+        },
+        {
+          "name": "Oswald",
+          "count": 219,
+          "per10k": 19.12
+        },
+        {
+          "name": "Patience",
+          "count": 136,
+          "per10k": 11.87
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_5",
+        "share": 1.0,
+        "terms": "edward, polly, mrs, ben, pepper, jacob, cottage, jasper"
+      }
+    },
+    {
+      "id": "rab-and-his-friends",
+      "title": "Rab and His Friends",
+      "author": "John Brown",
+      "authorGender": "male",
+      "publicationYear": 1859,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/5420",
+      "localPath": "data/raw/core/5420.txt",
+      "wordCount": 6541,
+      "sentenceCount": 317,
+      "typeTokenRatio": 0.2674,
+      "afinnPer10k": 172.76,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1859 Legacy Core title by John Brown. Strongest signals: Animals, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: We and the World, Part I, What Katy Did.",
+      "themes": [
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 16.82,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 12.23,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 7.64,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 3.06,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.0,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.0,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0172,
+        "min": -0.0385,
+        "max": 0.0659,
+        "volatility": 0.1044,
+        "shape": "Turbulent",
+        "tone": "Balanced",
+        "label": "Balanced / Turbulent",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0275
+          },
+          {
+            "window": 2,
+            "score": 0.0659
+          },
+          {
+            "window": 3,
+            "score": 0.0201
+          },
+          {
+            "window": 4,
+            "score": -0.0385
+          },
+          {
+            "window": 5,
+            "score": 0.0366
+          },
+          {
+            "window": 6,
+            "score": 0.0568
+          },
+          {
+            "window": 7,
+            "score": 0.0531
+          },
+          {
+            "window": 8,
+            "score": 0.0275
+          },
+          {
+            "window": 9,
+            "score": -0.0092
+          },
+          {
+            "window": 10,
+            "score": -0.0037
+          },
+          {
+            "window": 11,
+            "score": -0.0037
+          },
+          {
+            "window": 12,
+            "score": -0.0262
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "We and the World, Part I",
+          "score": 0.1181
+        },
+        {
+          "title": "What Katy Did",
+          "score": 0.1132
+        },
+        {
+          "title": "The Pink Fairy Book",
+          "score": 0.1127
+        }
+      ],
+      "projection": {
+        "x": 0.3457,
+        "y": 0.0071
+      },
+      "entities": [
+        {
+          "name": "Rab",
+          "count": 46,
+          "per10k": 70.33
+        },
+        {
+          "name": "James",
+          "count": 34,
+          "per10k": 51.98
+        },
+        {
+          "name": "Ailie",
+          "count": 21,
+          "per10k": 32.11
+        },
+        {
+          "name": "Bob",
+          "count": 12,
+          "per10k": 18.35
+        },
+        {
+          "name": "Jess",
+          "count": 9,
+          "per10k": 13.76
+        },
+        {
+          "name": "John",
+          "count": 7,
+          "per10k": 10.7
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_2",
+        "share": 0.3816,
+        "terms": "jo, amy, mother, mr, aunt, mrs, girls, miss"
+      }
+    },
+    {
+      "id": "alice-s-adventures-in-wonderland",
+      "title": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "authorGender": "male",
+      "publicationYear": 1865,
+      "split": "expanded-core",
+      "splitLabel": "Expanded Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/11",
+      "localPath": "data/raw/expanded/11.txt",
+      "wordCount": 27427,
+      "sentenceCount": 1655,
+      "typeTokenRatio": 0.0939,
+      "afinnPer10k": 52.5,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1865 Expanded Core title by Lewis Carroll. Strongest signals: Animals, Growth. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: The Velveteen Rabbit, Little Women.",
+      "themes": [
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 21.15,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 14.58,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 6.2,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 5.83,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.73,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.36,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0053,
+        "min": -0.0074,
+        "max": 0.0144,
+        "volatility": 0.0219,
+        "shape": "Steady",
+        "tone": "Balanced",
+        "label": "Balanced / Steady",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0144
+          },
+          {
+            "window": 2,
+            "score": 0.0048
+          },
+          {
+            "window": 3,
+            "score": 0.0136
+          },
+          {
+            "window": 4,
+            "score": 0.0096
+          },
+          {
+            "window": 5,
+            "score": 0.0022
+          },
+          {
+            "window": 6,
+            "score": 0.0017
+          },
+          {
+            "window": 7,
+            "score": 0.0066
+          },
+          {
+            "window": 8,
+            "score": 0.0127
+          },
+          {
+            "window": 9,
+            "score": -0.0039
+          },
+          {
+            "window": 10,
+            "score": -0.0074
+          },
+          {
+            "window": 11,
+            "score": 0.0031
+          },
+          {
+            "window": 12,
+            "score": 0.0057
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Velveteen Rabbit",
+          "score": 0.2181
+        },
+        {
+          "title": "Little Women",
+          "score": 0.1469
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.1391
+        }
+      ],
+      "projection": {
+        "x": 0.3858,
+        "y": -0.3012
+      },
+      "entities": [
+        {
+          "name": "Queen",
+          "count": 64,
+          "per10k": 23.33
+        },
+        {
+          "name": "King",
+          "count": 56,
+          "per10k": 20.42
+        },
+        {
+          "name": "Gryphon",
+          "count": 53,
+          "per10k": 19.32
+        },
+        {
+          "name": "Hatter",
+          "count": 49,
+          "per10k": 17.87
+        },
+        {
+          "name": "Mock Turtle",
+          "count": 46,
+          "per10k": 16.77
+        },
+        {
+          "name": "Duchess",
+          "count": 38,
+          "per10k": 13.85
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_4",
+        "share": 0.9998,
+        "terms": "dorothy, alice, oz, scarecrow, lion, woodman, tin, rabbit"
+      }
+    },
+    {
+      "id": "little-women",
+      "title": "Little Women",
+      "author": "Louisa May Alcott",
+      "authorGender": "female",
+      "publicationYear": 1868,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/514",
+      "localPath": "data/raw/core/514.txt",
+      "wordCount": 191238,
+      "sentenceCount": 10213,
+      "typeTokenRatio": 0.0562,
+      "afinnPer10k": 558.47,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1868 Legacy Core title by Louisa May Alcott. Strongest signals: Family, Moral & Emotion. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: Anne of Green Gables, The Wonderful Wizard of Oz.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 41.88,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 21.75,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 10.09,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 1.46,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 1.36,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 1.25,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0558,
+        "min": 0.0445,
+        "max": 0.0748,
+        "volatility": 0.0303,
+        "shape": "Steady",
+        "tone": "Warm",
+        "label": "Warm / Steady",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0465
+          },
+          {
+            "window": 2,
+            "score": 0.0445
+          },
+          {
+            "window": 3,
+            "score": 0.0545
+          },
+          {
+            "window": 4,
+            "score": 0.0504
+          },
+          {
+            "window": 5,
+            "score": 0.0536
+          },
+          {
+            "window": 6,
+            "score": 0.0545
+          },
+          {
+            "window": 7,
+            "score": 0.0449
+          },
+          {
+            "window": 8,
+            "score": 0.0683
+          },
+          {
+            "window": 9,
+            "score": 0.0563
+          },
+          {
+            "window": 10,
+            "score": 0.055
+          },
+          {
+            "window": 11,
+            "score": 0.067
+          },
+          {
+            "window": 12,
+            "score": 0.0748
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Anne of Green Gables",
+          "score": 0.1762
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.173
+        },
+        {
+          "title": "Peter Pan",
+          "score": 0.1687
+        }
+      ],
+      "projection": {
+        "x": 0.3899,
+        "y": -0.3583
+      },
+      "entities": [
+        {
+          "name": "Meg",
+          "count": 646,
+          "per10k": 33.78
+        },
+        {
+          "name": "Amy",
+          "count": 613,
+          "per10k": 32.05
+        },
+        {
+          "name": "Laurie",
+          "count": 574,
+          "per10k": 30.01
+        },
+        {
+          "name": "Beth",
+          "count": 436,
+          "per10k": 22.8
+        },
+        {
+          "name": "Mrs",
+          "count": 238,
+          "per10k": 12.45
+        },
+        {
+          "name": "March",
+          "count": 192,
+          "per10k": 10.04
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_2",
+        "share": 1.0,
+        "terms": "jo, amy, mother, mr, aunt, mrs, girls, miss"
+      }
+    },
+    {
+      "id": "what-katy-did",
+      "title": "What Katy Did",
+      "author": "Susan Coolidge",
+      "authorGender": "female",
+      "publicationYear": 1872,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/8994",
+      "localPath": "data/raw/core/8994.txt",
+      "wordCount": 50038,
+      "sentenceCount": 3610,
+      "typeTokenRatio": 0.0936,
+      "afinnPer10k": 277.19,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1872 Legacy Core title by Susan Coolidge. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, Rebecca of Sunnybrook Farm.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 49.76,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 22.98,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 11.19,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 4.0,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.8,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 0.8,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0277,
+        "min": -0.0091,
+        "max": 0.0669,
+        "volatility": 0.076,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0511
+          },
+          {
+            "window": 2,
+            "score": 0.0264
+          },
+          {
+            "window": 3,
+            "score": 0.0002
+          },
+          {
+            "window": 4,
+            "score": -0.0091
+          },
+          {
+            "window": 5,
+            "score": 0.0113
+          },
+          {
+            "window": 6,
+            "score": 0.0669
+          },
+          {
+            "window": 7,
+            "score": -0.006
+          },
+          {
+            "window": 8,
+            "score": 0.0091
+          },
+          {
+            "window": 9,
+            "score": 0.0441
+          },
+          {
+            "window": 10,
+            "score": 0.0386
+          },
+          {
+            "window": 11,
+            "score": 0.0436
+          },
+          {
+            "window": 12,
+            "score": 0.0564
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.1499
+        },
+        {
+          "title": "Rebecca of Sunnybrook Farm",
+          "score": 0.1349
+        },
+        {
+          "title": "The Secret Garden",
+          "score": 0.1324
+        }
+      ],
+      "projection": {
+        "x": 0.4157,
+        "y": -0.1356
+      },
+      "entities": [
+        {
+          "name": "Katy",
+          "count": 575,
+          "per10k": 114.91
+        },
+        {
+          "name": "Clover",
+          "count": 181,
+          "per10k": 36.17
+        },
+        {
+          "name": "Aunt Izzie",
+          "count": 179,
+          "per10k": 35.77
+        },
+        {
+          "name": "Cousin Helen",
+          "count": 131,
+          "per10k": 26.18
+        },
+        {
+          "name": "Elsie",
+          "count": 123,
+          "per10k": 24.58
+        },
+        {
+          "name": "Papa",
+          "count": 112,
+          "per10k": 22.38
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_3",
+        "share": 0.5552,
+        "terms": "katy, diamond, trot, peter, cap, blue, mother, button"
+      }
+    },
+    {
+      "id": "five-little-peppers-and-how-they-grew",
+      "title": "Five Little Peppers and How They Grew",
+      "author": "Margaret Sidney",
+      "authorGender": "female",
+      "publicationYear": 1881,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/2770",
+      "localPath": "data/raw/core/2770.txt",
+      "wordCount": 70003,
+      "sentenceCount": 5172,
+      "typeTokenRatio": 0.0707,
+      "afinnPer10k": 269.13,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1881 Legacy Core title by Margaret Sidney. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Sky Island.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 33.14,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 13.29,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 6.0,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 5.29,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.57,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.43,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0269,
+        "min": 0.0067,
+        "max": 0.0538,
+        "volatility": 0.0471,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0333
+          },
+          {
+            "window": 2,
+            "score": 0.0231
+          },
+          {
+            "window": 3,
+            "score": 0.0074
+          },
+          {
+            "window": 4,
+            "score": 0.0132
+          },
+          {
+            "window": 5,
+            "score": 0.0324
+          },
+          {
+            "window": 6,
+            "score": 0.0291
+          },
+          {
+            "window": 7,
+            "score": 0.0429
+          },
+          {
+            "window": 8,
+            "score": 0.0538
+          },
+          {
+            "window": 9,
+            "score": 0.0345
+          },
+          {
+            "window": 10,
+            "score": 0.0192
+          },
+          {
+            "window": 11,
+            "score": 0.0274
+          },
+          {
+            "window": 12,
+            "score": 0.0067
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Little Women",
+          "score": 0.0936
+        },
+        {
+          "title": "Sky Island",
+          "score": 0.0871
+        },
+        {
+          "title": "What Katy Did",
+          "score": 0.0868
+        }
+      ],
+      "projection": {
+        "x": 0.2599,
+        "y": -0.096
+      },
+      "entities": [
+        {
+          "name": "Polly",
+          "count": 1217,
+          "per10k": 173.85
+        },
+        {
+          "name": "Phronsie",
+          "count": 435,
+          "per10k": 62.14
+        },
+        {
+          "name": "Mrs",
+          "count": 377,
+          "per10k": 53.85
+        },
+        {
+          "name": "Ben",
+          "count": 355,
+          "per10k": 50.71
+        },
+        {
+          "name": "Joel",
+          "count": 324,
+          "per10k": 46.28
+        },
+        {
+          "name": "Pepper",
+          "count": 296,
+          "per10k": 42.28
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_5",
+        "share": 0.9999,
+        "terms": "edward, polly, mrs, ben, pepper, jacob, cottage, jasper"
+      }
+    },
+    {
+      "id": "treasure-island",
+      "title": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "authorGender": "male",
+      "publicationYear": 1883,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/120",
+      "localPath": "data/raw/core/120.txt",
+      "wordCount": 70496,
+      "sentenceCount": 3950,
+      "typeTokenRatio": 0.0837,
+      "afinnPer10k": 21.99,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1883 Legacy Core title by Robert Louis Stevenson. Strongest signals: Adventure, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Land of the Blue Flower, The White Old Maid.",
+      "themes": [
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 37.87,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 8.94,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 8.51,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 6.67,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 2.55,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.14,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0022,
+        "min": -0.0252,
+        "max": 0.0368,
+        "volatility": 0.062,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0
+          },
+          {
+            "window": 2,
+            "score": -0.0252
+          },
+          {
+            "window": 3,
+            "score": 0.0368
+          },
+          {
+            "window": 4,
+            "score": 0.0049
+          },
+          {
+            "window": 5,
+            "score": 0.007
+          },
+          {
+            "window": 6,
+            "score": 0.0019
+          },
+          {
+            "window": 7,
+            "score": 0.0054
+          },
+          {
+            "window": 8,
+            "score": -0.0124
+          },
+          {
+            "window": 9,
+            "score": -0.0082
+          },
+          {
+            "window": 10,
+            "score": -0.0034
+          },
+          {
+            "window": 11,
+            "score": 0.0107
+          },
+          {
+            "window": 12,
+            "score": 0.0089
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1453
+        },
+        {
+          "title": "The White Old Maid",
+          "score": 0.1168
+        },
+        {
+          "title": "We and the World, Part I",
+          "score": 0.1155
+        }
+      ],
+      "projection": {
+        "x": 0.3488,
+        "y": 0.0897
+      },
+      "entities": [
+        {
+          "name": "Silver",
+          "count": 187,
+          "per10k": 26.53
+        },
+        {
+          "name": "Jim",
+          "count": 84,
+          "per10k": 11.92
+        },
+        {
+          "name": "Livesey",
+          "count": 55,
+          "per10k": 7.8
+        },
+        {
+          "name": "Flint",
+          "count": 50,
+          "per10k": 7.09
+        },
+        {
+          "name": "All",
+          "count": 44,
+          "per10k": 6.24
+        },
+        {
+          "name": "Hawkins",
+          "count": 39,
+          "per10k": 5.53
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_1",
+        "share": 0.9999,
+        "terms": "mary, th, garden, captain, mother, jem, doctor, martha"
+      }
+    },
+    {
+      "id": "we-and-the-world-part-i",
+      "title": "We and the World, Part I",
+      "author": "Juliana Horatia Ewing",
+      "authorGender": "female",
+      "publicationYear": 1885,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/18077",
+      "localPath": "data/raw/core/18077.txt",
+      "wordCount": 49972,
+      "sentenceCount": 2297,
+      "typeTokenRatio": 0.1208,
+      "afinnPer10k": 126.27,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1885 Legacy Core title by Juliana Horatia Ewing. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: What Katy Did, The Secret Garden.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 56.63,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 25.41,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 11.01,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 5.4,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 1.8,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.8,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0126,
+        "min": -0.0245,
+        "max": 0.0343,
+        "volatility": 0.0588,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0343
+          },
+          {
+            "window": 2,
+            "score": 0.0055
+          },
+          {
+            "window": 3,
+            "score": 0.0154
+          },
+          {
+            "window": 4,
+            "score": 0.0281
+          },
+          {
+            "window": 5,
+            "score": 0.0067
+          },
+          {
+            "window": 6,
+            "score": 0.0072
+          },
+          {
+            "window": 7,
+            "score": 0.0146
+          },
+          {
+            "window": 8,
+            "score": 0.0182
+          },
+          {
+            "window": 9,
+            "score": -0.0245
+          },
+          {
+            "window": 10,
+            "score": 0.0106
+          },
+          {
+            "window": 11,
+            "score": 0.0065
+          },
+          {
+            "window": 12,
+            "score": 0.0289
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "What Katy Did",
+          "score": 0.1311
+        },
+        {
+          "title": "The Secret Garden",
+          "score": 0.1298
+        },
+        {
+          "title": "At the Back of the North Wind",
+          "score": 0.1208
+        }
+      ],
+      "projection": {
+        "x": 0.3912,
+        "y": -0.0564
+      },
+      "entities": [
+        {
+          "name": "Jem",
+          "count": 207,
+          "per10k": 41.42
+        },
+        {
+          "name": "Wood",
+          "count": 76,
+          "per10k": 15.21
+        },
+        {
+          "name": "Charlie",
+          "count": 61,
+          "per10k": 12.21
+        },
+        {
+          "name": "Crayshaw",
+          "count": 55,
+          "per10k": 11.01
+        },
+        {
+          "name": "Mrs",
+          "count": 44,
+          "per10k": 8.8
+        },
+        {
+          "name": "Jack",
+          "count": 37,
+          "per10k": 7.4
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_1",
+        "share": 0.7368,
+        "terms": "mary, th, garden, captain, mother, jem, doctor, martha"
+      }
+    },
+    {
+      "id": "prince-prigio",
+      "title": "Prince Prigio",
+      "author": "Andrew Lang",
+      "authorGender": "male",
+      "publicationYear": 1889,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/21935",
+      "localPath": "data/raw/core/21935.txt",
+      "wordCount": 18417,
+      "sentenceCount": 1018,
+      "typeTokenRatio": 0.1496,
+      "afinnPer10k": 156.92,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1889 Legacy Core title by Andrew Lang. Strongest signals: Fantasy, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Pink Fairy Book, The Land of the Blue Flower.",
+      "themes": [
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 18.46,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 18.46,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 8.69,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 5.97,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.54,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 0.54,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0157,
+        "min": -0.0202,
+        "max": 0.058,
+        "volatility": 0.0782,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.058
+          },
+          {
+            "window": 2,
+            "score": 0.0313
+          },
+          {
+            "window": 3,
+            "score": 0.0156
+          },
+          {
+            "window": 4,
+            "score": -0.0202
+          },
+          {
+            "window": 5,
+            "score": 0.0443
+          },
+          {
+            "window": 6,
+            "score": 0.0117
+          },
+          {
+            "window": 7,
+            "score": -0.0104
+          },
+          {
+            "window": 8,
+            "score": 0.0111
+          },
+          {
+            "window": 9,
+            "score": 0.002
+          },
+          {
+            "window": 10,
+            "score": -0.0176
+          },
+          {
+            "window": 11,
+            "score": 0.0163
+          },
+          {
+            "window": 12,
+            "score": 0.0463
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Pink Fairy Book",
+          "score": 0.1936
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1898
+        },
+        {
+          "title": "The Emerald City of Oz",
+          "score": 0.1857
+        }
+      ],
+      "projection": {
+        "x": 0.4055,
+        "y": 0.3426
+      },
+      "entities": [
+        {
+          "name": "Firedrake",
+          "count": 76,
+          "per10k": 41.27
+        },
+        {
+          "name": "Prigio",
+          "count": 45,
+          "per10k": 24.43
+        },
+        {
+          "name": "Prince Prigio",
+          "count": 33,
+          "per10k": 17.92
+        },
+        {
+          "name": "Remora",
+          "count": 33,
+          "per10k": 17.92
+        },
+        {
+          "name": "Benson",
+          "count": 23,
+          "per10k": 12.49
+        },
+        {
+          "name": "Enrico",
+          "count": 22,
+          "per10k": 11.95
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_1",
+        "share": 0.6034,
+        "terms": "mary, th, garden, captain, mother, jem, doctor, martha"
+      }
+    },
+    {
+      "id": "the-pink-fairy-book",
+      "title": "The Pink Fairy Book",
+      "author": "Various",
+      "authorGender": "mixed",
+      "publicationYear": 1889,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/5615",
+      "localPath": "data/raw/core/5615.txt",
+      "wordCount": 99703,
+      "sentenceCount": 5179,
+      "typeTokenRatio": 0.0516,
+      "afinnPer10k": 158.27,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1889 Legacy Core title by Various. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: Prince Prigio, The Land of the Blue Flower.",
+      "themes": [
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 27.78,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 25.07,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 16.35,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 11.43,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 6.72,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 5.42,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0158,
+        "min": -0.0048,
+        "max": 0.0307,
+        "volatility": 0.0355,
+        "shape": "Steady",
+        "tone": "Balanced",
+        "label": "Balanced / Steady",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0066
+          },
+          {
+            "window": 2,
+            "score": 0.0297
+          },
+          {
+            "window": 3,
+            "score": 0.0188
+          },
+          {
+            "window": 4,
+            "score": 0.0307
+          },
+          {
+            "window": 5,
+            "score": 0.014
+          },
+          {
+            "window": 6,
+            "score": 0.0237
+          },
+          {
+            "window": 7,
+            "score": 0.0241
+          },
+          {
+            "window": 8,
+            "score": 0.0166
+          },
+          {
+            "window": 9,
+            "score": -0.0002
+          },
+          {
+            "window": 10,
+            "score": 0.0225
+          },
+          {
+            "window": 11,
+            "score": -0.0048
+          },
+          {
+            "window": 12,
+            "score": 0.0083
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Prince Prigio",
+          "score": 0.1936
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1384
+        },
+        {
+          "title": "The Secret Garden",
+          "score": 0.1276
+        }
+      ],
+      "projection": {
+        "x": 0.3825,
+        "y": 0.246
+      },
+      "entities": [
+        {
+          "name": "Ciccu",
+          "count": 90,
+          "per10k": 9.03
+        },
+        {
+          "name": "Gerda",
+          "count": 73,
+          "per10k": 7.32
+        },
+        {
+          "name": "Esben",
+          "count": 66,
+          "per10k": 6.62
+        },
+        {
+          "name": "Hans",
+          "count": 63,
+          "per10k": 6.32
+        },
+        {
+          "name": "One",
+          "count": 46,
+          "per10k": 4.61
+        },
+        {
+          "name": "Kay",
+          "count": 46,
+          "per10k": 4.61
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_2",
+        "share": 0.8629,
+        "terms": "jo, amy, mother, mr, aunt, mrs, girls, miss"
+      }
+    },
+    {
+      "id": "the-jungle-book",
+      "title": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "authorGender": "male",
+      "publicationYear": 1894,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/236",
+      "localPath": "data/raw/core/236.txt",
+      "wordCount": 52346,
+      "sentenceCount": 3215,
+      "typeTokenRatio": 0.0875,
+      "afinnPer10k": -106.79,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1894 Legacy Core title by Rudyard Kipling. Strongest signals: Family, Adventure. Narrative pacing reads as Shadowed / Mixed. Closest neighbors in the current corpus: We and the World, Part I, The Secret Garden.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 34.58,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 8.98,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 7.83,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 7.07,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 5.16,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.96,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": -0.0107,
+        "min": -0.0351,
+        "max": 0.0126,
+        "volatility": 0.0477,
+        "shape": "Mixed",
+        "tone": "Shadowed",
+        "label": "Shadowed / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.017
+          },
+          {
+            "window": 2,
+            "score": -0.0351
+          },
+          {
+            "window": 3,
+            "score": -0.0186
+          },
+          {
+            "window": 4,
+            "score": -0.0073
+          },
+          {
+            "window": 5,
+            "score": -0.0069
+          },
+          {
+            "window": 6,
+            "score": -0.0154
+          },
+          {
+            "window": 7,
+            "score": -0.0023
+          },
+          {
+            "window": 8,
+            "score": -0.0011
+          },
+          {
+            "window": 9,
+            "score": -0.0163
+          },
+          {
+            "window": 10,
+            "score": 0.0126
+          },
+          {
+            "window": 11,
+            "score": -0.0229
+          },
+          {
+            "window": 12,
+            "score": 0.0021
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "We and the World, Part I",
+          "score": 0.1077
+        },
+        {
+          "title": "The Secret Garden",
+          "score": 0.0852
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.0764
+        }
+      ],
+      "projection": {
+        "x": 0.2319,
+        "y": -0.0101
+      },
+      "entities": [
+        {
+          "name": "Mowgli",
+          "count": 208,
+          "per10k": 39.74
+        },
+        {
+          "name": "Bagheera",
+          "count": 126,
+          "per10k": 24.07
+        },
+        {
+          "name": "Rikki",
+          "count": 101,
+          "per10k": 19.29
+        },
+        {
+          "name": "Baloo",
+          "count": 89,
+          "per10k": 17.0
+        },
+        {
+          "name": "Shere Khan",
+          "count": 82,
+          "per10k": 15.66
+        },
+        {
+          "name": "Kotick",
+          "count": 73,
+          "per10k": 13.95
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_3",
+        "share": 0.9999,
+        "terms": "katy, diamond, trot, peter, cap, blue, mother, button"
+      }
+    },
+    {
+      "id": "the-wonderful-wizard-of-oz",
+      "title": "The Wonderful Wizard of Oz",
+      "author": "L. Frank Baum",
+      "authorGender": "male",
+      "publicationYear": 1900,
+      "split": "expanded-core",
+      "splitLabel": "Expanded Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/55",
+      "localPath": "data/raw/expanded/55.txt",
+      "wordCount": 40000,
+      "sentenceCount": 2256,
+      "typeTokenRatio": 0.0733,
+      "afinnPer10k": 224.5,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1900 Expanded Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Emerald City of Oz, Little Women.",
+      "themes": [
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 19.5,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 16.5,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 12.5,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 11.75,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 5.25,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 4.5,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0225,
+        "min": -0.0138,
+        "max": 0.0541,
+        "volatility": 0.0679,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0183
+          },
+          {
+            "window": 2,
+            "score": 0.0288
+          },
+          {
+            "window": 3,
+            "score": 0.0024
+          },
+          {
+            "window": 4,
+            "score": -0.0105
+          },
+          {
+            "window": 5,
+            "score": 0.0381
+          },
+          {
+            "window": 6,
+            "score": 0.0366
+          },
+          {
+            "window": 7,
+            "score": -0.0138
+          },
+          {
+            "window": 8,
+            "score": -0.0012
+          },
+          {
+            "window": 9,
+            "score": 0.0303
+          },
+          {
+            "window": 10,
+            "score": 0.051
+          },
+          {
+            "window": 11,
+            "score": 0.0354
+          },
+          {
+            "window": 12,
+            "score": 0.0541
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Emerald City of Oz",
+          "score": 0.2092
+        },
+        {
+          "title": "Little Women",
+          "score": 0.173
+        },
+        {
+          "title": "What Katy Did",
+          "score": 0.1499
+        }
+      ],
+      "projection": {
+        "x": 0.4452,
+        "y": -0.0459
+      },
+      "entities": [
+        {
+          "name": "Dorothy",
+          "count": 335,
+          "per10k": 83.75
+        },
+        {
+          "name": "Scarecrow",
+          "count": 198,
+          "per10k": 49.5
+        },
+        {
+          "name": "Lion",
+          "count": 137,
+          "per10k": 34.25
+        },
+        {
+          "name": "Tin Woodman",
+          "count": 96,
+          "per10k": 24.0
+        },
+        {
+          "name": "Toto",
+          "count": 88,
+          "per10k": 22.0
+        },
+        {
+          "name": "Woodman",
+          "count": 64,
+          "per10k": 16.0
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_4",
+        "share": 0.9999,
+        "terms": "dorothy, alice, oz, scarecrow, lion, woodman, tin, rabbit"
+      }
+    },
+    {
+      "id": "peter-pan",
+      "title": "Peter Pan",
+      "author": "James M. Barrie",
+      "authorGender": "male",
+      "publicationYear": 1902,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/16",
+      "localPath": "data/raw/core/16.txt",
+      "wordCount": 48036,
+      "sentenceCount": 3367,
+      "typeTokenRatio": 0.1003,
+      "afinnPer10k": 36.64,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1902 Legacy Core title by James M. Barrie. Strongest signals: Family, Adventure. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Anne of Green Gables.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 31.23,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 15.41,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 11.66,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 7.91,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 7.29,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 4.79,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0037,
+        "min": -0.024,
+        "max": 0.0242,
+        "volatility": 0.0482,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0177
+          },
+          {
+            "window": 2,
+            "score": 0.0242
+          },
+          {
+            "window": 3,
+            "score": 0.0082
+          },
+          {
+            "window": 4,
+            "score": -0.0132
+          },
+          {
+            "window": 5,
+            "score": 0.0057
+          },
+          {
+            "window": 6,
+            "score": 0.0065
+          },
+          {
+            "window": 7,
+            "score": 0.008
+          },
+          {
+            "window": 8,
+            "score": 0.005
+          },
+          {
+            "window": 9,
+            "score": -0.0162
+          },
+          {
+            "window": 10,
+            "score": -0.024
+          },
+          {
+            "window": 11,
+            "score": 0.0172
+          },
+          {
+            "window": 12,
+            "score": 0.0047
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Little Women",
+          "score": 0.1687
+        },
+        {
+          "title": "Anne of Green Gables",
+          "score": 0.1667
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.1182
+        }
+      ],
+      "projection": {
+        "x": 0.3688,
+        "y": -0.289
+      },
+      "entities": [
+        {
+          "name": "Peter",
+          "count": 370,
+          "per10k": 77.03
+        },
+        {
+          "name": "Wendy",
+          "count": 333,
+          "per10k": 69.32
+        },
+        {
+          "name": "Hook",
+          "count": 142,
+          "per10k": 29.56
+        },
+        {
+          "name": "John",
+          "count": 128,
+          "per10k": 26.65
+        },
+        {
+          "name": "Darling",
+          "count": 112,
+          "per10k": 23.32
+        },
+        {
+          "name": "Michael",
+          "count": 105,
+          "per10k": 21.86
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_3",
+        "share": 0.9999,
+        "terms": "katy, diamond, trot, peter, cap, blue, mother, button"
+      }
+    },
+    {
+      "id": "rebecca-of-sunnybrook-farm",
+      "title": "Rebecca of Sunnybrook Farm",
+      "author": "Kate Douglas Wiggin",
+      "authorGender": "female",
+      "publicationYear": 1903,
+      "split": "expanded-core",
+      "splitLabel": "Expanded Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/498",
+      "localPath": "data/raw/expanded/498.txt",
+      "wordCount": 74256,
+      "sentenceCount": 3781,
+      "typeTokenRatio": 0.1054,
+      "afinnPer10k": 302.47,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1903 Expanded Core title by Kate Douglas Wiggin. Strongest signals: Family, Growth. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: What Katy Did, The Land of the Blue Flower.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 55.35,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 29.09,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 11.72,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 4.85,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 2.29,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 2.02,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0302,
+        "min": 0.011,
+        "max": 0.041,
+        "volatility": 0.0301,
+        "shape": "Steady",
+        "tone": "Warm",
+        "label": "Warm / Steady",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0315
+          },
+          {
+            "window": 2,
+            "score": 0.0205
+          },
+          {
+            "window": 3,
+            "score": 0.011
+          },
+          {
+            "window": 4,
+            "score": 0.0373
+          },
+          {
+            "window": 5,
+            "score": 0.0333
+          },
+          {
+            "window": 6,
+            "score": 0.0322
+          },
+          {
+            "window": 7,
+            "score": 0.037
+          },
+          {
+            "window": 8,
+            "score": 0.041
+          },
+          {
+            "window": 9,
+            "score": 0.0322
+          },
+          {
+            "window": 10,
+            "score": 0.037
+          },
+          {
+            "window": 11,
+            "score": 0.0241
+          },
+          {
+            "window": 12,
+            "score": 0.0259
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "What Katy Did",
+          "score": 0.1349
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1304
+        },
+        {
+          "title": "The Secret Garden",
+          "score": 0.1271
+        }
+      ],
+      "projection": {
+        "x": 0.3824,
+        "y": -0.0156
+      },
+      "entities": [
+        {
+          "name": "Rebecca",
+          "count": 633,
+          "per10k": 85.25
+        },
+        {
+          "name": "Emma Jane",
+          "count": 139,
+          "per10k": 18.72
+        },
+        {
+          "name": "Jane",
+          "count": 127,
+          "per10k": 17.1
+        },
+        {
+          "name": "Miranda",
+          "count": 116,
+          "per10k": 15.62
+        },
+        {
+          "name": "Mrs",
+          "count": 110,
+          "per10k": 14.81
+        },
+        {
+          "name": "Cobb",
+          "count": 92,
+          "per10k": 12.39
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_2",
+        "share": 0.9973,
+        "terms": "jo, amy, mother, mr, aunt, mrs, girls, miss"
+      }
+    },
+    {
+      "id": "anne-of-green-gables",
+      "title": "Anne of Green Gables",
+      "author": "Lucy Maud Montgomery",
+      "authorGender": "female",
+      "publicationYear": 1908,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/45",
+      "localPath": "data/raw/core/45.txt",
+      "wordCount": 107151,
+      "sentenceCount": 7399,
+      "typeTokenRatio": 0.0692,
+      "afinnPer10k": 285.3,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1908 Legacy Core title by Lucy Maud Montgomery. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Peter Pan.",
+      "themes": [
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 28.74,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 14.28,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 10.92,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 2.05,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 1.96,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 0.56,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0285,
+        "min": 0.0043,
+        "max": 0.0531,
+        "volatility": 0.0489,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0275
+          },
+          {
+            "window": 2,
+            "score": 0.0345
+          },
+          {
+            "window": 3,
+            "score": 0.0244
+          },
+          {
+            "window": 4,
+            "score": 0.0193
+          },
+          {
+            "window": 5,
+            "score": 0.0043
+          },
+          {
+            "window": 6,
+            "score": 0.0277
+          },
+          {
+            "window": 7,
+            "score": 0.0204
+          },
+          {
+            "window": 8,
+            "score": 0.0401
+          },
+          {
+            "window": 9,
+            "score": 0.0097
+          },
+          {
+            "window": 10,
+            "score": 0.0361
+          },
+          {
+            "window": 11,
+            "score": 0.0454
+          },
+          {
+            "window": 12,
+            "score": 0.0531
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Little Women",
+          "score": 0.1762
+        },
+        {
+          "title": "Peter Pan",
+          "score": 0.1667
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.1435
+        }
+      ],
+      "projection": {
+        "x": 0.2918,
+        "y": -0.3644
+      },
+      "entities": [
+        {
+          "name": "Anne",
+          "count": 1109,
+          "per10k": 103.5
+        },
+        {
+          "name": "Marilla",
+          "count": 796,
+          "per10k": 74.29
+        },
+        {
+          "name": "Mrs",
+          "count": 388,
+          "per10k": 36.21
+        },
+        {
+          "name": "Diana",
+          "count": 388,
+          "per10k": 36.21
+        },
+        {
+          "name": "Matthew",
+          "count": 321,
+          "per10k": 29.96
+        },
+        {
+          "name": "Lynde",
+          "count": 134,
+          "per10k": 12.51
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_6",
+        "share": 1.0,
+        "terms": "anne, toad, diana, mrs, rat, matthew, mole, mr"
+      }
+    },
+    {
+      "id": "the-wind-in-the-willows",
+      "title": "The Wind in the Willows",
+      "author": "Kenneth Grahame",
+      "authorGender": "male",
+      "publicationYear": 1908,
+      "split": "expanded-core",
+      "splitLabel": "Expanded Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/289",
+      "localPath": "data/raw/expanded/289.txt",
+      "wordCount": 60770,
+      "sentenceCount": 3275,
+      "typeTokenRatio": 0.1065,
+      "afinnPer10k": 177.55,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1908 Expanded Core title by Kenneth Grahame. Strongest signals: Animals, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Alice's Adventures in Wonderland.",
+      "themes": [
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 78.16,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 4.77,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 4.44,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 3.62,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 2.47,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.66,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0178,
+        "min": -0.0063,
+        "max": 0.0359,
+        "volatility": 0.0423,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0296
+          },
+          {
+            "window": 2,
+            "score": 0.0338
+          },
+          {
+            "window": 3,
+            "score": -0.0063
+          },
+          {
+            "window": 4,
+            "score": 0.0012
+          },
+          {
+            "window": 5,
+            "score": 0.015
+          },
+          {
+            "window": 6,
+            "score": 0.0107
+          },
+          {
+            "window": 7,
+            "score": 0.0221
+          },
+          {
+            "window": 8,
+            "score": 0.0217
+          },
+          {
+            "window": 9,
+            "score": 0.0359
+          },
+          {
+            "window": 10,
+            "score": 0.016
+          },
+          {
+            "window": 11,
+            "score": 0.0128
+          },
+          {
+            "window": 12,
+            "score": 0.0206
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Little Women",
+          "score": 0.1315
+        },
+        {
+          "title": "Alice's Adventures in Wonderland",
+          "score": 0.127
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.118
+        }
+      ],
+      "projection": {
+        "x": 0.3491,
+        "y": -0.2155
+      },
+      "entities": [
+        {
+          "name": "Toad",
+          "count": 377,
+          "per10k": 62.04
+        },
+        {
+          "name": "Rat",
+          "count": 290,
+          "per10k": 47.72
+        },
+        {
+          "name": "Mole",
+          "count": 269,
+          "per10k": 44.27
+        },
+        {
+          "name": "Badger",
+          "count": 133,
+          "per10k": 21.89
+        },
+        {
+          "name": "Ratty",
+          "count": 42,
+          "per10k": 6.91
+        },
+        {
+          "name": "The Rat",
+          "count": 40,
+          "per10k": 6.58
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_6",
+        "share": 0.9999,
+        "terms": "anne, toad, diana, mrs, rat, matthew, mole, mr"
+      }
+    },
+    {
+      "id": "the-land-of-the-blue-flower",
+      "title": "The Land of the Blue Flower",
+      "author": "Frances Hodgson Burnett",
+      "authorGender": "female",
+      "publicationYear": 1909,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/5302",
+      "localPath": "data/raw/core/5302.txt",
+      "wordCount": 7785,
+      "sentenceCount": 387,
+      "typeTokenRatio": 0.1771,
+      "afinnPer10k": 210.66,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1909 Legacy Core title by Frances Hodgson Burnett. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: The Emerald City of Oz, Prince Prigio.",
+      "themes": [
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 20.55,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 10.28,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 8.99,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 6.42,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 2.57,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 2.57,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0211,
+        "min": -0.0385,
+        "max": 0.0878,
+        "volatility": 0.1263,
+        "shape": "Turbulent",
+        "tone": "Balanced",
+        "label": "Balanced / Turbulent",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0169
+          },
+          {
+            "window": 2,
+            "score": 0.0508
+          },
+          {
+            "window": 3,
+            "score": 0.0339
+          },
+          {
+            "window": 4,
+            "score": 0.0878
+          },
+          {
+            "window": 5,
+            "score": -0.0385
+          },
+          {
+            "window": 6,
+            "score": 0.0632
+          },
+          {
+            "window": 7,
+            "score": -0.0139
+          },
+          {
+            "window": 8,
+            "score": -0.0308
+          },
+          {
+            "window": 9,
+            "score": 0.0139
+          },
+          {
+            "window": 10,
+            "score": 0.0431
+          },
+          {
+            "window": 11,
+            "score": 0.0293
+          },
+          {
+            "window": 12,
+            "score": -0.0031
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Emerald City of Oz",
+          "score": 0.202
+        },
+        {
+          "title": "Prince Prigio",
+          "score": 0.1898
+        },
+        {
+          "title": "The Children of the New Forest",
+          "score": 0.1477
+        }
+      ],
+      "projection": {
+        "x": 0.4406,
+        "y": 0.4234
+      },
+      "entities": [
+        {
+          "name": "King",
+          "count": 36,
+          "per10k": 46.24
+        },
+        {
+          "name": "Ancient One",
+          "count": 24,
+          "per10k": 30.83
+        },
+        {
+          "name": "Blue Flower",
+          "count": 23,
+          "per10k": 29.54
+        },
+        {
+          "name": "King Amor",
+          "count": 19,
+          "per10k": 24.41
+        },
+        {
+          "name": "King Mordreth",
+          "count": 9,
+          "per10k": 11.56
+        },
+        {
+          "name": "Amor",
+          "count": 8,
+          "per10k": 10.28
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_3",
+        "share": 0.8987,
+        "terms": "katy, diamond, trot, peter, cap, blue, mother, button"
+      }
+    },
+    {
+      "id": "the-emerald-city-of-oz",
+      "title": "The Emerald City of Oz",
+      "author": "L. Frank Baum",
+      "authorGender": "male",
+      "publicationYear": 1910,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/517",
+      "localPath": "data/raw/core/517.txt",
+      "wordCount": 53995,
+      "sentenceCount": 3563,
+      "typeTokenRatio": 0.0897,
+      "afinnPer10k": 261.32,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1910 Legacy Core title by L. Frank Baum. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, The Land of the Blue Flower.",
+      "themes": [
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 50.56,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 49.82,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 11.3,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 10.0,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 8.7,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 7.41,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0261,
+        "min": -0.0027,
+        "max": 0.0636,
+        "volatility": 0.0662,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0027
+          },
+          {
+            "window": 2,
+            "score": 0.0636
+          },
+          {
+            "window": 3,
+            "score": 0.0376
+          },
+          {
+            "window": 4,
+            "score": 0.0576
+          },
+          {
+            "window": 5,
+            "score": 0.0142
+          },
+          {
+            "window": 6,
+            "score": 0.0316
+          },
+          {
+            "window": 7,
+            "score": 0.0116
+          },
+          {
+            "window": 8,
+            "score": 0.0227
+          },
+          {
+            "window": 9,
+            "score": 0.0396
+          },
+          {
+            "window": 10,
+            "score": 0.0124
+          },
+          {
+            "window": 11,
+            "score": 0.0027
+          },
+          {
+            "window": 12,
+            "score": 0.0229
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.2092
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.202
+        },
+        {
+          "title": "Prince Prigio",
+          "score": 0.1857
+        }
+      ],
+      "projection": {
+        "x": 0.3171,
+        "y": 0.4774
+      },
+      "entities": [
+        {
+          "name": "Dorothy",
+          "count": 371,
+          "per10k": 68.71
+        },
+        {
+          "name": "Ozma",
+          "count": 158,
+          "per10k": 29.26
+        },
+        {
+          "name": "King",
+          "count": 156,
+          "per10k": 28.89
+        },
+        {
+          "name": "Aunt Em",
+          "count": 121,
+          "per10k": 22.41
+        },
+        {
+          "name": "Wizard",
+          "count": 114,
+          "per10k": 21.11
+        },
+        {
+          "name": "Uncle Henry",
+          "count": 81,
+          "per10k": 15.0
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_6",
+        "share": 0.5493,
+        "terms": "anne, toad, diana, mrs, rat, matthew, mole, mr"
+      }
+    },
+    {
+      "id": "the-secret-garden",
+      "title": "The Secret Garden",
+      "author": "Frances Hodgson Burnett",
+      "authorGender": "female",
+      "publicationYear": 1911,
+      "split": "expanded-core",
+      "splitLabel": "Expanded Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/113",
+      "localPath": "data/raw/expanded/113.txt",
+      "wordCount": 83165,
+      "sentenceCount": 6363,
+      "typeTokenRatio": 0.0579,
+      "afinnPer10k": 252.39,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1911 Expanded Core title by Frances Hodgson Burnett. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: What Katy Did, We and the World, Part I.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 20.08,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 14.79,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 12.39,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 5.77,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 3.25,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.96,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0252,
+        "min": -0.0014,
+        "max": 0.0456,
+        "volatility": 0.047,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0014
+          },
+          {
+            "window": 2,
+            "score": 0.0245
+          },
+          {
+            "window": 3,
+            "score": 0.0286
+          },
+          {
+            "window": 4,
+            "score": 0.0319
+          },
+          {
+            "window": 5,
+            "score": 0.0287
+          },
+          {
+            "window": 6,
+            "score": 0.0175
+          },
+          {
+            "window": 7,
+            "score": 0.0215
+          },
+          {
+            "window": 8,
+            "score": 0.0095
+          },
+          {
+            "window": 9,
+            "score": 0.0237
+          },
+          {
+            "window": 10,
+            "score": 0.0374
+          },
+          {
+            "window": 11,
+            "score": 0.0456
+          },
+          {
+            "window": 12,
+            "score": 0.0355
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "What Katy Did",
+          "score": 0.1324
+        },
+        {
+          "title": "We and the World, Part I",
+          "score": 0.1298
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "score": 0.1297
+        }
+      ],
+      "projection": {
+        "x": 0.4044,
+        "y": -0.0178
+      },
+      "entities": [
+        {
+          "name": "Mary",
+          "count": 594,
+          "per10k": 71.42
+        },
+        {
+          "name": "Colin",
+          "count": 295,
+          "per10k": 35.47
+        },
+        {
+          "name": "Dickon",
+          "count": 291,
+          "per10k": 34.99
+        },
+        {
+          "name": "Martha",
+          "count": 182,
+          "per10k": 21.88
+        },
+        {
+          "name": "Mrs",
+          "count": 152,
+          "per10k": 18.28
+        },
+        {
+          "name": "Medlock",
+          "count": 133,
+          "per10k": 15.99
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_1",
+        "share": 0.9904,
+        "terms": "mary, th, garden, captain, mother, jem, doctor, martha"
+      }
+    },
+    {
+      "id": "sky-island",
+      "title": "Sky Island",
+      "author": "L. Frank Baum",
+      "authorGender": "male",
+      "publicationYear": 1912,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/4356",
+      "localPath": "data/raw/core/4356.txt",
+      "wordCount": 55354,
+      "sentenceCount": 3532,
+      "typeTokenRatio": 0.087,
+      "afinnPer10k": 183.37,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1912 Legacy Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Velveteen Rabbit, Prince Prigio.",
+      "themes": [
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 28.18,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 23.12,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 7.95,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 7.59,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 5.24,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 3.61,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0183,
+        "min": -0.0076,
+        "max": 0.0431,
+        "volatility": 0.0507,
+        "shape": "Mixed",
+        "tone": "Balanced",
+        "label": "Balanced / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0431
+          },
+          {
+            "window": 2,
+            "score": 0.0377
+          },
+          {
+            "window": 3,
+            "score": -0.0061
+          },
+          {
+            "window": 4,
+            "score": 0.0115
+          },
+          {
+            "window": 5,
+            "score": 0.0013
+          },
+          {
+            "window": 6,
+            "score": 0.0199
+          },
+          {
+            "window": 7,
+            "score": 0.0219
+          },
+          {
+            "window": 8,
+            "score": 0.0373
+          },
+          {
+            "window": 9,
+            "score": 0.0095
+          },
+          {
+            "window": 10,
+            "score": -0.0076
+          },
+          {
+            "window": 11,
+            "score": 0.0182
+          },
+          {
+            "window": 12,
+            "score": 0.0332
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Velveteen Rabbit",
+          "score": 0.1191
+        },
+        {
+          "title": "Prince Prigio",
+          "score": 0.1137
+        },
+        {
+          "title": "Treasure Island",
+          "score": 0.1112
+        }
+      ],
+      "projection": {
+        "x": 0.3521,
+        "y": -0.0219
+      },
+      "entities": [
+        {
+          "name": "Trot",
+          "count": 411,
+          "per10k": 74.25
+        },
+        {
+          "name": "Cap",
+          "count": 351,
+          "per10k": 63.41
+        },
+        {
+          "name": "Bill",
+          "count": 333,
+          "per10k": 60.16
+        },
+        {
+          "name": "Bright",
+          "count": 249,
+          "per10k": 44.98
+        },
+        {
+          "name": "Button",
+          "count": 244,
+          "per10k": 44.08
+        },
+        {
+          "name": "Boolooroo",
+          "count": 203,
+          "per10k": 36.67
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_3",
+        "share": 0.9987,
+        "terms": "katy, diamond, trot, peter, cap, blue, mother, button"
+      }
+    },
+    {
+      "id": "at-the-back-of-the-north-wind",
+      "title": "At the Back of the North Wind",
+      "author": "Elizabeth Lewis",
+      "authorGender": "female",
+      "publicationYear": 1914,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/18614",
+      "localPath": "data/raw/core/18614.txt",
+      "wordCount": 26737,
+      "sentenceCount": 2086,
+      "typeTokenRatio": 0.0898,
+      "afinnPer10k": 432.36,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1914 Legacy Core title by Elizabeth Lewis. Strongest signals: Family, Adventure. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, We and the World, Part I.",
+      "themes": [
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 66.2,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 10.85,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 7.48,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 7.11,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 2.99,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 2.62,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0432,
+        "min": 0.0108,
+        "max": 0.0794,
+        "volatility": 0.0686,
+        "shape": "Mixed",
+        "tone": "Warm",
+        "label": "Warm / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0377
+          },
+          {
+            "window": 2,
+            "score": 0.0372
+          },
+          {
+            "window": 3,
+            "score": 0.0287
+          },
+          {
+            "window": 4,
+            "score": 0.039
+          },
+          {
+            "window": 5,
+            "score": 0.031
+          },
+          {
+            "window": 6,
+            "score": 0.0574
+          },
+          {
+            "window": 7,
+            "score": 0.0108
+          },
+          {
+            "window": 8,
+            "score": 0.0399
+          },
+          {
+            "window": 9,
+            "score": 0.0794
+          },
+          {
+            "window": 10,
+            "score": 0.0637
+          },
+          {
+            "window": 11,
+            "score": 0.0597
+          },
+          {
+            "window": 12,
+            "score": 0.0343
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "score": 0.1294
+        },
+        {
+          "title": "We and the World, Part I",
+          "score": 0.1208
+        },
+        {
+          "title": "The Velveteen Rabbit",
+          "score": 0.1011
+        }
+      ],
+      "projection": {
+        "x": 0.3147,
+        "y": -0.0177
+      },
+      "entities": [
+        {
+          "name": "Diamond",
+          "count": 414,
+          "per10k": 154.84
+        },
+        {
+          "name": "North Wind",
+          "count": 155,
+          "per10k": 57.97
+        },
+        {
+          "name": "Nanny",
+          "count": 59,
+          "per10k": 22.07
+        },
+        {
+          "name": "Raymond",
+          "count": 37,
+          "per10k": 13.84
+        },
+        {
+          "name": "His",
+          "count": 20,
+          "per10k": 7.48
+        },
+        {
+          "name": "One",
+          "count": 18,
+          "per10k": 6.73
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_3",
+        "share": 0.9998,
+        "terms": "katy, diamond, trot, peter, cap, blue, mother, button"
+      }
+    },
+    {
+      "id": "the-adventures-of-old-mr-toad",
+      "title": "The Adventures of Old Mr. Toad",
+      "author": "Thornton W. Burgess",
+      "authorGender": "male",
+      "publicationYear": 1916,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/12603",
+      "localPath": "data/raw/core/12603.txt",
+      "wordCount": 4172,
+      "sentenceCount": 872,
+      "typeTokenRatio": 0.2721,
+      "afinnPer10k": -86.29,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1916 Legacy Core title by Thornton W. Burgess. Strongest signals: Moral & Emotion. Narrative pacing reads as Shadowed / Mixed. Closest neighbors in the current corpus: Prince Prigio, The Pink Fairy Book.",
+      "themes": [
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 4.79,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 0.0,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 0.0,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 0.0,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 0.0,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        },
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 0.0,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        }
+      ],
+      "sentiment": {
+        "mean": -0.0086,
+        "min": -0.0287,
+        "max": 0.0115,
+        "volatility": 0.0402,
+        "shape": "Mixed",
+        "tone": "Shadowed",
+        "label": "Shadowed / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.023
+          },
+          {
+            "window": 2,
+            "score": -0.0057
+          },
+          {
+            "window": 3,
+            "score": -0.0029
+          },
+          {
+            "window": 4,
+            "score": -0.0115
+          },
+          {
+            "window": 5,
+            "score": -0.0057
+          },
+          {
+            "window": 6,
+            "score": -0.0029
+          },
+          {
+            "window": 7,
+            "score": -0.0172
+          },
+          {
+            "window": 8,
+            "score": -0.0201
+          },
+          {
+            "window": 9,
+            "score": 0.0115
+          },
+          {
+            "window": 10,
+            "score": -0.0287
+          },
+          {
+            "window": 11,
+            "score": 0.0115
+          },
+          {
+            "window": 12,
+            "score": -0.0087
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Prince Prigio",
+          "score": 0.0116
+        },
+        {
+          "title": "The Pink Fairy Book",
+          "score": 0.0065
+        },
+        {
+          "title": "We and the World, Part I",
+          "score": 0.0036
+        }
+      ],
+      "projection": {
+        "x": 0.0083,
+        "y": -0.0056
+      },
+      "entities": [
+        {
+          "name": "Martin",
+          "count": 24,
+          "per10k": 57.53
+        },
+        {
+          "name": "Mais",
+          "count": 21,
+          "per10k": 50.34
+        },
+        {
+          "name": "Vous",
+          "count": 17,
+          "per10k": 40.75
+        },
+        {
+          "name": "Venceslas",
+          "count": 15,
+          "per10k": 35.95
+        },
+        {
+          "name": "Monsieur",
+          "count": 12,
+          "per10k": 28.76
+        },
+        {
+          "name": "Durand",
+          "count": 11,
+          "per10k": 26.37
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_4",
+        "share": 0.9994,
+        "terms": "dorothy, alice, oz, scarecrow, lion, woodman, tin, rabbit"
+      }
+    },
+    {
+      "id": "the-velveteen-rabbit",
+      "title": "The Velveteen Rabbit",
+      "author": "Margery Williams",
+      "authorGender": "female",
+      "publicationYear": 1922,
+      "split": "legacy-core",
+      "splitLabel": "Legacy Core",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/11757",
+      "localPath": "data/raw/core/11757.txt",
+      "wordCount": 3990,
+      "sentenceCount": 247,
+      "typeTokenRatio": 0.2226,
+      "afinnPer10k": 323.31,
+      "ageBand": null,
+      "ageBandLabel": "Unavailable in current corpus metadata",
+      "summary": "1922 Legacy Core title by Margery Williams. Strongest signals: Animals, Fantasy. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: Alice's Adventures in Wonderland, Sky Island.",
+      "themes": [
+        {
+          "id": "animals",
+          "label": "Animals",
+          "score": 162.91,
+          "description": "Pulls together animal-forward narratives that work well for younger discovery journeys."
+        },
+        {
+          "id": "fantasy",
+          "label": "Fantasy",
+          "score": 42.61,
+          "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling."
+        },
+        {
+          "id": "moral_emotion",
+          "label": "Moral & Emotion",
+          "score": 12.53,
+          "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use."
+        },
+        {
+          "id": "growth",
+          "label": "Growth",
+          "score": 5.01,
+          "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons."
+        },
+        {
+          "id": "family",
+          "label": "Family",
+          "score": 2.51,
+          "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery."
+        },
+        {
+          "id": "adventure",
+          "label": "Adventure",
+          "score": 2.51,
+          "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting."
+        }
+      ],
+      "sentiment": {
+        "mean": 0.0323,
+        "min": -0.006,
+        "max": 0.0601,
+        "volatility": 0.0661,
+        "shape": "Mixed",
+        "tone": "Warm",
+        "label": "Warm / Mixed",
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.033
+          },
+          {
+            "window": 2,
+            "score": 0.009
+          },
+          {
+            "window": 3,
+            "score": -0.006
+          },
+          {
+            "window": 4,
+            "score": 0.0571
+          },
+          {
+            "window": 5,
+            "score": 0.048
+          },
+          {
+            "window": 6,
+            "score": 0.024
+          },
+          {
+            "window": 7,
+            "score": 0.036
+          },
+          {
+            "window": 8,
+            "score": 0.006
+          },
+          {
+            "window": 9,
+            "score": 0.0511
+          },
+          {
+            "window": 10,
+            "score": 0.0601
+          },
+          {
+            "window": 11,
+            "score": 0.048
+          },
+          {
+            "window": 12,
+            "score": 0.0214
+          }
+        ]
+      },
+      "similar": [
+        {
+          "title": "Alice's Adventures in Wonderland",
+          "score": 0.2181
+        },
+        {
+          "title": "Sky Island",
+          "score": 0.1191
+        },
+        {
+          "title": "What Katy Did",
+          "score": 0.1122
+        }
+      ],
+      "projection": {
+        "x": 0.3417,
+        "y": -0.1982
+      },
+      "entities": [
+        {
+          "name": "Rabbit",
+          "count": 40,
+          "per10k": 100.25
+        },
+        {
+          "name": "Boy",
+          "count": 35,
+          "per10k": 87.72
+        },
+        {
+          "name": "Real",
+          "count": 22,
+          "per10k": 55.14
+        },
+        {
+          "name": "Skin Horse",
+          "count": 10,
+          "per10k": 25.06
+        },
+        {
+          "name": "Nana",
+          "count": 8,
+          "per10k": 20.05
+        },
+        {
+          "name": "Bunny",
+          "count": 8,
+          "per10k": 20.05
+        }
+      ],
+      "dominantTopic": {
+        "id": "topic_4",
+        "share": 0.5371,
+        "terms": "dorothy, alice, oz, scarecrow, lion, woodman, tin, rabbit"
+      }
+    }
+  ],
+  "themes": [
+    {
+      "id": "family",
+      "label": "Family",
+      "description": "Supports family-centered reading lists, shelf design, and caregiver-facing discovery.",
+      "stats": {
+        "mean": 22.25,
+        "median": 11.75,
+        "max": 66.2
+      },
+      "topBooks": [
+        {
+          "title": "At the Back of the North Wind",
+          "author": "Elizabeth Lewis",
+          "publicationYear": 1914,
+          "score": 66.2,
+          "summary": "1914 Legacy Core title by Elizabeth Lewis. Strongest signals: Family, Adventure. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, We and the World, Part I."
+        },
+        {
+          "title": "We and the World, Part I",
+          "author": "Juliana Horatia Ewing",
+          "publicationYear": 1885,
+          "score": 56.63,
+          "summary": "1885 Legacy Core title by Juliana Horatia Ewing. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: What Katy Did, The Secret Garden."
+        },
+        {
+          "title": "Rebecca of Sunnybrook Farm",
+          "author": "Kate Douglas Wiggin",
+          "publicationYear": 1903,
+          "score": 55.35,
+          "summary": "1903 Expanded Core title by Kate Douglas Wiggin. Strongest signals: Family, Growth. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: What Katy Did, The Land of the Blue Flower."
+        },
+        {
+          "title": "The Emerald City of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1910,
+          "score": 49.82,
+          "summary": "1910 Legacy Core title by L. Frank Baum. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, The Land of the Blue Flower."
+        },
+        {
+          "title": "What Katy Did",
+          "author": "Susan Coolidge",
+          "publicationYear": 1872,
+          "score": 49.76,
+          "summary": "1872 Legacy Core title by Susan Coolidge. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, Rebecca of Sunnybrook Farm."
+        },
+        {
+          "title": "Little Women",
+          "author": "Louisa May Alcott",
+          "publicationYear": 1868,
+          "score": 41.88,
+          "summary": "1868 Legacy Core title by Louisa May Alcott. Strongest signals: Family, Moral & Emotion. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: Anne of Green Gables, The Wonderful Wizard of Oz."
+        },
+        {
+          "title": "The Jungle Book",
+          "author": "Rudyard Kipling",
+          "publicationYear": 1894,
+          "score": 34.58,
+          "summary": "1894 Legacy Core title by Rudyard Kipling. Strongest signals: Family, Adventure. Narrative pacing reads as Shadowed / Mixed. Closest neighbors in the current corpus: We and the World, Part I, The Secret Garden."
+        },
+        {
+          "title": "Five Little Peppers and How They Grew",
+          "author": "Margaret Sidney",
+          "publicationYear": 1881,
+          "score": 33.14,
+          "summary": "1881 Legacy Core title by Margaret Sidney. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Sky Island."
+        }
+      ]
+    },
+    {
+      "id": "growth",
+      "label": "Growth",
+      "description": "Highlights books useful for maturity, learning, and coming-of-age comparisons.",
+      "stats": {
+        "mean": 10.88,
+        "median": 7.64,
+        "max": 29.09
+      },
+      "topBooks": [
+        {
+          "title": "Rebecca of Sunnybrook Farm",
+          "author": "Kate Douglas Wiggin",
+          "publicationYear": 1903,
+          "score": 29.09,
+          "summary": "1903 Expanded Core title by Kate Douglas Wiggin. Strongest signals: Family, Growth. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: What Katy Did, The Land of the Blue Flower."
+        },
+        {
+          "title": "Anne of Green Gables",
+          "author": "Lucy Maud Montgomery",
+          "publicationYear": 1908,
+          "score": 28.74,
+          "summary": "1908 Legacy Core title by Lucy Maud Montgomery. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Peter Pan."
+        },
+        {
+          "title": "We and the World, Part I",
+          "author": "Juliana Horatia Ewing",
+          "publicationYear": 1885,
+          "score": 25.41,
+          "summary": "1885 Legacy Core title by Juliana Horatia Ewing. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: What Katy Did, The Secret Garden."
+        },
+        {
+          "title": "What Katy Did",
+          "author": "Susan Coolidge",
+          "publicationYear": 1872,
+          "score": 22.98,
+          "summary": "1872 Legacy Core title by Susan Coolidge. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, Rebecca of Sunnybrook Farm."
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "author": "Frances Hodgson Burnett",
+          "publicationYear": 1909,
+          "score": 20.55,
+          "summary": "1909 Legacy Core title by Frances Hodgson Burnett. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: The Emerald City of Oz, Prince Prigio."
+        },
+        {
+          "title": "The Secret Garden",
+          "author": "Frances Hodgson Burnett",
+          "publicationYear": 1911,
+          "score": 14.79,
+          "summary": "1911 Expanded Core title by Frances Hodgson Burnett. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: What Katy Did, We and the World, Part I."
+        },
+        {
+          "title": "Alice's Adventures in Wonderland",
+          "author": "Lewis Carroll",
+          "publicationYear": 1865,
+          "score": 14.58,
+          "summary": "1865 Expanded Core title by Lewis Carroll. Strongest signals: Animals, Growth. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: The Velveteen Rabbit, Little Women."
+        },
+        {
+          "title": "Five Little Peppers and How They Grew",
+          "author": "Margaret Sidney",
+          "publicationYear": 1881,
+          "score": 13.29,
+          "summary": "1881 Legacy Core title by Margaret Sidney. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Sky Island."
+        }
+      ]
+    },
+    {
+      "id": "fantasy",
+      "label": "Fantasy",
+      "description": "Surfaces imaginative worlds, magical systems, and speculative storytelling.",
+      "stats": {
+        "mean": 8.93,
+        "median": 1.96,
+        "max": 50.56
+      },
+      "topBooks": [
+        {
+          "title": "The Emerald City of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1910,
+          "score": 50.56,
+          "summary": "1910 Legacy Core title by L. Frank Baum. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, The Land of the Blue Flower."
+        },
+        {
+          "title": "The Velveteen Rabbit",
+          "author": "Margery Williams",
+          "publicationYear": 1922,
+          "score": 42.61,
+          "summary": "1922 Legacy Core title by Margery Williams. Strongest signals: Animals, Fantasy. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: Alice's Adventures in Wonderland, Sky Island."
+        },
+        {
+          "title": "The Pink Fairy Book",
+          "author": "Various",
+          "publicationYear": 1889,
+          "score": 27.78,
+          "summary": "1889 Legacy Core title by Various. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: Prince Prigio, The Land of the Blue Flower."
+        },
+        {
+          "title": "Sky Island",
+          "author": "L. Frank Baum",
+          "publicationYear": 1912,
+          "score": 23.12,
+          "summary": "1912 Legacy Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Velveteen Rabbit, Prince Prigio."
+        },
+        {
+          "title": "Prince Prigio",
+          "author": "Andrew Lang",
+          "publicationYear": 1889,
+          "score": 18.46,
+          "summary": "1889 Legacy Core title by Andrew Lang. Strongest signals: Fantasy, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Pink Fairy Book, The Land of the Blue Flower."
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1900,
+          "score": 16.5,
+          "summary": "1900 Expanded Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Emerald City of Oz, Little Women."
+        },
+        {
+          "title": "The Secret Garden",
+          "author": "Frances Hodgson Burnett",
+          "publicationYear": 1911,
+          "score": 12.39,
+          "summary": "1911 Expanded Core title by Frances Hodgson Burnett. Strongest signals: Family, Growth. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: What Katy Did, We and the World, Part I."
+        },
+        {
+          "title": "The Land of the Blue Flower",
+          "author": "Frances Hodgson Burnett",
+          "publicationYear": 1909,
+          "score": 6.42,
+          "summary": "1909 Legacy Core title by Frances Hodgson Burnett. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: The Emerald City of Oz, Prince Prigio."
+        }
+      ]
+    },
+    {
+      "id": "adventure",
+      "label": "Adventure",
+      "description": "Finds titles driven by journeys, quests, travel, and high-motion plotting.",
+      "stats": {
+        "mean": 7.24,
+        "median": 2.05,
+        "max": 37.87
+      },
+      "topBooks": [
+        {
+          "title": "Treasure Island",
+          "author": "Robert Louis Stevenson",
+          "publicationYear": 1883,
+          "score": 37.87,
+          "summary": "1883 Legacy Core title by Robert Louis Stevenson. Strongest signals: Adventure, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Land of the Blue Flower, The White Old Maid."
+        },
+        {
+          "title": "Sky Island",
+          "author": "L. Frank Baum",
+          "publicationYear": 1912,
+          "score": 28.18,
+          "summary": "1912 Legacy Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Velveteen Rabbit, Prince Prigio."
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1900,
+          "score": 19.5,
+          "summary": "1900 Expanded Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Emerald City of Oz, Little Women."
+        },
+        {
+          "title": "The Children of the New Forest",
+          "author": "Captain Marryat",
+          "publicationYear": 1847,
+          "score": 18.86,
+          "summary": "1847 Legacy Core title by Captain Marryat. Strongest signals: Adventure, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Land of the Blue Flower, The Emerald City of Oz."
+        },
+        {
+          "title": "Peter Pan",
+          "author": "James M. Barrie",
+          "publicationYear": 1902,
+          "score": 15.41,
+          "summary": "1902 Legacy Core title by James M. Barrie. Strongest signals: Family, Adventure. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Anne of Green Gables."
+        },
+        {
+          "title": "The Pink Fairy Book",
+          "author": "Various",
+          "publicationYear": 1889,
+          "score": 11.43,
+          "summary": "1889 Legacy Core title by Various. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: Prince Prigio, The Land of the Blue Flower."
+        },
+        {
+          "title": "The Emerald City of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1910,
+          "score": 11.3,
+          "summary": "1910 Legacy Core title by L. Frank Baum. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, The Land of the Blue Flower."
+        },
+        {
+          "title": "At the Back of the North Wind",
+          "author": "Elizabeth Lewis",
+          "publicationYear": 1914,
+          "score": 10.85,
+          "summary": "1914 Legacy Core title by Elizabeth Lewis. Strongest signals: Family, Adventure. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, We and the World, Part I."
+        }
+      ]
+    },
+    {
+      "id": "animals",
+      "label": "Animals",
+      "description": "Pulls together animal-forward narratives that work well for younger discovery journeys.",
+      "stats": {
+        "mean": 15.0,
+        "median": 5.29,
+        "max": 162.91
+      },
+      "topBooks": [
+        {
+          "title": "The Velveteen Rabbit",
+          "author": "Margery Williams",
+          "publicationYear": 1922,
+          "score": 162.91,
+          "summary": "1922 Legacy Core title by Margery Williams. Strongest signals: Animals, Fantasy. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: Alice's Adventures in Wonderland, Sky Island."
+        },
+        {
+          "title": "The Wind in the Willows",
+          "author": "Kenneth Grahame",
+          "publicationYear": 1908,
+          "score": 78.16,
+          "summary": "1908 Expanded Core title by Kenneth Grahame. Strongest signals: Animals, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Alice's Adventures in Wonderland."
+        },
+        {
+          "title": "Alice's Adventures in Wonderland",
+          "author": "Lewis Carroll",
+          "publicationYear": 1865,
+          "score": 21.15,
+          "summary": "1865 Expanded Core title by Lewis Carroll. Strongest signals: Animals, Growth. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: The Velveteen Rabbit, Little Women."
+        },
+        {
+          "title": "Rab and His Friends",
+          "author": "John Brown",
+          "publicationYear": 1859,
+          "score": 16.82,
+          "summary": "1859 Legacy Core title by John Brown. Strongest signals: Animals, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: We and the World, Part I, What Katy Did."
+        },
+        {
+          "title": "The Pink Fairy Book",
+          "author": "Various",
+          "publicationYear": 1889,
+          "score": 16.35,
+          "summary": "1889 Legacy Core title by Various. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Steady. Closest neighbors in the current corpus: Prince Prigio, The Land of the Blue Flower."
+        },
+        {
+          "title": "The Emerald City of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1910,
+          "score": 10.0,
+          "summary": "1910 Legacy Core title by L. Frank Baum. Strongest signals: Fantasy, Family. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Wonderful Wizard of Oz, The Land of the Blue Flower."
+        },
+        {
+          "title": "Sky Island",
+          "author": "L. Frank Baum",
+          "publicationYear": 1912,
+          "score": 7.59,
+          "summary": "1912 Legacy Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Velveteen Rabbit, Prince Prigio."
+        },
+        {
+          "title": "Peter Pan",
+          "author": "James M. Barrie",
+          "publicationYear": 1902,
+          "score": 7.29,
+          "summary": "1902 Legacy Core title by James M. Barrie. Strongest signals: Family, Adventure. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Anne of Green Gables."
+        }
+      ]
+    },
+    {
+      "id": "moral_emotion",
+      "label": "Moral & Emotion",
+      "description": "Tracks courage, kindness, fear, and moral feeling for classroom and discussion use.",
+      "stats": {
+        "mean": 9.71,
+        "median": 8.99,
+        "max": 21.75
+      },
+      "topBooks": [
+        {
+          "title": "Little Women",
+          "author": "Louisa May Alcott",
+          "publicationYear": 1868,
+          "score": 21.75,
+          "summary": "1868 Legacy Core title by Louisa May Alcott. Strongest signals: Family, Moral & Emotion. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: Anne of Green Gables, The Wonderful Wizard of Oz."
+        },
+        {
+          "title": "Prince Prigio",
+          "author": "Andrew Lang",
+          "publicationYear": 1889,
+          "score": 18.46,
+          "summary": "1889 Legacy Core title by Andrew Lang. Strongest signals: Fantasy, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Pink Fairy Book, The Land of the Blue Flower."
+        },
+        {
+          "title": "Anne of Green Gables",
+          "author": "Lucy Maud Montgomery",
+          "publicationYear": 1908,
+          "score": 14.28,
+          "summary": "1908 Legacy Core title by Lucy Maud Montgomery. Strongest signals: Growth, Moral & Emotion. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Peter Pan."
+        },
+        {
+          "title": "The Velveteen Rabbit",
+          "author": "Margery Williams",
+          "publicationYear": 1922,
+          "score": 12.53,
+          "summary": "1922 Legacy Core title by Margery Williams. Strongest signals: Animals, Fantasy. Narrative pacing reads as Warm / Mixed. Closest neighbors in the current corpus: Alice's Adventures in Wonderland, Sky Island."
+        },
+        {
+          "title": "The Wonderful Wizard of Oz",
+          "author": "L. Frank Baum",
+          "publicationYear": 1900,
+          "score": 12.5,
+          "summary": "1900 Expanded Core title by L. Frank Baum. Strongest signals: Adventure, Fantasy. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: The Emerald City of Oz, Little Women."
+        },
+        {
+          "title": "Rab and His Friends",
+          "author": "John Brown",
+          "publicationYear": 1859,
+          "score": 12.23,
+          "summary": "1859 Legacy Core title by John Brown. Strongest signals: Animals, Moral & Emotion. Narrative pacing reads as Balanced / Turbulent. Closest neighbors in the current corpus: We and the World, Part I, What Katy Did."
+        },
+        {
+          "title": "Rebecca of Sunnybrook Farm",
+          "author": "Kate Douglas Wiggin",
+          "publicationYear": 1903,
+          "score": 11.72,
+          "summary": "1903 Expanded Core title by Kate Douglas Wiggin. Strongest signals: Family, Growth. Narrative pacing reads as Warm / Steady. Closest neighbors in the current corpus: What Katy Did, The Land of the Blue Flower."
+        },
+        {
+          "title": "Peter Pan",
+          "author": "James M. Barrie",
+          "publicationYear": 1902,
+          "score": 11.66,
+          "summary": "1902 Legacy Core title by James M. Barrie. Strongest signals: Family, Adventure. Narrative pacing reads as Balanced / Mixed. Closest neighbors in the current corpus: Little Women, Anne of Green Gables."
+        }
+      ]
+    }
+  ],
+  "sentiment": {
+    "books": [
+      {
+        "title": "Sleepy Hollow",
+        "author": "Washington Irving",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Turbulent",
+        "mean": 0.0224,
+        "min": -0.0242,
+        "max": 0.0581,
+        "volatility": 0.0824,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0136
+          },
+          {
+            "window": 2,
+            "score": 0.0233
+          },
+          {
+            "window": 3,
+            "score": -0.0029
+          },
+          {
+            "window": 4,
+            "score": 0.0572
+          },
+          {
+            "window": 5,
+            "score": 0.0329
+          },
+          {
+            "window": 6,
+            "score": 0.0436
+          },
+          {
+            "window": 7,
+            "score": 0.0426
+          },
+          {
+            "window": 8,
+            "score": 0.0581
+          },
+          {
+            "window": 9,
+            "score": 0.0184
+          },
+          {
+            "window": 10,
+            "score": -0.0174
+          },
+          {
+            "window": 11,
+            "score": -0.0242
+          },
+          {
+            "window": 12,
+            "score": 0.0234
+          }
+        ]
+      },
+      {
+        "title": "The White Old Maid",
+        "author": "Nathaniel Hawthorne",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Shadowed / Turbulent",
+        "mean": -0.0239,
+        "min": -0.0876,
+        "max": 0.0634,
+        "volatility": 0.1511,
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0211
+          },
+          {
+            "window": 2,
+            "score": -0.0876
+          },
+          {
+            "window": 3,
+            "score": -0.0755
+          },
+          {
+            "window": 4,
+            "score": 0.0634
+          },
+          {
+            "window": 5,
+            "score": -0.0393
+          },
+          {
+            "window": 6,
+            "score": -0.0363
+          },
+          {
+            "window": 7,
+            "score": -0.0272
+          },
+          {
+            "window": 8,
+            "score": -0.0332
+          },
+          {
+            "window": 9,
+            "score": -0.0121
+          },
+          {
+            "window": 10,
+            "score": 0.0
+          },
+          {
+            "window": 11,
+            "score": -0.0151
+          },
+          {
+            "window": 12,
+            "score": -0.0031
+          }
+        ]
+      },
+      {
+        "title": "The Children of the New Forest",
+        "author": "Captain Marryat",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0127,
+        "min": -0.0081,
+        "max": 0.0322,
+        "volatility": 0.0402,
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0081
+          },
+          {
+            "window": 2,
+            "score": 0.0091
+          },
+          {
+            "window": 3,
+            "score": 0.0163
+          },
+          {
+            "window": 4,
+            "score": 0.0123
+          },
+          {
+            "window": 5,
+            "score": 0.0076
+          },
+          {
+            "window": 6,
+            "score": 0.0142
+          },
+          {
+            "window": 7,
+            "score": -0.0069
+          },
+          {
+            "window": 8,
+            "score": 0.0322
+          },
+          {
+            "window": 9,
+            "score": 0.0112
+          },
+          {
+            "window": 10,
+            "score": 0.017
+          },
+          {
+            "window": 11,
+            "score": 0.019
+          },
+          {
+            "window": 12,
+            "score": 0.028
+          }
+        ]
+      },
+      {
+        "title": "Rab and His Friends",
+        "author": "John Brown",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Turbulent",
+        "mean": 0.0172,
+        "min": -0.0385,
+        "max": 0.0659,
+        "volatility": 0.1044,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0275
+          },
+          {
+            "window": 2,
+            "score": 0.0659
+          },
+          {
+            "window": 3,
+            "score": 0.0201
+          },
+          {
+            "window": 4,
+            "score": -0.0385
+          },
+          {
+            "window": 5,
+            "score": 0.0366
+          },
+          {
+            "window": 6,
+            "score": 0.0568
+          },
+          {
+            "window": 7,
+            "score": 0.0531
+          },
+          {
+            "window": 8,
+            "score": 0.0275
+          },
+          {
+            "window": 9,
+            "score": -0.0092
+          },
+          {
+            "window": 10,
+            "score": -0.0037
+          },
+          {
+            "window": 11,
+            "score": -0.0037
+          },
+          {
+            "window": 12,
+            "score": -0.0262
+          }
+        ]
+      },
+      {
+        "title": "Alice's Adventures in Wonderland",
+        "author": "Lewis Carroll",
+        "splitLabel": "Expanded Core",
+        "pacingLabel": "Balanced / Steady",
+        "mean": 0.0053,
+        "min": -0.0074,
+        "max": 0.0144,
+        "volatility": 0.0219,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0144
+          },
+          {
+            "window": 2,
+            "score": 0.0048
+          },
+          {
+            "window": 3,
+            "score": 0.0136
+          },
+          {
+            "window": 4,
+            "score": 0.0096
+          },
+          {
+            "window": 5,
+            "score": 0.0022
+          },
+          {
+            "window": 6,
+            "score": 0.0017
+          },
+          {
+            "window": 7,
+            "score": 0.0066
+          },
+          {
+            "window": 8,
+            "score": 0.0127
+          },
+          {
+            "window": 9,
+            "score": -0.0039
+          },
+          {
+            "window": 10,
+            "score": -0.0074
+          },
+          {
+            "window": 11,
+            "score": 0.0031
+          },
+          {
+            "window": 12,
+            "score": 0.0057
+          }
+        ]
+      },
+      {
+        "title": "Little Women",
+        "author": "Louisa May Alcott",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Warm / Steady",
+        "mean": 0.0558,
+        "min": 0.0445,
+        "max": 0.0748,
+        "volatility": 0.0303,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0465
+          },
+          {
+            "window": 2,
+            "score": 0.0445
+          },
+          {
+            "window": 3,
+            "score": 0.0545
+          },
+          {
+            "window": 4,
+            "score": 0.0504
+          },
+          {
+            "window": 5,
+            "score": 0.0536
+          },
+          {
+            "window": 6,
+            "score": 0.0545
+          },
+          {
+            "window": 7,
+            "score": 0.0449
+          },
+          {
+            "window": 8,
+            "score": 0.0683
+          },
+          {
+            "window": 9,
+            "score": 0.0563
+          },
+          {
+            "window": 10,
+            "score": 0.055
+          },
+          {
+            "window": 11,
+            "score": 0.067
+          },
+          {
+            "window": 12,
+            "score": 0.0748
+          }
+        ]
+      },
+      {
+        "title": "What Katy Did",
+        "author": "Susan Coolidge",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0277,
+        "min": -0.0091,
+        "max": 0.0669,
+        "volatility": 0.076,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0511
+          },
+          {
+            "window": 2,
+            "score": 0.0264
+          },
+          {
+            "window": 3,
+            "score": 0.0002
+          },
+          {
+            "window": 4,
+            "score": -0.0091
+          },
+          {
+            "window": 5,
+            "score": 0.0113
+          },
+          {
+            "window": 6,
+            "score": 0.0669
+          },
+          {
+            "window": 7,
+            "score": -0.006
+          },
+          {
+            "window": 8,
+            "score": 0.0091
+          },
+          {
+            "window": 9,
+            "score": 0.0441
+          },
+          {
+            "window": 10,
+            "score": 0.0386
+          },
+          {
+            "window": 11,
+            "score": 0.0436
+          },
+          {
+            "window": 12,
+            "score": 0.0564
+          }
+        ]
+      },
+      {
+        "title": "Five Little Peppers and How They Grew",
+        "author": "Margaret Sidney",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0269,
+        "min": 0.0067,
+        "max": 0.0538,
+        "volatility": 0.0471,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0333
+          },
+          {
+            "window": 2,
+            "score": 0.0231
+          },
+          {
+            "window": 3,
+            "score": 0.0074
+          },
+          {
+            "window": 4,
+            "score": 0.0132
+          },
+          {
+            "window": 5,
+            "score": 0.0324
+          },
+          {
+            "window": 6,
+            "score": 0.0291
+          },
+          {
+            "window": 7,
+            "score": 0.0429
+          },
+          {
+            "window": 8,
+            "score": 0.0538
+          },
+          {
+            "window": 9,
+            "score": 0.0345
+          },
+          {
+            "window": 10,
+            "score": 0.0192
+          },
+          {
+            "window": 11,
+            "score": 0.0274
+          },
+          {
+            "window": 12,
+            "score": 0.0067
+          }
+        ]
+      },
+      {
+        "title": "Treasure Island",
+        "author": "Robert Louis Stevenson",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0022,
+        "min": -0.0252,
+        "max": 0.0368,
+        "volatility": 0.062,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0
+          },
+          {
+            "window": 2,
+            "score": -0.0252
+          },
+          {
+            "window": 3,
+            "score": 0.0368
+          },
+          {
+            "window": 4,
+            "score": 0.0049
+          },
+          {
+            "window": 5,
+            "score": 0.007
+          },
+          {
+            "window": 6,
+            "score": 0.0019
+          },
+          {
+            "window": 7,
+            "score": 0.0054
+          },
+          {
+            "window": 8,
+            "score": -0.0124
+          },
+          {
+            "window": 9,
+            "score": -0.0082
+          },
+          {
+            "window": 10,
+            "score": -0.0034
+          },
+          {
+            "window": 11,
+            "score": 0.0107
+          },
+          {
+            "window": 12,
+            "score": 0.0089
+          }
+        ]
+      },
+      {
+        "title": "We and the World, Part I",
+        "author": "Juliana Horatia Ewing",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0126,
+        "min": -0.0245,
+        "max": 0.0343,
+        "volatility": 0.0588,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0343
+          },
+          {
+            "window": 2,
+            "score": 0.0055
+          },
+          {
+            "window": 3,
+            "score": 0.0154
+          },
+          {
+            "window": 4,
+            "score": 0.0281
+          },
+          {
+            "window": 5,
+            "score": 0.0067
+          },
+          {
+            "window": 6,
+            "score": 0.0072
+          },
+          {
+            "window": 7,
+            "score": 0.0146
+          },
+          {
+            "window": 8,
+            "score": 0.0182
+          },
+          {
+            "window": 9,
+            "score": -0.0245
+          },
+          {
+            "window": 10,
+            "score": 0.0106
+          },
+          {
+            "window": 11,
+            "score": 0.0065
+          },
+          {
+            "window": 12,
+            "score": 0.0289
+          }
+        ]
+      },
+      {
+        "title": "Prince Prigio",
+        "author": "Andrew Lang",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0157,
+        "min": -0.0202,
+        "max": 0.058,
+        "volatility": 0.0782,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.058
+          },
+          {
+            "window": 2,
+            "score": 0.0313
+          },
+          {
+            "window": 3,
+            "score": 0.0156
+          },
+          {
+            "window": 4,
+            "score": -0.0202
+          },
+          {
+            "window": 5,
+            "score": 0.0443
+          },
+          {
+            "window": 6,
+            "score": 0.0117
+          },
+          {
+            "window": 7,
+            "score": -0.0104
+          },
+          {
+            "window": 8,
+            "score": 0.0111
+          },
+          {
+            "window": 9,
+            "score": 0.002
+          },
+          {
+            "window": 10,
+            "score": -0.0176
+          },
+          {
+            "window": 11,
+            "score": 0.0163
+          },
+          {
+            "window": 12,
+            "score": 0.0463
+          }
+        ]
+      },
+      {
+        "title": "The Pink Fairy Book",
+        "author": "Various",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Steady",
+        "mean": 0.0158,
+        "min": -0.0048,
+        "max": 0.0307,
+        "volatility": 0.0355,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0066
+          },
+          {
+            "window": 2,
+            "score": 0.0297
+          },
+          {
+            "window": 3,
+            "score": 0.0188
+          },
+          {
+            "window": 4,
+            "score": 0.0307
+          },
+          {
+            "window": 5,
+            "score": 0.014
+          },
+          {
+            "window": 6,
+            "score": 0.0237
+          },
+          {
+            "window": 7,
+            "score": 0.0241
+          },
+          {
+            "window": 8,
+            "score": 0.0166
+          },
+          {
+            "window": 9,
+            "score": -0.0002
+          },
+          {
+            "window": 10,
+            "score": 0.0225
+          },
+          {
+            "window": 11,
+            "score": -0.0048
+          },
+          {
+            "window": 12,
+            "score": 0.0083
+          }
+        ]
+      },
+      {
+        "title": "The Jungle Book",
+        "author": "Rudyard Kipling",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Shadowed / Mixed",
+        "mean": -0.0107,
+        "min": -0.0351,
+        "max": 0.0126,
+        "volatility": 0.0477,
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.017
+          },
+          {
+            "window": 2,
+            "score": -0.0351
+          },
+          {
+            "window": 3,
+            "score": -0.0186
+          },
+          {
+            "window": 4,
+            "score": -0.0073
+          },
+          {
+            "window": 5,
+            "score": -0.0069
+          },
+          {
+            "window": 6,
+            "score": -0.0154
+          },
+          {
+            "window": 7,
+            "score": -0.0023
+          },
+          {
+            "window": 8,
+            "score": -0.0011
+          },
+          {
+            "window": 9,
+            "score": -0.0163
+          },
+          {
+            "window": 10,
+            "score": 0.0126
+          },
+          {
+            "window": 11,
+            "score": -0.0229
+          },
+          {
+            "window": 12,
+            "score": 0.0021
+          }
+        ]
+      },
+      {
+        "title": "The Wonderful Wizard of Oz",
+        "author": "L. Frank Baum",
+        "splitLabel": "Expanded Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0225,
+        "min": -0.0138,
+        "max": 0.0541,
+        "volatility": 0.0679,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0183
+          },
+          {
+            "window": 2,
+            "score": 0.0288
+          },
+          {
+            "window": 3,
+            "score": 0.0024
+          },
+          {
+            "window": 4,
+            "score": -0.0105
+          },
+          {
+            "window": 5,
+            "score": 0.0381
+          },
+          {
+            "window": 6,
+            "score": 0.0366
+          },
+          {
+            "window": 7,
+            "score": -0.0138
+          },
+          {
+            "window": 8,
+            "score": -0.0012
+          },
+          {
+            "window": 9,
+            "score": 0.0303
+          },
+          {
+            "window": 10,
+            "score": 0.051
+          },
+          {
+            "window": 11,
+            "score": 0.0354
+          },
+          {
+            "window": 12,
+            "score": 0.0541
+          }
+        ]
+      },
+      {
+        "title": "Peter Pan",
+        "author": "James M. Barrie",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0037,
+        "min": -0.024,
+        "max": 0.0242,
+        "volatility": 0.0482,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0177
+          },
+          {
+            "window": 2,
+            "score": 0.0242
+          },
+          {
+            "window": 3,
+            "score": 0.0082
+          },
+          {
+            "window": 4,
+            "score": -0.0132
+          },
+          {
+            "window": 5,
+            "score": 0.0057
+          },
+          {
+            "window": 6,
+            "score": 0.0065
+          },
+          {
+            "window": 7,
+            "score": 0.008
+          },
+          {
+            "window": 8,
+            "score": 0.005
+          },
+          {
+            "window": 9,
+            "score": -0.0162
+          },
+          {
+            "window": 10,
+            "score": -0.024
+          },
+          {
+            "window": 11,
+            "score": 0.0172
+          },
+          {
+            "window": 12,
+            "score": 0.0047
+          }
+        ]
+      },
+      {
+        "title": "Rebecca of Sunnybrook Farm",
+        "author": "Kate Douglas Wiggin",
+        "splitLabel": "Expanded Core",
+        "pacingLabel": "Warm / Steady",
+        "mean": 0.0302,
+        "min": 0.011,
+        "max": 0.041,
+        "volatility": 0.0301,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0315
+          },
+          {
+            "window": 2,
+            "score": 0.0205
+          },
+          {
+            "window": 3,
+            "score": 0.011
+          },
+          {
+            "window": 4,
+            "score": 0.0373
+          },
+          {
+            "window": 5,
+            "score": 0.0333
+          },
+          {
+            "window": 6,
+            "score": 0.0322
+          },
+          {
+            "window": 7,
+            "score": 0.037
+          },
+          {
+            "window": 8,
+            "score": 0.041
+          },
+          {
+            "window": 9,
+            "score": 0.0322
+          },
+          {
+            "window": 10,
+            "score": 0.037
+          },
+          {
+            "window": 11,
+            "score": 0.0241
+          },
+          {
+            "window": 12,
+            "score": 0.0259
+          }
+        ]
+      },
+      {
+        "title": "Anne of Green Gables",
+        "author": "Lucy Maud Montgomery",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0285,
+        "min": 0.0043,
+        "max": 0.0531,
+        "volatility": 0.0489,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0275
+          },
+          {
+            "window": 2,
+            "score": 0.0345
+          },
+          {
+            "window": 3,
+            "score": 0.0244
+          },
+          {
+            "window": 4,
+            "score": 0.0193
+          },
+          {
+            "window": 5,
+            "score": 0.0043
+          },
+          {
+            "window": 6,
+            "score": 0.0277
+          },
+          {
+            "window": 7,
+            "score": 0.0204
+          },
+          {
+            "window": 8,
+            "score": 0.0401
+          },
+          {
+            "window": 9,
+            "score": 0.0097
+          },
+          {
+            "window": 10,
+            "score": 0.0361
+          },
+          {
+            "window": 11,
+            "score": 0.0454
+          },
+          {
+            "window": 12,
+            "score": 0.0531
+          }
+        ]
+      },
+      {
+        "title": "The Wind in the Willows",
+        "author": "Kenneth Grahame",
+        "splitLabel": "Expanded Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0178,
+        "min": -0.0063,
+        "max": 0.0359,
+        "volatility": 0.0423,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0296
+          },
+          {
+            "window": 2,
+            "score": 0.0338
+          },
+          {
+            "window": 3,
+            "score": -0.0063
+          },
+          {
+            "window": 4,
+            "score": 0.0012
+          },
+          {
+            "window": 5,
+            "score": 0.015
+          },
+          {
+            "window": 6,
+            "score": 0.0107
+          },
+          {
+            "window": 7,
+            "score": 0.0221
+          },
+          {
+            "window": 8,
+            "score": 0.0217
+          },
+          {
+            "window": 9,
+            "score": 0.0359
+          },
+          {
+            "window": 10,
+            "score": 0.016
+          },
+          {
+            "window": 11,
+            "score": 0.0128
+          },
+          {
+            "window": 12,
+            "score": 0.0206
+          }
+        ]
+      },
+      {
+        "title": "The Land of the Blue Flower",
+        "author": "Frances Hodgson Burnett",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Turbulent",
+        "mean": 0.0211,
+        "min": -0.0385,
+        "max": 0.0878,
+        "volatility": 0.1263,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0169
+          },
+          {
+            "window": 2,
+            "score": 0.0508
+          },
+          {
+            "window": 3,
+            "score": 0.0339
+          },
+          {
+            "window": 4,
+            "score": 0.0878
+          },
+          {
+            "window": 5,
+            "score": -0.0385
+          },
+          {
+            "window": 6,
+            "score": 0.0632
+          },
+          {
+            "window": 7,
+            "score": -0.0139
+          },
+          {
+            "window": 8,
+            "score": -0.0308
+          },
+          {
+            "window": 9,
+            "score": 0.0139
+          },
+          {
+            "window": 10,
+            "score": 0.0431
+          },
+          {
+            "window": 11,
+            "score": 0.0293
+          },
+          {
+            "window": 12,
+            "score": -0.0031
+          }
+        ]
+      },
+      {
+        "title": "The Emerald City of Oz",
+        "author": "L. Frank Baum",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0261,
+        "min": -0.0027,
+        "max": 0.0636,
+        "volatility": 0.0662,
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0027
+          },
+          {
+            "window": 2,
+            "score": 0.0636
+          },
+          {
+            "window": 3,
+            "score": 0.0376
+          },
+          {
+            "window": 4,
+            "score": 0.0576
+          },
+          {
+            "window": 5,
+            "score": 0.0142
+          },
+          {
+            "window": 6,
+            "score": 0.0316
+          },
+          {
+            "window": 7,
+            "score": 0.0116
+          },
+          {
+            "window": 8,
+            "score": 0.0227
+          },
+          {
+            "window": 9,
+            "score": 0.0396
+          },
+          {
+            "window": 10,
+            "score": 0.0124
+          },
+          {
+            "window": 11,
+            "score": 0.0027
+          },
+          {
+            "window": 12,
+            "score": 0.0229
+          }
+        ]
+      },
+      {
+        "title": "The Secret Garden",
+        "author": "Frances Hodgson Burnett",
+        "splitLabel": "Expanded Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0252,
+        "min": -0.0014,
+        "max": 0.0456,
+        "volatility": 0.047,
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.0014
+          },
+          {
+            "window": 2,
+            "score": 0.0245
+          },
+          {
+            "window": 3,
+            "score": 0.0286
+          },
+          {
+            "window": 4,
+            "score": 0.0319
+          },
+          {
+            "window": 5,
+            "score": 0.0287
+          },
+          {
+            "window": 6,
+            "score": 0.0175
+          },
+          {
+            "window": 7,
+            "score": 0.0215
+          },
+          {
+            "window": 8,
+            "score": 0.0095
+          },
+          {
+            "window": 9,
+            "score": 0.0237
+          },
+          {
+            "window": 10,
+            "score": 0.0374
+          },
+          {
+            "window": 11,
+            "score": 0.0456
+          },
+          {
+            "window": 12,
+            "score": 0.0355
+          }
+        ]
+      },
+      {
+        "title": "Sky Island",
+        "author": "L. Frank Baum",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Balanced / Mixed",
+        "mean": 0.0183,
+        "min": -0.0076,
+        "max": 0.0431,
+        "volatility": 0.0507,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0431
+          },
+          {
+            "window": 2,
+            "score": 0.0377
+          },
+          {
+            "window": 3,
+            "score": -0.0061
+          },
+          {
+            "window": 4,
+            "score": 0.0115
+          },
+          {
+            "window": 5,
+            "score": 0.0013
+          },
+          {
+            "window": 6,
+            "score": 0.0199
+          },
+          {
+            "window": 7,
+            "score": 0.0219
+          },
+          {
+            "window": 8,
+            "score": 0.0373
+          },
+          {
+            "window": 9,
+            "score": 0.0095
+          },
+          {
+            "window": 10,
+            "score": -0.0076
+          },
+          {
+            "window": 11,
+            "score": 0.0182
+          },
+          {
+            "window": 12,
+            "score": 0.0332
+          }
+        ]
+      },
+      {
+        "title": "At the Back of the North Wind",
+        "author": "Elizabeth Lewis",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Warm / Mixed",
+        "mean": 0.0432,
+        "min": 0.0108,
+        "max": 0.0794,
+        "volatility": 0.0686,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.0377
+          },
+          {
+            "window": 2,
+            "score": 0.0372
+          },
+          {
+            "window": 3,
+            "score": 0.0287
+          },
+          {
+            "window": 4,
+            "score": 0.039
+          },
+          {
+            "window": 5,
+            "score": 0.031
+          },
+          {
+            "window": 6,
+            "score": 0.0574
+          },
+          {
+            "window": 7,
+            "score": 0.0108
+          },
+          {
+            "window": 8,
+            "score": 0.0399
+          },
+          {
+            "window": 9,
+            "score": 0.0794
+          },
+          {
+            "window": 10,
+            "score": 0.0637
+          },
+          {
+            "window": 11,
+            "score": 0.0597
+          },
+          {
+            "window": 12,
+            "score": 0.0343
+          }
+        ]
+      },
+      {
+        "title": "The Adventures of Old Mr. Toad",
+        "author": "Thornton W. Burgess",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Shadowed / Mixed",
+        "mean": -0.0086,
+        "min": -0.0287,
+        "max": 0.0115,
+        "volatility": 0.0402,
+        "windows": [
+          {
+            "window": 1,
+            "score": -0.023
+          },
+          {
+            "window": 2,
+            "score": -0.0057
+          },
+          {
+            "window": 3,
+            "score": -0.0029
+          },
+          {
+            "window": 4,
+            "score": -0.0115
+          },
+          {
+            "window": 5,
+            "score": -0.0057
+          },
+          {
+            "window": 6,
+            "score": -0.0029
+          },
+          {
+            "window": 7,
+            "score": -0.0172
+          },
+          {
+            "window": 8,
+            "score": -0.0201
+          },
+          {
+            "window": 9,
+            "score": 0.0115
+          },
+          {
+            "window": 10,
+            "score": -0.0287
+          },
+          {
+            "window": 11,
+            "score": 0.0115
+          },
+          {
+            "window": 12,
+            "score": -0.0087
+          }
+        ]
+      },
+      {
+        "title": "The Velveteen Rabbit",
+        "author": "Margery Williams",
+        "splitLabel": "Legacy Core",
+        "pacingLabel": "Warm / Mixed",
+        "mean": 0.0323,
+        "min": -0.006,
+        "max": 0.0601,
+        "volatility": 0.0661,
+        "windows": [
+          {
+            "window": 1,
+            "score": 0.033
+          },
+          {
+            "window": 2,
+            "score": 0.009
+          },
+          {
+            "window": 3,
+            "score": -0.006
+          },
+          {
+            "window": 4,
+            "score": 0.0571
+          },
+          {
+            "window": 5,
+            "score": 0.048
+          },
+          {
+            "window": 6,
+            "score": 0.024
+          },
+          {
+            "window": 7,
+            "score": 0.036
+          },
+          {
+            "window": 8,
+            "score": 0.006
+          },
+          {
+            "window": 9,
+            "score": 0.0511
+          },
+          {
+            "window": 10,
+            "score": 0.0601
+          },
+          {
+            "window": 11,
+            "score": 0.048
+          },
+          {
+            "window": 12,
+            "score": 0.0214
+          }
+        ]
+      }
+    ]
+  },
+  "corpus": {
+    "overview": [
+      {
+        "split": "expanded-core",
+        "n_books": 5,
+        "total_words": 285618,
+        "median_book_words": 60770.0,
+        "mean_book_words": 57123.6,
+        "mean_afinn_per_10k": 201.88,
+        "mean_type_token_ratio": 0.0874
+      },
+      {
+        "split": "legacy-core",
+        "n_books": 20,
+        "total_words": 1046864,
+        "median_book_words": 50005.0,
+        "mean_book_words": 52343.2,
+        "mean_afinn_per_10k": 169.58,
+        "mean_type_token_ratio": 0.1353
+      }
+    ],
+    "legacyBaseline": [
+      {
+        "cohort": "men",
+        "min": -245.0,
+        "q1": -41.0,
+        "median": -3.0,
+        "mean": -13.76,
+        "q3": 23.0,
+        "max": 195.0,
+        "perplexity": 3369.274
+      },
+      {
+        "cohort": "women",
+        "min": -232.0,
+        "q1": -21.0,
+        "median": 9.0,
+        "mean": 13.88,
+        "q3": 54.0,
+        "max": 190.0,
+        "perplexity": 4628.327
+      }
+    ],
+    "timeline": [
+      {
+        "decade": 1820,
+        "nBooks": 1,
+        "totalWords": 12376
+      },
+      {
+        "decade": 1830,
+        "nBooks": 1,
+        "totalWords": 3965
+      },
+      {
+        "decade": 1840,
+        "nBooks": 1,
+        "totalWords": 114549
+      },
+      {
+        "decade": 1850,
+        "nBooks": 1,
+        "totalWords": 6541
+      },
+      {
+        "decade": 1860,
+        "nBooks": 2,
+        "totalWords": 218665
+      },
+      {
+        "decade": 1870,
+        "nBooks": 1,
+        "totalWords": 50038
+      },
+      {
+        "decade": 1880,
+        "nBooks": 5,
+        "totalWords": 308591
+      },
+      {
+        "decade": 1890,
+        "nBooks": 1,
+        "totalWords": 52346
+      },
+      {
+        "decade": 1900,
+        "nBooks": 6,
+        "totalWords": 337998
+      },
+      {
+        "decade": 1910,
+        "nBooks": 5,
+        "totalWords": 223423
+      },
+      {
+        "decade": 1920,
+        "nBooks": 1,
+        "totalWords": 3990
+      }
+    ],
+    "genderMix": [
+      {
+        "authorGender": "male",
+        "nBooks": 14
+      },
+      {
+        "authorGender": "female",
+        "nBooks": 10
+      },
+      {
+        "authorGender": "mixed",
+        "nBooks": 1
+      }
+    ],
+    "splitMix": [
+      {
+        "split": "expanded-core",
+        "splitLabel": "Expanded Core",
+        "nBooks": 5,
+        "totalWords": 285618
+      },
+      {
+        "split": "legacy-core",
+        "splitLabel": "Legacy Core",
+        "nBooks": 20,
+        "totalWords": 1046864
+      }
+    ],
+    "inventory": [
+      {
+        "category": "auxiliary-validation",
+        "usage_role": "provenance-or-media",
+        "n_files": 1,
+        "total_bytes": 13263904
+      },
+      {
+        "category": "auxiliary-validation",
+        "usage_role": "reference-corpora",
+        "n_files": 1104,
+        "total_bytes": 13892933
+      },
+      {
+        "category": "core",
+        "usage_role": "reconstructed-corpus",
+        "n_files": 25,
+        "total_bytes": 7844312
+      },
+      {
+        "category": "legacy-demo",
+        "usage_role": "course-or-project-archive",
+        "n_files": 137,
+        "total_bytes": 109929802
+      }
+    ],
+    "auxiliaryValidation": [
+      {
+        "source": "dr_seuss",
+        "word_count": 804,
+        "type_token_ratio": 0.0684,
+        "sentence_count": 127,
+        "afinn_per_10k": 1144.28
+      },
+      {
+        "source": "kjv",
+        "word_count": 793119,
+        "type_token_ratio": 0.0166,
+        "sentence_count": 30031,
+        "afinn_per_10k": 70.58
+      },
+      {
+        "source": "koran",
+        "word_count": 161130,
+        "type_token_ratio": 0.0448,
+        "sentence_count": 7376,
+        "afinn_per_10k": 182.77
+      },
+      {
+        "source": "j_hansen",
+        "word_count": 185,
+        "type_token_ratio": 0.1297,
+        "sentence_count": 7,
+        "afinn_per_10k": 0.0
+      },
+      {
+        "source": "lancsbox_brown",
+        "word_count": 861989,
+        "type_token_ratio": 0.0446,
+        "sentence_count": 50629,
+        "afinn_per_10k": 121.66
+      },
+      {
+        "source": "lancsbox_lob",
+        "word_count": 1018723,
+        "type_token_ratio": 0.0389,
+        "sentence_count": 59133,
+        "afinn_per_10k": 124.39
+      }
+    ],
+    "analysisStatus": [
+      {
+        "task": "sentiment",
+        "backend": "afinn-fallback",
+        "status": "active"
+      },
+      {
+        "task": "embedding",
+        "backend": "tfidf-fallback",
+        "status": "active"
+      },
+      {
+        "task": "ner",
+        "backend": "heuristic-titlecase",
+        "status": "active"
+      }
+    ],
+    "backendStatus": [
+      {
+        "module": "transformers",
+        "status": "available",
+        "purpose": "modern sentiment backend",
+        "detail": "import ok"
+      },
+      {
+        "module": "sentence_transformers",
+        "status": "missing",
+        "purpose": "embedding and retrieval backend",
+        "detail": "No module named 'sentence_transformers'"
+      },
+      {
+        "module": "bertopic",
+        "status": "missing",
+        "purpose": "embedding topic modeling",
+        "detail": "No module named 'bertopic'"
+      },
+      {
+        "module": "gliner",
+        "status": "missing",
+        "purpose": "local named entity recognition",
+        "detail": "No module named 'gliner'"
+      },
+      {
+        "module": "torch",
+        "status": "available",
+        "purpose": "accelerated local inference",
+        "detail": "import ok"
+      },
+      {
+        "module": "networkx",
+        "status": "available",
+        "purpose": "entity co-occurrence graphing",
+        "detail": "import ok"
+      }
+    ],
+    "dependencyAudit": [
+      {
+        "component": "Repository source",
+        "kind": "repo",
+        "declared_license": "Apache-2.0",
+        "verification_state": "verified-local",
+        "commercial_note": "Permissive for code reuse with notice retention.",
+        "source": "LICENSE"
+      },
+      {
+        "component": "Project Gutenberg texts",
+        "kind": "data",
+        "declared_license": "Public domain / Gutenberg terms",
+        "verification_state": "manual-check-required",
+        "commercial_note": "Keep provenance and confirm title-level status before redistribution bundles.",
+        "source": "https://www.gutenberg.org/"
+      },
+      {
+        "component": "GLiNER",
+        "kind": "model-backend",
+        "declared_license": "Apache-2.0",
+        "verification_state": "upstream-docs",
+        "commercial_note": "Safe default when installed, but verify model-card terms before shipping weights.",
+        "source": "https://github.com/urchade/GLiNER"
+      },
+      {
+        "component": "BERTopic",
+        "kind": "python-package",
+        "declared_license": "MIT",
+        "verification_state": "upstream-docs",
+        "commercial_note": "Optional analysis backend.",
+        "source": "https://maartengr.github.io/BERTopic/"
+      },
+      {
+        "component": "Qwen3-Embedding-0.6B",
+        "kind": "model-backend",
+        "declared_license": "Check model card",
+        "verification_state": "manual-check-required",
+        "commercial_note": "Use locally, but do not redistribute weights without checking upstream terms.",
+        "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      },
+      {
+        "component": "DistilBERT SST-2",
+        "kind": "model-backend",
+        "declared_license": "Apache-2.0",
+        "verification_state": "model-card",
+        "commercial_note": "Default sentiment backend when available.",
+        "source": "https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+      }
+    ],
+    "recommendations": [
+      {
+        "title": "Historical clustering",
+        "detail": "24.0% of the current titles cluster in the 1900s. Treat the dashboard as a canon-aware benchmark and expand the collection if you need broader temporal coverage."
+      },
+      {
+        "title": "Metadata balance",
+        "detail": "56.0% of the titles currently fall under `male` authorship metadata. Use the corpus audit before presenting this set as a fully balanced map of the field."
+      },
+      {
+        "title": "Windowed comparison",
+        "detail": "8 titles already exceed 70,000 words, so sentiment and theme views should be read as windowed comparisons rather than naive full-text averages."
+      }
+    ]
+  }
+}

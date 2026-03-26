@@ -1,0 +1,301 @@
+title,split,window,score
+Alice's Adventures in Wonderland,expanded-core,1,0.014435695538057743
+Alice's Adventures in Wonderland,expanded-core,2,0.004811898512685914
+Alice's Adventures in Wonderland,expanded-core,3,0.013560804899387576
+Alice's Adventures in Wonderland,expanded-core,4,0.009623797025371828
+Alice's Adventures in Wonderland,expanded-core,5,0.0021872265966754157
+Alice's Adventures in Wonderland,expanded-core,6,0.0017497812773403325
+Alice's Adventures in Wonderland,expanded-core,7,0.006561679790026247
+Alice's Adventures in Wonderland,expanded-core,8,0.01268591426071741
+Alice's Adventures in Wonderland,expanded-core,9,-0.003937007874015748
+Alice's Adventures in Wonderland,expanded-core,10,-0.0074365704286964126
+Alice's Adventures in Wonderland,expanded-core,11,0.0030621172353455816
+Alice's Adventures in Wonderland,expanded-core,12,0.005699254712845244
+The Wonderful Wizard of Oz,expanded-core,1,0.01829634073185363
+The Wonderful Wizard of Oz,expanded-core,2,0.028794241151769647
+The Wonderful Wizard of Oz,expanded-core,3,0.0023995200959808036
+The Wonderful Wizard of Oz,expanded-core,4,-0.010497900419916016
+The Wonderful Wizard of Oz,expanded-core,5,0.03809238152369526
+The Wonderful Wizard of Oz,expanded-core,6,0.03659268146370726
+The Wonderful Wizard of Oz,expanded-core,7,-0.013797240551889621
+The Wonderful Wizard of Oz,expanded-core,8,-0.0011997600479904018
+The Wonderful Wizard of Oz,expanded-core,9,0.030293941211757647
+The Wonderful Wizard of Oz,expanded-core,10,0.05098980203959208
+The Wonderful Wizard of Oz,expanded-core,11,0.03539292141571686
+The Wonderful Wizard of Oz,expanded-core,12,0.054119061936259774
+Rebecca of Sunnybrook Farm,expanded-core,1,0.031512605042016806
+Rebecca of Sunnybrook Farm,expanded-core,2,0.020523594053005818
+Rebecca of Sunnybrook Farm,expanded-core,3,0.01098901098901099
+Rebecca of Sunnybrook Farm,expanded-core,4,0.03733031674208145
+Rebecca of Sunnybrook Farm,expanded-core,5,0.03329023917259211
+Rebecca of Sunnybrook Farm,expanded-core,6,0.0321590174531351
+Rebecca of Sunnybrook Farm,expanded-core,7,0.0370071105365223
+Rebecca of Sunnybrook Farm,expanded-core,8,0.041047188106011635
+Rebecca of Sunnybrook Farm,expanded-core,9,0.0321590174531351
+Rebecca of Sunnybrook Farm,expanded-core,10,0.0370071105365223
+Rebecca of Sunnybrook Farm,expanded-core,11,0.024078862314156433
+Rebecca of Sunnybrook Farm,expanded-core,12,0.025856496444731737
+The Wind in the Willows,expanded-core,1,0.029615004935834157
+The Wind in the Willows,expanded-core,2,0.03376110562685094
+The Wind in the Willows,expanded-core,3,-0.0063178677196446195
+The Wind in the Willows,expanded-core,4,0.0011846001974333662
+The Wind in the Willows,expanded-core,5,0.015004935834155972
+The Wind in the Willows,expanded-core,6,0.010661401776900297
+The Wind in the Willows,expanded-core,7,0.02211253701875617
+The Wind in the Willows,expanded-core,8,0.02171767028627838
+The Wind in the Willows,expanded-core,9,0.03593287265547877
+The Wind in the Willows,expanded-core,10,0.015992102665350443
+The Wind in the Willows,expanded-core,11,0.012833168805528134
+The Wind in the Willows,expanded-core,12,0.020573689416419388
+The Secret Garden,expanded-core,1,-0.0014427932477276007
+The Secret Garden,expanded-core,2,0.024527485211369212
+The Secret Garden,expanded-core,3,0.028567306305006493
+The Secret Garden,expanded-core,4,0.03188573077477998
+The Secret Garden,expanded-core,5,0.028711585629779254
+The Secret Garden,expanded-core,6,0.017457798297503966
+The Secret Garden,expanded-core,7,0.02149761939114125
+The Secret Garden,expanded-core,8,0.009522435435002164
+The Secret Garden,expanded-core,9,0.02366180926273265
+The Secret Garden,expanded-core,10,0.037368345116144855
+The Secret Garden,expanded-core,11,0.04559226662819218
+The Secret Garden,expanded-core,12,0.03552859618717504
+Sleepy Hollow,legacy-core,1,0.013565891472868217
+Sleepy Hollow,legacy-core,2,0.023255813953488372
+Sleepy Hollow,legacy-core,3,-0.0029069767441860465
+Sleepy Hollow,legacy-core,4,0.05717054263565891
+Sleepy Hollow,legacy-core,5,0.03294573643410853
+Sleepy Hollow,legacy-core,6,0.0436046511627907
+Sleepy Hollow,legacy-core,7,0.04263565891472868
+Sleepy Hollow,legacy-core,8,0.05813953488372093
+Sleepy Hollow,legacy-core,9,0.018410852713178296
+Sleepy Hollow,legacy-core,10,-0.01744186046511628
+Sleepy Hollow,legacy-core,11,-0.02422480620155039
+Sleepy Hollow,legacy-core,12,0.0234375
+The White Old Maid,legacy-core,1,-0.021148036253776436
+The White Old Maid,legacy-core,2,-0.08761329305135952
+The White Old Maid,legacy-core,3,-0.0755287009063444
+The White Old Maid,legacy-core,4,0.0634441087613293
+The White Old Maid,legacy-core,5,-0.03927492447129909
+The White Old Maid,legacy-core,6,-0.03625377643504532
+The White Old Maid,legacy-core,7,-0.027190332326283987
+The White Old Maid,legacy-core,8,-0.03323262839879154
+The White Old Maid,legacy-core,9,-0.012084592145015106
+The White Old Maid,legacy-core,10,0.0
+The White Old Maid,legacy-core,11,-0.015105740181268883
+The White Old Maid,legacy-core,12,-0.0030864197530864196
+The Children of the New Forest,legacy-core,1,-0.008066205740624345
+The Children of the New Forest,legacy-core,2,0.009113764927718416
+The Children of the New Forest,legacy-core,3,0.016341923318667503
+The Children of the New Forest,legacy-core,4,0.01225644248900063
+The Children of the New Forest,legacy-core,5,0.007647182065786717
+The Children of the New Forest,legacy-core,6,0.014246804944479363
+The Children of the New Forest,legacy-core,7,-0.0069138906348208675
+The Children of the New Forest,legacy-core,8,0.032160067043787974
+The Children of the New Forest,legacy-core,9,0.011208883301906558
+The Children of the New Forest,legacy-core,10,0.01697045883092395
+The Children of the New Forest,legacy-core,11,0.018960821286402682
+The Children of the New Forest,legacy-core,12,0.027978623074504872
+Rab and His Friends,legacy-core,1,0.027472527472527472
+Rab and His Friends,legacy-core,2,0.06593406593406594
+Rab and His Friends,legacy-core,3,0.020146520146520148
+Rab and His Friends,legacy-core,4,-0.038461538461538464
+Rab and His Friends,legacy-core,5,0.03663003663003663
+Rab and His Friends,legacy-core,6,0.056776556776556776
+Rab and His Friends,legacy-core,7,0.05311355311355311
+Rab and His Friends,legacy-core,8,0.027472527472527472
+Rab and His Friends,legacy-core,9,-0.009157509157509158
+Rab and His Friends,legacy-core,10,-0.003663003663003663
+Rab and His Friends,legacy-core,11,-0.003663003663003663
+Rab and His Friends,legacy-core,12,-0.026168224299065422
+Little Women,legacy-core,1,0.04649557633180649
+Little Women,legacy-core,2,0.044487670201418084
+Little Women,legacy-core,3,0.054464453786785466
+Little Women,legacy-core,4,0.05038589445943402
+Little Women,legacy-core,5,0.05364874192131518
+Little Women,legacy-core,6,0.054464453786785466
+Little Women,legacy-core,7,0.04486415260086591
+Little Women,legacy-core,8,0.06826880843320575
+Little Women,legacy-core,9,0.05628411871744996
+Little Women,legacy-core,10,0.054966430319382566
+Little Women,legacy-core,11,0.06701386710171299
+Little Women,legacy-core,12,0.074822672776348
+What Katy Did,legacy-core,1,0.05107913669064748
+What Katy Did,legacy-core,2,0.026378896882494004
+What Katy Did,legacy-core,3,0.00023980815347721823
+What Katy Did,legacy-core,4,-0.009112709832134292
+What Katy Did,legacy-core,5,0.011270983213429257
+What Katy Did,legacy-core,6,0.06690647482014389
+What Katy Did,legacy-core,7,-0.005995203836930456
+What Katy Did,legacy-core,8,0.009112709832134292
+What Katy Did,legacy-core,9,0.044124700239808155
+What Katy Did,legacy-core,10,0.03860911270983213
+What Katy Did,legacy-core,11,0.04364508393285372
+What Katy Did,legacy-core,12,0.05638195777351247
+Five Little Peppers and How They Grew,legacy-core,1,0.0332533424751457
+Five Little Peppers and How They Grew,legacy-core,2,0.02314021254713747
+Five Little Peppers and How They Grew,legacy-core,3,0.007370586218717861
+Five Little Peppers and How They Grew,legacy-core,4,0.013198491600959891
+Five Little Peppers and How They Grew,legacy-core,5,0.03239629756599246
+Five Little Peppers and How They Grew,legacy-core,6,0.029139526911210148
+Five Little Peppers and How They Grew,legacy-core,7,0.04285224545766198
+Five Little Peppers and How They Grew,legacy-core,8,0.053822420294823446
+Five Little Peppers and How They Grew,legacy-core,9,0.03445320534796023
+Five Little Peppers and How They Grew,legacy-core,10,0.019197805965032566
+Five Little Peppers and How They Grew,legacy-core,11,0.027425437092903668
+Five Little Peppers and How They Grew,legacy-core,12,0.0066906845084920225
+Treasure Island,legacy-core,1,0.0
+Treasure Island,legacy-core,2,-0.025191489361702128
+Treasure Island,legacy-core,3,0.03676595744680851
+Treasure Island,legacy-core,4,0.004936170212765958
+Treasure Island,legacy-core,5,0.006978723404255319
+Treasure Island,legacy-core,6,0.001872340425531915
+Treasure Island,legacy-core,7,0.005446808510638298
+Treasure Island,legacy-core,8,-0.012425531914893618
+Treasure Island,legacy-core,9,-0.008170212765957446
+Treasure Island,legacy-core,10,-0.003404255319148936
+Treasure Island,legacy-core,11,0.010723404255319148
+Treasure Island,legacy-core,12,0.008857094191790154
+"We and the World, Part I",legacy-core,1,0.034333733493397356
+"We and the World, Part I",legacy-core,2,0.005522208883553421
+"We and the World, Part I",legacy-core,3,0.015366146458583434
+"We and the World, Part I",legacy-core,4,0.02809123649459784
+"We and the World, Part I",legacy-core,5,0.0067226890756302525
+"We and the World, Part I",legacy-core,6,0.007202881152460984
+"We and the World, Part I",legacy-core,7,0.014645858343337335
+"We and the World, Part I",legacy-core,8,0.018247298919567827
+"We and the World, Part I",legacy-core,9,-0.024489795918367346
+"We and the World, Part I",legacy-core,10,0.01056422569027611
+"We and the World, Part I",legacy-core,11,0.006482593037214886
+"We and the World, Part I",legacy-core,12,0.028866971373586722
+Prince Prigio,legacy-core,1,0.057980456026058634
+Prince Prigio,legacy-core,2,0.031270358306188926
+Prince Prigio,legacy-core,3,0.015635179153094463
+Prince Prigio,legacy-core,4,-0.020195439739413682
+Prince Prigio,legacy-core,5,0.04429967426710098
+Prince Prigio,legacy-core,6,0.011726384364820847
+Prince Prigio,legacy-core,7,-0.010423452768729642
+Prince Prigio,legacy-core,8,0.011074918566775244
+Prince Prigio,legacy-core,9,0.001954397394136808
+Prince Prigio,legacy-core,10,-0.01758957654723127
+Prince Prigio,legacy-core,11,0.016286644951140065
+Prince Prigio,legacy-core,12,0.04634464751958225
+The Pink Fairy Book,legacy-core,1,0.006619328439042002
+The Pink Fairy Book,legacy-core,2,0.02972680226260681
+The Pink Fairy Book,legacy-core,3,0.018774822481646407
+The Pink Fairy Book,legacy-core,4,0.030689613671922012
+The Pink Fairy Book,legacy-core,5,0.013960765435070405
+The Pink Fairy Book,legacy-core,6,0.02370923095438681
+The Pink Fairy Book,legacy-core,7,0.02407028523288001
+The Pink Fairy Book,legacy-core,8,0.016608496810687205
+The Pink Fairy Book,legacy-core,9,-0.0002407028523288001
+The Pink Fairy Book,legacy-core,10,0.02250571669274281
+The Pink Fairy Book,legacy-core,11,-0.004814057046576002
+The Pink Fairy Book,legacy-core,12,0.008309248554913294
+The Jungle Book,legacy-core,1,-0.016960806784322713
+The Jungle Book,legacy-core,2,-0.03506761402704561
+The Jungle Book,legacy-core,3,-0.01856520742608297
+The Jungle Book,legacy-core,4,-0.007334402933761174
+The Jungle Book,legacy-core,5,-0.0068760027504011
+The Jungle Book,legacy-core,6,-0.015356406142562456
+The Jungle Book,legacy-core,7,-0.0022920009168003667
+The Jungle Book,legacy-core,8,-0.0011460004584001834
+The Jungle Book,legacy-core,9,-0.016273206509282604
+The Jungle Book,legacy-core,10,0.012606005042402018
+The Jungle Book,legacy-core,11,-0.022920009168003668
+The Jungle Book,legacy-core,12,0.002067539627842867
+Peter Pan,legacy-core,1,0.01773669747689233
+Peter Pan,legacy-core,2,0.024231826130402197
+Peter Pan,legacy-core,3,0.00824381713714714
+Peter Pan,legacy-core,4,-0.013240069947539346
+Peter Pan,legacy-core,5,0.005745690731951037
+Peter Pan,legacy-core,6,0.006495128653509868
+Peter Pan,legacy-core,7,0.00799400449662753
+Peter Pan,legacy-core,8,0.004996252810392206
+Peter Pan,legacy-core,9,-0.016237821633774668
+Peter Pan,legacy-core,10,-0.02398201348988259
+Peter Pan,legacy-core,11,0.01723707219585311
+Peter Pan,legacy-core,12,0.004746440169872595
+Anne of Green Gables,legacy-core,1,0.027547592385218363
+Anne of Green Gables,legacy-core,2,0.03449048152295633
+Anne of Green Gables,legacy-core,3,0.024412094064949607
+Anne of Green Gables,legacy-core,4,0.019260918253079507
+Anne of Green Gables,legacy-core,5,0.00425531914893617
+Anne of Green Gables,legacy-core,6,0.027659574468085105
+Anne of Green Gables,legacy-core,7,0.02038073908174692
+Anne of Green Gables,legacy-core,8,0.04008958566629339
+Anne of Green Gables,legacy-core,9,0.009742441209406495
+Anne of Green Gables,legacy-core,10,0.036058230683090706
+Anne of Green Gables,legacy-core,11,0.04535274356103024
+Anne of Green Gables,legacy-core,12,0.0531330568321937
+The Land of the Blue Flower,legacy-core,1,0.01694915254237288
+The Land of the Blue Flower,legacy-core,2,0.05084745762711865
+The Land of the Blue Flower,legacy-core,3,0.03389830508474576
+The Land of the Blue Flower,legacy-core,4,0.08782742681047766
+The Land of the Blue Flower,legacy-core,5,-0.03852080123266564
+The Land of the Blue Flower,legacy-core,6,0.06317411402157165
+The Land of the Blue Flower,legacy-core,7,-0.01386748844375963
+The Land of the Blue Flower,legacy-core,8,-0.030816640986132512
+The Land of the Blue Flower,legacy-core,9,0.01386748844375963
+The Land of the Blue Flower,legacy-core,10,0.04314329738058552
+The Land of the Blue Flower,legacy-core,11,0.029275808936825885
+The Land of the Blue Flower,legacy-core,12,-0.0030959752321981426
+The Emerald City of Oz,legacy-core,1,-0.0026666666666666666
+The Emerald City of Oz,legacy-core,2,0.06355555555555556
+The Emerald City of Oz,legacy-core,3,0.03755555555555556
+The Emerald City of Oz,legacy-core,4,0.057555555555555554
+The Emerald City of Oz,legacy-core,5,0.014222222222222223
+The Emerald City of Oz,legacy-core,6,0.03155555555555556
+The Emerald City of Oz,legacy-core,7,0.011555555555555555
+The Emerald City of Oz,legacy-core,8,0.02266666666666667
+The Emerald City of Oz,legacy-core,9,0.03955555555555555
+The Emerald City of Oz,legacy-core,10,0.012444444444444444
+The Emerald City of Oz,legacy-core,11,0.0026666666666666666
+The Emerald City of Oz,legacy-core,12,0.022914349276974416
+Sky Island,legacy-core,1,0.04313895512681552
+Sky Island,legacy-core,2,0.03771948840234121
+Sky Island,legacy-core,3,-0.006069802731411229
+Sky Island,legacy-core,4,0.011489269455885541
+Sky Island,legacy-core,5,0.001300672013873835
+Sky Island,legacy-core,6,0.019943637546065467
+Sky Island,legacy-core,7,0.02189464556687622
+Sky Island,legacy-core,8,0.037285931064383264
+Sky Island,legacy-core,9,0.009538261435074788
+Sky Island,legacy-core,10,-0.007587253414264037
+Sky Island,legacy-core,11,0.018209408194233688
+Sky Island,legacy-core,12,0.03318152244632401
+At the Back of the North Wind,legacy-core,1,0.03768506056527591
+At the Back of the North Wind,legacy-core,2,0.037236428891879766
+At the Back of the North Wind,legacy-core,3,0.028712427097353072
+At the Back of the North Wind,legacy-core,4,0.039030955585464336
+At the Back of the North Wind,legacy-core,5,0.03095558546433378
+At the Back of the North Wind,legacy-core,6,0.057424854194706144
+At the Back of the North Wind,legacy-core,7,0.010767160161507403
+At the Back of the North Wind,legacy-core,8,0.03992821893225662
+At the Back of the North Wind,legacy-core,9,0.07940780619111709
+At the Back of the North Wind,legacy-core,10,0.06370569762225213
+At the Back of the North Wind,legacy-core,11,0.059668012561686856
+At the Back of the North Wind,legacy-core,12,0.034265103697024346
+The Adventures of Old Mr. Toad,legacy-core,1,-0.022988505747126436
+The Adventures of Old Mr. Toad,legacy-core,2,-0.005747126436781609
+The Adventures of Old Mr. Toad,legacy-core,3,-0.0028735632183908046
+The Adventures of Old Mr. Toad,legacy-core,4,-0.011494252873563218
+The Adventures of Old Mr. Toad,legacy-core,5,-0.005747126436781609
+The Adventures of Old Mr. Toad,legacy-core,6,-0.0028735632183908046
+The Adventures of Old Mr. Toad,legacy-core,7,-0.017241379310344827
+The Adventures of Old Mr. Toad,legacy-core,8,-0.020114942528735632
+The Adventures of Old Mr. Toad,legacy-core,9,0.011494252873563218
+The Adventures of Old Mr. Toad,legacy-core,10,-0.028735632183908046
+The Adventures of Old Mr. Toad,legacy-core,11,0.011494252873563218
+The Adventures of Old Mr. Toad,legacy-core,12,-0.00872093023255814
+The Velveteen Rabbit,legacy-core,1,0.03303303303303303
+The Velveteen Rabbit,legacy-core,2,0.009009009009009009
+The Velveteen Rabbit,legacy-core,3,-0.006006006006006006
+The Velveteen Rabbit,legacy-core,4,0.057057057057057055
+The Velveteen Rabbit,legacy-core,5,0.04804804804804805
+The Velveteen Rabbit,legacy-core,6,0.024024024024024024
+The Velveteen Rabbit,legacy-core,7,0.036036036036036036
+The Velveteen Rabbit,legacy-core,8,0.006006006006006006
+The Velveteen Rabbit,legacy-core,9,0.05105105105105105
+The Velveteen Rabbit,legacy-core,10,0.06006006006006006
+The Velveteen Rabbit,legacy-core,11,0.04804804804804805
+The Velveteen Rabbit,legacy-core,12,0.021406727828746176

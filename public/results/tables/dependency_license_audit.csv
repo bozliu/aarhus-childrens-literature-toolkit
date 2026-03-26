@@ -1,0 +1,7 @@
+component,kind,declared_license,verification_state,commercial_note,source
+Repository source,repo,Apache-2.0,verified-local,Permissive for code reuse with notice retention.,LICENSE
+Project Gutenberg texts,data,Public domain / Gutenberg terms,manual-check-required,Keep provenance and confirm title-level status before redistribution bundles.,https://www.gutenberg.org/
+GLiNER,model-backend,Apache-2.0,upstream-docs,"Safe default when installed, but verify model-card terms before shipping weights.",https://github.com/urchade/GLiNER
+BERTopic,python-package,MIT,upstream-docs,Optional analysis backend.,https://maartengr.github.io/BERTopic/
+Qwen3-Embedding-0.6B,model-backend,Check model card,manual-check-required,"Use locally, but do not redistribute weights without checking upstream terms.",https://huggingface.co/Qwen/Qwen3-Embedding-0.6B
+DistilBERT SST-2,model-backend,Apache-2.0,model-card,Default sentiment backend when available.,https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english

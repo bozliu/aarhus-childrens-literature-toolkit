@@ -17,7 +17,7 @@
 | results/tables/benchmark_overview.csv        | True   | 229     |
 | results/tables/benchmark_sota_comparison.csv | True   | 982     |
 | results/tables/dependency_license_audit.csv  | True   | 1019    |
-| docs/report.qmd                              | True   | 14071   |
+| docs/report.qmd                              | True   | 14050   |
 | docs/index.html                              | True   | 12399   |
 | results/assets/hero.gif                      | True   | 2121466 |
 | results/assets/hero.mp4                      | True   | 604844  |

@@ -1,0 +1,4 @@
+task,backend,status
+sentiment,afinn-fallback,active
+embedding,tfidf-fallback,active
+ner,heuristic-titlecase,active

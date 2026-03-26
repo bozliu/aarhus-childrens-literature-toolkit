@@ -11,6 +11,16 @@ An open, dual-runtime rebuild of a 2016 Aarhus Summer University project on chil
 3. First-class R and Python entrypoints over the same manifests, figures, tables, and report outputs.
 4. A public-release surface that favors interpretable charts, benchmark tables, and reusable SOP documentation instead of screenshots.
 
+## Live Dashboard
+
+- Public app: [https://aarhus-childrens-literature-toolkit.vercel.app](https://aarhus-childrens-literature-toolkit.vercel.app)
+- Overview route: [https://aarhus-childrens-literature-toolkit.vercel.app/dashboard](https://aarhus-childrens-literature-toolkit.vercel.app/dashboard)
+- Title search: [https://aarhus-childrens-literature-toolkit.vercel.app/explorer](https://aarhus-childrens-literature-toolkit.vercel.app/explorer)
+- Theme analysis: [https://aarhus-childrens-literature-toolkit.vercel.app/themes](https://aarhus-childrens-literature-toolkit.vercel.app/themes)
+- Sentiment arcs: [https://aarhus-childrens-literature-toolkit.vercel.app/sentiment](https://aarhus-childrens-literature-toolkit.vercel.app/sentiment)
+- Corpus audit: [https://aarhus-childrens-literature-toolkit.vercel.app/corpus](https://aarhus-childrens-literature-toolkit.vercel.app/corpus)
+- Methodology report: [https://aarhus-childrens-literature-toolkit.vercel.app/report](https://aarhus-childrens-literature-toolkit.vercel.app/report)
+
 ## Who This Is For
 
 - Libraries and reading platforms that need better title discovery than age bands and manual tagging alone.
@@ -112,6 +122,7 @@ flowchart TD
     end
 
     subgraph Outputs["Public Release Outputs"]
+        P["Interactive Dashboard App<br/>Vercel routes for search, theme, pacing, and corpus audit"]
         L["Figures And Tables<br/>results/figures + results/tables"]
         M["GitHub Narrative Surface<br/>README.md + course_2016/README.md"]
         N["Deep-Dive Report<br/>docs/index.html"]
@@ -130,9 +141,11 @@ flowchart TD
     H --> J
     I --> K
     J --> K
+    K --> P
     K --> L
     K --> M
     K --> N
+    P --> O
     L --> O
     M --> O
     N --> O
@@ -199,7 +212,7 @@ make modern
 python -m childlit_toolkit modern
 ```
 
-The full HTML deep-dive report is rendered to [`docs/index.html`](docs/index.html).
+The full HTML deep-dive report is rendered to [`docs/index.html`](docs/index.html), while the public dashboard lives at [https://aarhus-childrens-literature-toolkit.vercel.app](https://aarhus-childrens-literature-toolkit.vercel.app).
 
 ## Corpus Snapshot
 
@@ -459,10 +472,22 @@ What this means:
 ├── DESCRIPTION                # R package metadata
 ├── _targets.R                 # optional R targets entrypoint
 ├── renv.lock                  # pinned R dependency lockfile
+├── vercel.json                # Vercel project metadata for the public deployment
 ├── .gitignore                 # git ignore policy, including local-only clutter
+├── .vercelignore              # deploy filter so Vercel ships the deployment surface instead of the full workspace
 ├── .Rbuildignore              # R build exclusions
 ├── .Rprofile                  # project-level R startup behavior
 ├── .github/                   # CI and release workflows
+├── site/                      # Figma-inspired static front-end served by Vercel
+│   ├── index.html             # product landing page
+│   ├── dashboard/             # overview route with quick-start and KPI surfaces
+│   ├── explorer/              # searchable title explorer and similarity detail pane
+│   ├── themes/                # theme-led reading-list and comparison route
+│   ├── sentiment/             # narrative pacing comparison route
+│   ├── corpus/                # provenance, diversity, and collection-audit route
+│   ├── data/                  # generated JSON payload consumed by the front-end
+│   └── assets/                # shared CSS and JavaScript for the live dashboard
+├── public/                    # deploy-ready static output synced from site/ and docs/
 ├── R/                         # R wrappers, utilities, and reporting helpers
 │   ├── manifests.R            # shared manifest/inventory helpers used by the R interface
 │   ├── legacy.R               # R-side helpers for reproducing the 2016 baseline workflow

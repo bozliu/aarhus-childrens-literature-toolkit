@@ -1,0 +1,151 @@
+title,split,theme,score_per_10k
+Alice's Adventures in Wonderland,expanded-core,family,5.83
+Alice's Adventures in Wonderland,expanded-core,growth,14.58
+Alice's Adventures in Wonderland,expanded-core,fantasy,0.73
+Alice's Adventures in Wonderland,expanded-core,adventure,0.36
+Alice's Adventures in Wonderland,expanded-core,animals,21.15
+Alice's Adventures in Wonderland,expanded-core,moral_emotion,6.2
+The Wonderful Wizard of Oz,expanded-core,family,11.75
+The Wonderful Wizard of Oz,expanded-core,growth,4.5
+The Wonderful Wizard of Oz,expanded-core,fantasy,16.5
+The Wonderful Wizard of Oz,expanded-core,adventure,19.5
+The Wonderful Wizard of Oz,expanded-core,animals,5.25
+The Wonderful Wizard of Oz,expanded-core,moral_emotion,12.5
+Rebecca of Sunnybrook Farm,expanded-core,family,55.35
+Rebecca of Sunnybrook Farm,expanded-core,growth,29.09
+Rebecca of Sunnybrook Farm,expanded-core,fantasy,4.85
+Rebecca of Sunnybrook Farm,expanded-core,adventure,2.02
+Rebecca of Sunnybrook Farm,expanded-core,animals,2.29
+Rebecca of Sunnybrook Farm,expanded-core,moral_emotion,11.72
+The Wind in the Willows,expanded-core,family,4.44
+The Wind in the Willows,expanded-core,growth,3.62
+The Wind in the Willows,expanded-core,fantasy,0.66
+The Wind in the Willows,expanded-core,adventure,2.47
+The Wind in the Willows,expanded-core,animals,78.16
+The Wind in the Willows,expanded-core,moral_emotion,4.77
+The Secret Garden,expanded-core,family,20.08
+The Secret Garden,expanded-core,growth,14.79
+The Secret Garden,expanded-core,fantasy,12.39
+The Secret Garden,expanded-core,adventure,0.96
+The Secret Garden,expanded-core,animals,5.77
+The Secret Garden,expanded-core,moral_emotion,3.25
+Sleepy Hollow,legacy-core,family,1.62
+Sleepy Hollow,legacy-core,growth,12.12
+Sleepy Hollow,legacy-core,fantasy,1.62
+Sleepy Hollow,legacy-core,adventure,0.81
+Sleepy Hollow,legacy-core,animals,4.04
+Sleepy Hollow,legacy-core,moral_emotion,9.7
+The White Old Maid,legacy-core,family,0.0
+The White Old Maid,legacy-core,growth,7.57
+The White Old Maid,legacy-core,fantasy,0.0
+The White Old Maid,legacy-core,adventure,0.0
+The White Old Maid,legacy-core,animals,0.0
+The White Old Maid,legacy-core,moral_emotion,7.57
+The Children of the New Forest,legacy-core,family,18.25
+The Children of the New Forest,legacy-core,growth,3.75
+The Children of the New Forest,legacy-core,fantasy,0.17
+The Children of the New Forest,legacy-core,adventure,18.86
+The Children of the New Forest,legacy-core,animals,6.29
+The Children of the New Forest,legacy-core,moral_emotion,8.99
+Rab and His Friends,legacy-core,family,3.06
+Rab and His Friends,legacy-core,growth,7.64
+Rab and His Friends,legacy-core,fantasy,0.0
+Rab and His Friends,legacy-core,adventure,0.0
+Rab and His Friends,legacy-core,animals,16.82
+Rab and His Friends,legacy-core,moral_emotion,12.23
+Little Women,legacy-core,family,41.88
+Little Women,legacy-core,growth,10.09
+Little Women,legacy-core,fantasy,1.36
+Little Women,legacy-core,adventure,1.25
+Little Women,legacy-core,animals,1.46
+Little Women,legacy-core,moral_emotion,21.75
+What Katy Did,legacy-core,family,49.76
+What Katy Did,legacy-core,growth,22.98
+What Katy Did,legacy-core,fantasy,4.0
+What Katy Did,legacy-core,adventure,0.8
+What Katy Did,legacy-core,animals,0.8
+What Katy Did,legacy-core,moral_emotion,11.19
+Five Little Peppers and How They Grew,legacy-core,family,33.14
+Five Little Peppers and How They Grew,legacy-core,growth,13.29
+Five Little Peppers and How They Grew,legacy-core,fantasy,0.43
+Five Little Peppers and How They Grew,legacy-core,adventure,0.57
+Five Little Peppers and How They Grew,legacy-core,animals,5.29
+Five Little Peppers and How They Grew,legacy-core,moral_emotion,6.0
+Treasure Island,legacy-core,family,8.51
+Treasure Island,legacy-core,growth,2.55
+Treasure Island,legacy-core,fantasy,0.14
+Treasure Island,legacy-core,adventure,37.87
+Treasure Island,legacy-core,animals,6.67
+Treasure Island,legacy-core,moral_emotion,8.94
+"We and the World, Part I",legacy-core,family,56.63
+"We and the World, Part I",legacy-core,growth,25.41
+"We and the World, Part I",legacy-core,fantasy,0.8
+"We and the World, Part I",legacy-core,adventure,1.8
+"We and the World, Part I",legacy-core,animals,5.4
+"We and the World, Part I",legacy-core,moral_emotion,11.01
+Prince Prigio,legacy-core,family,8.69
+Prince Prigio,legacy-core,growth,5.97
+Prince Prigio,legacy-core,fantasy,18.46
+Prince Prigio,legacy-core,adventure,0.54
+Prince Prigio,legacy-core,animals,0.54
+Prince Prigio,legacy-core,moral_emotion,18.46
+The Pink Fairy Book,legacy-core,family,25.07
+The Pink Fairy Book,legacy-core,growth,5.42
+The Pink Fairy Book,legacy-core,fantasy,27.78
+The Pink Fairy Book,legacy-core,adventure,11.43
+The Pink Fairy Book,legacy-core,animals,16.35
+The Pink Fairy Book,legacy-core,moral_emotion,6.72
+The Jungle Book,legacy-core,family,34.58
+The Jungle Book,legacy-core,growth,7.83
+The Jungle Book,legacy-core,fantasy,0.96
+The Jungle Book,legacy-core,adventure,8.98
+The Jungle Book,legacy-core,animals,5.16
+The Jungle Book,legacy-core,moral_emotion,7.07
+Peter Pan,legacy-core,family,31.23
+Peter Pan,legacy-core,growth,7.91
+Peter Pan,legacy-core,fantasy,4.79
+Peter Pan,legacy-core,adventure,15.41
+Peter Pan,legacy-core,animals,7.29
+Peter Pan,legacy-core,moral_emotion,11.66
+Anne of Green Gables,legacy-core,family,10.92
+Anne of Green Gables,legacy-core,growth,28.74
+Anne of Green Gables,legacy-core,fantasy,1.96
+Anne of Green Gables,legacy-core,adventure,2.05
+Anne of Green Gables,legacy-core,animals,0.56
+Anne of Green Gables,legacy-core,moral_emotion,14.28
+The Land of the Blue Flower,legacy-core,family,8.99
+The Land of the Blue Flower,legacy-core,growth,20.55
+The Land of the Blue Flower,legacy-core,fantasy,6.42
+The Land of the Blue Flower,legacy-core,adventure,2.57
+The Land of the Blue Flower,legacy-core,animals,2.57
+The Land of the Blue Flower,legacy-core,moral_emotion,10.28
+The Emerald City of Oz,legacy-core,family,49.82
+The Emerald City of Oz,legacy-core,growth,7.41
+The Emerald City of Oz,legacy-core,fantasy,50.56
+The Emerald City of Oz,legacy-core,adventure,11.3
+The Emerald City of Oz,legacy-core,animals,10.0
+The Emerald City of Oz,legacy-core,moral_emotion,8.7
+Sky Island,legacy-core,family,7.95
+Sky Island,legacy-core,growth,3.61
+Sky Island,legacy-core,fantasy,23.12
+Sky Island,legacy-core,adventure,28.18
+Sky Island,legacy-core,animals,7.59
+Sky Island,legacy-core,moral_emotion,5.24
+At the Back of the North Wind,legacy-core,family,66.2
+At the Back of the North Wind,legacy-core,growth,7.48
+At the Back of the North Wind,legacy-core,fantasy,2.99
+At the Back of the North Wind,legacy-core,adventure,10.85
+At the Back of the North Wind,legacy-core,animals,2.62
+At the Back of the North Wind,legacy-core,moral_emotion,7.11
+The Adventures of Old Mr. Toad,legacy-core,family,0.0
+The Adventures of Old Mr. Toad,legacy-core,growth,0.0
+The Adventures of Old Mr. Toad,legacy-core,fantasy,0.0
+The Adventures of Old Mr. Toad,legacy-core,adventure,0.0
+The Adventures of Old Mr. Toad,legacy-core,animals,0.0
+The Adventures of Old Mr. Toad,legacy-core,moral_emotion,4.79
+The Velveteen Rabbit,legacy-core,family,2.51
+The Velveteen Rabbit,legacy-core,growth,5.01
+The Velveteen Rabbit,legacy-core,fantasy,42.61
+The Velveteen Rabbit,legacy-core,adventure,2.51
+The Velveteen Rabbit,legacy-core,animals,162.91
+The Velveteen Rabbit,legacy-core,moral_emotion,12.53
