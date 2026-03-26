@@ -1148,7 +1148,7 @@ def render_readme_markdown() -> Path:
 
 ![Hero demo](results/assets/hero.gif)
 
-An open, dual-runtime rebuild of a 2016 Aarhus Summer University project on children’s literature. The repository is designed for public release, commercial-friendly local reuse, and reproducible comparison between a 2016 baseline and a 2026 method stack.
+An open, dual-runtime rebuild of a 2016 Aarhus Summer University project on children’s literature. The repository is now framed as a dashboard-first discovery product for Libraries & EdTech, with recommendation/discovery as one feature layer inside a broader children’s literature intelligence workflow.
 
 ## What This Repo Delivers
 
@@ -1157,52 +1157,74 @@ An open, dual-runtime rebuild of a 2016 Aarhus Summer University project on chil
 3. First-class R and Python entrypoints over the same manifests, figures, tables, and report outputs.
 4. A public-release surface that favors interpretable charts, benchmark tables, and reusable SOP documentation instead of screenshots.
 
-## Project Aim
+## Who This Is For
 
-This repo modernizes a 2016 Aarhus Summer University final project on children’s literature while preserving the original R-based teaching and research context. The goal is not just to rerun an old assignment, but to turn that project into a reusable public workflow for studying children’s literature with transparent corpus construction, interpretable analysis, and release-ready documentation.
+- Libraries and reading platforms that need better title discovery than age bands and manual tagging alone.
+- EdTech and curriculum teams that want interpretable signals for themed reading lists, classroom comparison, and catalog exploration.
+- Title-discovery teams who need similarity lookup, theme profiles, sentiment pacing, and corpus audit in one surface.
+
+## What Problem It Solves
+
+- Children’s books are often cataloged with sparse metadata, broad age labels, and inconsistent subject tags, which makes related-title discovery shallow and hard to explain.
+- Manual browsing can find a few obvious comparisons, but it does not scale well across dozens of books when a librarian or product team needs to compare theme, pacing, character prominence, and corpus bias together.
+- This repo turns a children’s literature corpus into a structured comparison surface so teams can move from “find books manually” to “inspect books systematically.”
+
+## What Decisions It Helps You Make
+
+- Which books should appear as related-title neighbors when a reader, librarian, or curator starts from one known title.
+- Which titles fit friendship, family, growth, fantasy, adventure, or animal-centered reading lists.
+- Which books are calmer versus more turbulent in narrative pacing, and therefore better suited to different reading experiences or classroom uses.
+- Where the current catalog is historically clustered, imbalanced, or over-dependent on a narrow canonical slice.
 
 ## Why Children’s Literature
 
 - Children’s literature is culturally foundational: it shapes early reading habits, moral vocabularies, character archetypes, and shared narrative worlds.
-- It is analytically strong for text mining because the books often contain clear story arcs, recurring character systems, theme-rich plots, and accessible language patterns.
-- It works well as an R text-mining case because the outputs are legible to non-technical readers, making it useful for both teaching and public scholarship.
-- The public-domain corpus makes the workflow reproducible, legally shareable, and easy for other researchers or product teams to extend.
+- It is analytically strong for text mining because the books often contain clear story arcs, recurring character systems, theme-rich plots, and accessible language patterns that are easy to interpret in discovery and dashboard settings.
+- It works well as an R text-mining case because the outputs are legible to non-technical readers, which matters for librarians, teachers, and public-facing reading products.
+- The public-domain corpus makes the workflow reproducible, legally shareable, and easy to reuse in catalog navigation, reading-list curation, and digital-humanities teaching.
 
 ## Why The 20-Book Legacy Corpus Matters
 
-- The legacy baseline stays at **20 books** because that is the canonical corpus defined in the original `Corpus of gold` course documents, so keeping those titles intact preserves historical comparability with the 2016 final project.
+- The legacy baseline stays at **20 books** because that is the canonical corpus defined in the original `Corpus of gold` course documents, so keeping those titles intact preserves historical comparability with the 2016 final project and gives the dashboard a trusted benchmark layer.
 - Twenty books is small enough to audit title by title, metadata row by metadata row, and provenance source by provenance source, which matters for a public digital-humanities workflow.
-- At the same time, those 20 books are large enough to support corpus-level analysis: the current rebuilt legacy core contains **20 books and 1,046,864 words**, which is enough to expose differences in sentiment, theme prevalence, named entities, and narrative structure across books.
-- The modern release expands beyond that baseline with 5 extra books, but the 20-book set remains the anchor corpus because it is the cleanest bridge between course history, reproducibility, and present-day reuse.
+- At the same time, those 20 books are large enough to support corpus-level analysis: the current rebuilt legacy core contains **20 books and 1,046,864 words**, which is enough to expose differences in sentiment, theme prevalence, named entities, and narrative structure across books for dashboard comparison.
+- The modern release expands beyond that baseline with 5 extra books, but the 20-book set remains the anchor corpus because it is the cleanest bridge between course history, reproducibility, and present-day reuse in a live discovery product.
 
-## What This Analysis Can Do In Children’s Literature
+## What We Learn From The Analysis
 
-- Compare themes, sentiment arcs, named entities, and vocabulary patterns across books instead of relying only on close reading of a few canonical titles.
-- Audit canon bias, metadata imbalance, and historical clustering in the selected corpus before making broader literary claims.
-- Support literary scholarship, classroom teaching, collection design, recommendation prototypes, discovery tooling, and reproducible digital-humanities workflows.
-
-## What We Find From The Analysis
-
-- The rebuilt corpus is useful but not neutral: the current public release covers **25 books and 1,332,482 words**, while the legacy core remains historically clustered around a public-domain Anglo-American canon. That is good for reproducibility, but it means the repo should be read as a canon-aware benchmark, not as a universal map of all children’s literature.
-- Book length varies enough to change downstream behavior. Some titles are long enough to dominate naive whole-corpus averages, so chunking and windowed analysis are not optional engineering details here; they are necessary to make literary comparisons fair.
-- The corpus separates into interpretable thematic neighborhoods rather than one flat “children’s books” cluster. For example, the similarity table places `The Wonderful Wizard of Oz` near `The Emerald City of Oz`, while `Little Women` sits closer to `Anne of Green Gables` and `Peter Pan`, showing that the modern retrieval layer can recover meaningful narrative neighborhoods instead of random lexical overlap.
-- Entity and theme outputs confirm that children’s literature in this corpus is strongly character-centered and plot-driven. The entity leaderboard is dominated by recurring named characters such as Dorothy, Wendy, Polly, and Mowgli, while the guided theme layer makes it easy to contrast family, growth, fantasy, adventure, animals, and moral-emotion signals book by book.
-- Sentiment trajectories are more informative than one global score. The analysis shows that these books move through distinct narrative arcs, which makes the repo useful for teaching plot structure, comparing storytelling patterns, and building downstream discovery or recommendation prototypes.
+- The rebuilt corpus is useful but not neutral: the current public release covers **25 books and 1,332,482 words**, while the legacy core remains historically clustered around a public-domain Anglo-American canon. For a dashboard product, that means the corpus is best read as a canon-aware benchmark and collection-audit surface, not as a universal map of all children’s literature.
+- Book neighborhoods are meaningful enough to support discovery workflows. The similarity outputs place `The Wonderful Wizard of Oz` near `The Emerald City of Oz`, while `Little Women` sits closer to `Anne of Green Gables` and `Peter Pan`, which is exactly the kind of interpretable neighboring structure that libraries and reading products can reuse.
+- Character prominence is one of the clearest signals in this corpus. The entity outputs are dominated by recurring named characters such as Dorothy, Wendy, Polly, and Mowgli, which makes the dashboard particularly useful for character-driven reading comparison and classroom discussion design.
+- Theme profiles are readable at the title level rather than only at the corpus level. The guided theme layer makes it practical to contrast family, growth, fantasy, adventure, animals, and moral-emotion signals book by book when building lists or comparing shelves.
+- Book length varies enough to become an implementation constraint. Some titles are long enough to distort naive full-text averages, so chunking and windowed analysis are not optional engineering details; they are required if the dashboard is going to compare books fairly.
+- Sentiment trajectories are more informative than one global score. They behave best as discovery features for narrative pacing rather than as proxies for quality, which is why they fit a dashboard product better than a forecasting claim.
 
 ## What This Repo Can And Cannot Tell You
 
-- It **can** tell you how books compare across theme, sentiment movement, recurring entities, lexical patterns, and semantic similarity. In other words, it is already useful as a children’s literature comparison and discovery layer.
+- It **can** tell you how books compare across theme, sentiment movement, recurring entities, lexical patterns, and semantic similarity. In product terms, it already works as a children’s literature comparison and discovery layer.
 - It **can** help you inspect corpus bias and benchmark a new title or corpus against a historically grounded public-domain baseline.
-- It **cannot yet** reliably predict future story events, endings, or “what happens next” in a strong forecasting sense. The current pipeline is descriptive, comparative, and retrieval-oriented rather than trained as a chapter-by-chapter predictive model.
-- It **does not** claim to score literary quality, educational value, or sales potential directly. Those would require new labels, user data, and product-specific evaluation loops that are outside the present repo.
+- It **cannot yet** reliably predict future story events, endings, or “what happens next” in a strong forecasting sense. The current pipeline is descriptive, comparative, and retrieval-oriented rather than trained as a chapter-by-chapter predictive model, so it should not be sold as a story predictor.
+- It **does not** claim to score literary quality, educational value, pedagogy quality, or sales potential directly. Those would require new labels, user data, and product-specific evaluation loops that are outside the present repo.
 
 ## Commercial Value And Product Direction
 
-- The most realistic near-term commercial value is **editorial and discovery intelligence for children’s literature**, not a general story-trajectory predictor.
-- For publishers or content studios, the repo can work as a manuscript benchmarking surface: compare a new story against canonical works by theme balance, emotional pacing, character density, and neighborhood similarity.
-- For edtech, library, and recommendation teams, the same outputs can support title discovery, related-book navigation, themed reading lists, and corpus exploration interfaces.
-- For research groups, museums, and digital-humanities labs, the repo already functions as a reusable analysis SOP and evidence surface: corpus manifest, bias audit, interpretable figures, and reproducible narrative analytics.
-- If this repo is turned into a product, the clearest MVP is a **children’s literature editorial/discovery dashboard** with searchable books, similarity lookup, theme profiles, sentiment arcs, and corpus-level audit panels. That fits the current implementation honestly and can later expand toward stronger predictive features if chapter-level sequence modeling is added.
+- The honest near-term product is a **children’s literature discovery dashboard** for Libraries & EdTech, not a general story-trajectory predictor and not a standalone recommendation engine.
+- Recommendation belongs inside that dashboard as one feature layer alongside theme profiles, sentiment pacing, character prominence, and catalog audit.
+- For libraries, reading platforms, and curriculum teams, this product direction is already defensible because the repo can turn a raw corpus into concrete discovery and curation signals.
+- For research groups, museums, and digital-humanities labs, the same repo remains useful as a reusable evidence surface and methodologically transparent SOP.
+- If this repo becomes a product, the clearest MVP is a searchable dashboard with title lookup, similar-book navigation, theme profile panels, sentiment arc views, and corpus-level audit panels. Stronger predictive features should only come after sequence-aware modeling and evaluation exist.
+
+## Capability Map
+
+| Dashboard capability | Product question it answers |
+| -------------------- | --------------------------- |
+| Similarity lookup | If a reader likes one title, which neighboring books should a librarian or reading platform inspect next? |
+| Theme profiles | Which books fit friendship, family, growth, fantasy, adventure, or animal-centered reading lists? |
+| Sentiment arcs | Which books have calmer versus more turbulent narrative pacing? |
+| Entity density / character prominence | Which books are strongly character-driven for discussion, curriculum design, or reader-facing comparisons? |
+| Corpus audit | Where is the catalog historically biased, over-clustered, or too narrow to support broader claims? |
+
+Libraries and EdTech teams do not buy a topic model for its own sake. They buy better discovery, curation, list-building, and catalog interpretation. The repo’s practical value is that it turns raw books into those decision surfaces without pretending that the current stack already predicts literary success or future plot events.
 
 ## 2016 Course Archive
 
@@ -1345,9 +1367,9 @@ What this means:
 
 What this means:
 
-- Good: the rebuild now makes historical coverage explicit.
-- Mixed: the corpus still leans heavily toward a specific public-domain era.
-- Reuse value: this is the first bias check to rerun after changing the corpus seed.
+- Signal: this shows where the catalog is historically concentrated instead of pretending the corpus is time-neutral.
+- Decision: a librarian, platform team, or curator can use this to decide whether the collection needs balancing before treating it as representative.
+- Limit: timeline coverage reflects this curated public-domain corpus, not the full field of children’s literature.
 
 ### Figure 2. Provenance Coverage
 
@@ -1355,9 +1377,9 @@ What this means:
 
 What this means:
 
-- Good: provenance status is now visible instead of being implied.
-- Good: a public release can now show exactly which texts were rebuilt from documented sources.
-- Reuse value: future corpus expansions can be audited before they are folded into benchmarks.
+- Signal: this makes source provenance visible title by title, which is essential for a trustworthy public dashboard.
+- Decision: teams can decide whether a title is stable enough to include in benchmark or discovery views before exposing it to users.
+- Limit: provenance quality does not automatically guarantee textual quality or annotation completeness.
 
 ### Figure 3. Book Length Distribution
 
@@ -1365,9 +1387,9 @@ What this means:
 
 What this means:
 
-- Good: the repo now exposes which books will dominate naive corpus-wide metrics.
-- Bad if ignored: long books will distort sentiment, topic, and embedding results unless chunking is handled deliberately.
-- Reuse value: this figure tells downstream users whether they need chapter-level or window-level analysis.
+- Signal: this shows which books are long enough to dominate naive whole-corpus summaries.
+- Decision: product teams can decide whether comparisons should be full-text, chapter-level, or windowed before using the dashboard outputs downstream.
+- Limit: length is an implementation and comparability factor, not a proxy for difficulty or literary value.
 
 ### Figure 4. Chunking Risk
 
@@ -1375,9 +1397,9 @@ What this means:
 
 What this means:
 
-- Good: the repository now makes long-context processing risk concrete before users choose a model backend.
-- Mixed: chunk counts are a preprocessing warning, not an intrinsic literary property.
-- Reuse value: this is directly reusable when deciding between full-text, chapter, and windowed product pipelines.
+- Signal: this turns context-window risk into a visible processing constraint for each book.
+- Decision: it supports a concrete choice between full-text, chapter, and windowed dashboard pipelines.
+- Limit: chunk counts depend on preprocessing and model context length, so they are engineering warnings rather than literary claims.
 
 ### Figure 5. Author Metadata Balance
 
@@ -1385,9 +1407,9 @@ What this means:
 
 What this means:
 
-- Good: metadata balance is now a first-class audit surface rather than an implicit assumption.
-- Mixed: the corpus is not neutral by split or author grouping.
-- Reuse value: additions to the corpus can be evaluated immediately for representational balance.
+- Signal: this exposes where the current catalog is imbalanced instead of hiding representation assumptions.
+- Decision: curators can use it to decide where to expand or rebalance a collection before presenting it as broadly representative.
+- Limit: metadata balance is only as good as the available metadata fields and the current corpus scope.
 
 ### Figure 6. Sentiment Trajectories
 
@@ -1395,9 +1417,9 @@ What this means:
 
 What this means:
 
-- Good: sentiment is no longer reduced to one corpus-wide average.
-- Mixed: these curves show narrative motion, not literary quality.
-- Reuse value: the window-level view is reusable for chapter studies, classroom demos, or downstream product summaries.
+- Signal: this shows narrative pacing as a curve rather than collapsing a book into one score.
+- Decision: reading platforms and educators can compare calmer versus more turbulent books when shaping reading lists or classroom contrast sets.
+- Limit: sentiment movement is a pacing feature, not a measure of literary quality or reader satisfaction.
 
 ### Figure 7. Guided Theme Heatmap
 
@@ -1405,9 +1427,9 @@ What this means:
 
 What this means:
 
-- Good: theme prevalence is now inspectable book by book instead of hiding behind one topic list.
-- Mixed: this figure is seed-guided and therefore interpretable, but it reflects the configured theme vocabulary.
-- Reuse value: users can swap `config/theme_seeds.yml` to build domain-specific thematic dashboards.
+- Signal: this reveals title-level theme profiles that are useful for reading-list and shelf-design work.
+- Decision: a librarian or curriculum team can decide which books best fit family, growth, fantasy, adventure, animal, or moral-emotion collections.
+- Limit: the chart is seed-guided, so it reflects the configured theme vocabulary rather than a universal ontology of children’s literature.
 
 ### Figure 8. Book Neighborhood Map
 
@@ -1415,9 +1437,9 @@ What this means:
 
 What this means:
 
-- Good: the modern layer now shows which books behave similarly in semantic space.
-- Mixed: the exact geometry depends on the available embedding backend and reduction path.
-- Reuse value: this plot is directly useful for retrieval demos, recommendation prototypes, and corpus debugging.
+- Signal: this makes related-title neighborhoods visible instead of forcing discovery to depend on flat subject tags.
+- Decision: reading platforms and librarians can use it for related-book navigation, similarity lookup, and recommendation explainability.
+- Limit: the map is not personalized and its geometry depends on the embedding backend and reduction method.
 
 ### Figure 9. Entity Co-occurrence Network
 
@@ -1425,9 +1447,9 @@ What this means:
 
 What this means:
 
-- Good: the repo now surfaces recurring entities and relationship structure instead of leaving NER as a TODO.
-- Mixed: when GLiNER is unavailable the fallback is deliberately conservative and heuristic.
-- Reuse value: users can replace the backend while keeping the same output contract.
+- Signal: this shows whether a book is strongly character-driven and which names dominate its narrative surface.
+- Decision: teachers, librarians, and reading-product teams can use it to identify texts suited to character-centered discussion or comparison.
+- Limit: when GLiNER is unavailable, the fallback is deliberately conservative and heuristic rather than full NER.
 
 ### Figure 10. Auxiliary Validation Panel
 
@@ -1435,9 +1457,9 @@ What this means:
 
 What this means:
 
-- Good: the local non-core datasets are now used as calibration anchors rather than ignored.
-- Good: this keeps `dr_seuss`, Bible/Qur'an, and `LancsBox` materials useful without contaminating the core benchmark.
-- Reuse value: this figure is a reusable sanity check when evaluating a new corpus against known reference corpora.
+- Signal: this shows how the core children’s literature corpus behaves relative to known local reference corpora.
+- Decision: it helps teams sanity-check whether a new dashboard corpus looks unusually narrow, noisy, or skewed before productizing it.
+- Limit: these are calibration references, not direct substitutes for the core benchmark corpus.
 
 ## Recovered 2016 Baseline
 
@@ -1636,6 +1658,51 @@ The current stack should be read as editorial and discovery intelligence rather 
 
 The original 2016 teaching materials now live in [`../course_2016/README.md`](../course_2016/README.md), while this report stays focused on the modern public toolkit surface.
 
+## Who this report is for
+
+- Libraries and reading platforms that need better related-title navigation than age labels and manual subject tags alone.
+- EdTech and curriculum teams that need interpretable evidence for themed lists, classroom comparison, and reading discovery.
+- Secondary audiences such as researchers, teachers, publishers, and editors who want a transparent benchmark and evidence surface.
+
+## Current Capability
+
+- Rebuild a transparent children’s literature corpus from the 20-book legacy baseline plus a small modern expansion layer.
+- Compare books through theme profiles, sentiment trajectories, recurring entities, and semantic neighborhoods.
+- Audit corpus provenance, historical clustering, metadata balance, and processing constraints before making broader claims.
+- Publish the outputs as reusable figures, tables, README/report surfaces, and release assets across both R and Python entrypoints.
+
+## What It Cannot Yet Do
+
+- It does not perform chapter-level or scene-level story forecasting.
+- It does not provide a personalized reader model.
+- It does not offer validated pedagogy scoring, reading-level scoring, or curriculum suitability labels.
+- It does not predict market success, sales potential, or literary quality.
+
+## MVP Product Shape
+
+- A searchable children’s literature dashboard.
+- A similar-title panel for related-book navigation.
+- A theme profile panel for reading-list and shelf design.
+- A sentiment arc viewer for narrative pacing comparison.
+- A corpus bias and provenance audit panel for collection review.
+
+## Primary User Workflow
+
+1. Start from a known title, author, or reading theme.
+2. Inspect neighboring books, theme profiles, character prominence, and sentiment pacing.
+3. Compare titles before building a reading list, recommendation surface, or classroom collection.
+4. Export or reuse the evidence in discovery, curation, and collection-audit workflows.
+
+## Roadmap
+
+- Phase 1: ship the current dashboard MVP using the existing similarity, theme, sentiment, entity, and corpus-audit outputs.
+- Phase 2: add institution-facing tooling such as filters, cohort comparison, exportable reading lists, and stronger collection views.
+- Phase 3: add sequence-aware modeling only after chapter-level structure, labels, and evaluation data exist.
+
+## Why Not Story Prediction Yet
+
+Story prediction is a different task from similarity, theme profiling, and pacing comparison. It would require chapter- or scene-level sequence data, explicit labels, and an evaluation loop that measures whether the model actually predicts future narrative events instead of just describing books retrospectively. The current repo does not have that validation layer yet, so it should not be marketed as a story-forecasting system.
+
 ## Shared entrypoints
 
 ```bash
@@ -1663,41 +1730,81 @@ Rscript scripts/run_targets.R modern
 
 ![Timeline](../results/figures/corpus_timeline.png)
 
+- Signal: historical concentration in the current corpus.
+- Decision: whether the collection is balanced enough for discovery or classroom use.
+- Limit: this reflects the curated public-domain corpus, not the whole field.
+
 ### Provenance coverage
 
 ![Provenance](../results/figures/provenance_coverage.png)
+
+- Signal: source reliability and reconstruction transparency.
+- Decision: whether a title is stable enough to expose in benchmark or dashboard views.
+- Limit: provenance quality does not guarantee interpretive quality.
 
 ### Length distribution
 
 ![Length](../results/figures/core_book_lengths.png)
 
+- Signal: which titles are large enough to distort naive comparisons.
+- Decision: whether to compare books as full texts, chapters, or windows.
+- Limit: length is an engineering and comparability factor, not a quality signal.
+
 ### Chunking risk
 
 ![Chunking](../results/figures/chunking_risk.png)
+
+- Signal: long-context processing pressure per title.
+- Decision: which segmentation strategy is safe for a live dashboard pipeline.
+- Limit: chunk counts depend on preprocessing and model context windows.
 
 ### Metadata balance
 
 ![Metadata](../results/figures/author_gender_mix.png)
 
+- Signal: representational imbalance in the current catalog.
+- Decision: where to rebalance or qualify the collection before making broader claims.
+- Limit: this depends on the available metadata fields and corpus scope.
+
 ### Sentiment trajectories
 
 ![Sentiment](../results/figures/sentiment_trajectories.png)
+
+- Signal: narrative pacing over the course of a book.
+- Decision: compare calmer versus more turbulent reading experiences for list building or classroom use.
+- Limit: this is a pacing feature, not a literary-quality score.
 
 ### Guided theme heatmap
 
 ![Themes](../results/figures/topic_prevalence_heatmap.png)
 
+- Signal: title-level theme profiles for reading-list and discovery work.
+- Decision: which books fit friendship, family, growth, fantasy, adventure, animals, or moral-emotion collections.
+- Limit: the view is seed-guided, so it reflects the configured theme vocabulary.
+
 ### Semantic neighborhood
 
 ![Neighborhood](../results/figures/embedding_book_map.png)
+
+- Signal: related-title neighborhoods beyond flat subject tags.
+- Decision: which adjacent books a library or reading platform should surface next.
+- Limit: this is not personalized recommendation and depends on the embedding backend.
 
 ### Entity network
 
 ![Entities](../results/figures/entity_network.png)
 
+- Signal: whether a book is strongly character-driven and which names dominate it.
+- Decision: which books are especially useful for character-centered discussion or comparison.
+- Limit: fallback extraction is heuristic when the stronger local NER backend is unavailable.
+
 ### Auxiliary validation
 
 ![Auxiliary](../results/figures/auxiliary_validation_panel.png)
+
+- Signal: how the core corpus compares with local reference corpora.
+- Decision: whether a new dashboard corpus looks unusually narrow or skewed before productization.
+- Limit: these are calibration references, not replacements for the core benchmark.
 
 ## Legacy baseline
 
@@ -1744,6 +1851,61 @@ def write_fallback_report_html() -> Path:
     def table_html(df: pd.DataFrame) -> str:
         return df.to_html(index=False, border=0, classes="dataframe")
 
+    intro_sections = [
+        (
+            "Who This Report Is For",
+            "<p>Libraries, reading platforms, and curriculum teams that need better title discovery, themed list building, and catalog interpretation than age labels and manual tags alone.</p>",
+        ),
+        (
+            "Current Capability",
+            "<ul>"
+            "<li>Rebuild a transparent children’s literature corpus from the 20-book legacy baseline plus a small expansion layer.</li>"
+            "<li>Compare books through theme profiles, sentiment trajectories, recurring entities, and semantic neighborhoods.</li>"
+            "<li>Audit provenance, historical clustering, metadata balance, and processing constraints before making broader claims.</li>"
+            "<li>Publish the results as reusable figures, tables, README/report surfaces, and release assets across both R and Python.</li>"
+            "</ul>",
+        ),
+        (
+            "What It Cannot Yet Do",
+            "<ul>"
+            "<li>No chapter-level or scene-level story forecasting.</li>"
+            "<li>No personalized reader model.</li>"
+            "<li>No validated pedagogy scoring, reading-level scoring, or curriculum suitability labels.</li>"
+            "<li>No market-success, sales, or literary-quality prediction.</li>"
+            "</ul>",
+        ),
+        (
+            "MVP Product Shape",
+            "<ul>"
+            "<li>A searchable children’s literature dashboard.</li>"
+            "<li>A similar-title panel for related-book navigation.</li>"
+            "<li>A theme profile panel for reading-list and shelf design.</li>"
+            "<li>A sentiment arc viewer for narrative pacing comparison.</li>"
+            "<li>A corpus bias and provenance audit panel for collection review.</li>"
+            "</ul>",
+        ),
+        (
+            "Primary User Workflow",
+            "<ol>"
+            "<li>Start from a known title, author, or reading theme.</li>"
+            "<li>Inspect neighboring books, theme profiles, character prominence, and sentiment pacing.</li>"
+            "<li>Compare titles before building a reading list, recommendation surface, or classroom collection.</li>"
+            "<li>Export or reuse the evidence in discovery, curation, and collection-audit workflows.</li>"
+            "</ol>",
+        ),
+        (
+            "Roadmap",
+            "<ul>"
+            "<li>Phase 1: ship the current dashboard MVP using existing similarity, theme, sentiment, entity, and corpus-audit outputs.</li>"
+            "<li>Phase 2: add institution-facing tooling such as filters, cohort comparison, exportable reading lists, and stronger collection views.</li>"
+            "<li>Phase 3: add sequence-aware modeling only after chapter-level structure, labels, and evaluation data exist.</li>"
+            "</ul>",
+        ),
+        (
+            "Why Not Story Prediction Yet",
+            "<p>Story prediction is a different task from similarity, theme profiling, and pacing comparison. It requires sequence data, labels, and evaluation that the current repo does not yet have, so this product should be read as editorial and discovery intelligence rather than a forecasting engine.</p>",
+        ),
+    ]
     sections = [
         ("Corpus Summary", table_html(overview)),
         ("Legacy Baseline", table_html(legacy)),
@@ -1751,21 +1913,62 @@ def write_fallback_report_html() -> Path:
         ("Auxiliary Validation", table_html(auxiliary)),
     ]
     figures = [
-        ("Timeline", "../results/figures/corpus_timeline.png"),
-        ("Provenance coverage", "../results/figures/provenance_coverage.png"),
-        ("Book Lengths", "../results/figures/core_book_lengths.png"),
-        ("Chunking risk", "../results/figures/chunking_risk.png"),
-        ("Metadata balance", "../results/figures/author_gender_mix.png"),
-        ("Sentiment", "../results/figures/sentiment_trajectories.png"),
-        ("Themes", "../results/figures/topic_prevalence_heatmap.png"),
-        ("Neighborhood", "../results/figures/embedding_book_map.png"),
-        ("Entities", "../results/figures/entity_network.png"),
-        ("Auxiliary Validation", "../results/figures/auxiliary_validation_panel.png"),
+        (
+            "Timeline",
+            "../results/figures/corpus_timeline.png",
+            "<ul><li><strong>Signal:</strong> historical concentration in the current corpus.</li><li><strong>Decision:</strong> whether the collection is balanced enough for discovery or classroom use.</li><li><strong>Limit:</strong> this reflects the curated public-domain corpus, not the whole field.</li></ul>",
+        ),
+        (
+            "Provenance coverage",
+            "../results/figures/provenance_coverage.png",
+            "<ul><li><strong>Signal:</strong> source reliability and reconstruction transparency.</li><li><strong>Decision:</strong> whether a title is stable enough to expose in benchmark or dashboard views.</li><li><strong>Limit:</strong> provenance quality does not guarantee interpretive quality.</li></ul>",
+        ),
+        (
+            "Book Lengths",
+            "../results/figures/core_book_lengths.png",
+            "<ul><li><strong>Signal:</strong> which titles are large enough to distort naive comparisons.</li><li><strong>Decision:</strong> whether to compare books as full texts, chapters, or windows.</li><li><strong>Limit:</strong> length is an engineering and comparability factor, not a quality signal.</li></ul>",
+        ),
+        (
+            "Chunking risk",
+            "../results/figures/chunking_risk.png",
+            "<ul><li><strong>Signal:</strong> long-context processing pressure per title.</li><li><strong>Decision:</strong> which segmentation strategy is safe for a live dashboard pipeline.</li><li><strong>Limit:</strong> chunk counts depend on preprocessing and model context windows.</li></ul>",
+        ),
+        (
+            "Metadata balance",
+            "../results/figures/author_gender_mix.png",
+            "<ul><li><strong>Signal:</strong> representational imbalance in the current catalog.</li><li><strong>Decision:</strong> where to rebalance or qualify the collection before making broader claims.</li><li><strong>Limit:</strong> this depends on the available metadata fields and corpus scope.</li></ul>",
+        ),
+        (
+            "Sentiment",
+            "../results/figures/sentiment_trajectories.png",
+            "<ul><li><strong>Signal:</strong> narrative pacing over the course of a book.</li><li><strong>Decision:</strong> compare calmer versus more turbulent reading experiences for list building or classroom use.</li><li><strong>Limit:</strong> this is a pacing feature, not a literary-quality score.</li></ul>",
+        ),
+        (
+            "Themes",
+            "../results/figures/topic_prevalence_heatmap.png",
+            "<ul><li><strong>Signal:</strong> title-level theme profiles for reading-list and discovery work.</li><li><strong>Decision:</strong> which books fit family, growth, fantasy, adventure, animal, or moral-emotion collections.</li><li><strong>Limit:</strong> the view is seed-guided, so it reflects the configured theme vocabulary.</li></ul>",
+        ),
+        (
+            "Neighborhood",
+            "../results/figures/embedding_book_map.png",
+            "<ul><li><strong>Signal:</strong> related-title neighborhoods beyond flat subject tags.</li><li><strong>Decision:</strong> which adjacent books a library or reading platform should surface next.</li><li><strong>Limit:</strong> this is not personalized recommendation and depends on the embedding backend.</li></ul>",
+        ),
+        (
+            "Entities",
+            "../results/figures/entity_network.png",
+            "<ul><li><strong>Signal:</strong> whether a book is strongly character-driven and which names dominate it.</li><li><strong>Decision:</strong> which books are especially useful for character-centered discussion or comparison.</li><li><strong>Limit:</strong> fallback extraction is heuristic when the stronger local NER backend is unavailable.</li></ul>",
+        ),
+        (
+            "Auxiliary Validation",
+            "../results/figures/auxiliary_validation_panel.png",
+            "<ul><li><strong>Signal:</strong> how the core corpus compares with local reference corpora.</li><li><strong>Decision:</strong> whether a new dashboard corpus looks unusually narrow or skewed before productization.</li><li><strong>Limit:</strong> these are calibration references, not replacements for the core benchmark.</li></ul>",
+        ),
     ]
+    intro_html = "\n".join(f"<section><h2>{html.escape(title)}</h2>{body}</section>" for title, body in intro_sections)
     section_html = "\n".join(f"<section><h2>{html.escape(title)}</h2>{body}</section>" for title, body in sections)
     figure_html = "\n".join(
-        f'<section><h2>{html.escape(title)}</h2><img src="{html.escape(src)}" alt="{html.escape(title)}" /></section>'
-        for title, src in figures
+        f'<section><h2>{html.escape(title)}</h2><img src="{html.escape(src)}" alt="{html.escape(title)}" />{notes}</section>'
+        for title, src, notes in figures
     )
     page = f"""<!doctype html>
 <html lang="en">
@@ -1787,6 +1990,7 @@ def write_fallback_report_html() -> Path:
   <h1>Aarhus Children's Literature Toolkit Report</h1>
   <p class="lede">Fallback HTML report generated without Quarto. The repo still keeps <code>docs/report.qmd</code> as the canonical report source.</p>
   <p>This report covers {manifest.shape[0]} books and {fmt_int(manifest['word_count'].sum())} words across the rebuilt corpus.</p>
+  {intro_html}
   {section_html}
   <h2>Figures</h2>
   {figure_html}

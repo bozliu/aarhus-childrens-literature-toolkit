@@ -12,6 +12,7 @@ __pycache__/
 *.pyo
 *.pyd
 .venv/
+.vercel/
 tmp/
 cache/
 logs/
@@ -37,3 +38,4 @@ renv/python/
 /LancsBox.zip
 /latent_variables.pdf
 -.r
+.vercel

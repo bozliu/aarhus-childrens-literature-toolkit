@@ -19,6 +19,51 @@ The current stack should be read as editorial and discovery intelligence rather 
 
 The original 2016 teaching materials now live in [`../course_2016/README.md`](../course_2016/README.md), while this report stays focused on the modern public toolkit surface.
 
+## Who this report is for
+
+- Libraries and reading platforms that need better related-title navigation than age labels and manual subject tags alone.
+- EdTech and curriculum teams that need interpretable evidence for themed lists, classroom comparison, and reading discovery.
+- Secondary audiences such as researchers, teachers, publishers, and editors who want a transparent benchmark and evidence surface.
+
+## Current Capability
+
+- Rebuild a transparent children’s literature corpus from the 20-book legacy baseline plus a small modern expansion layer.
+- Compare books through theme profiles, sentiment trajectories, recurring entities, and semantic neighborhoods.
+- Audit corpus provenance, historical clustering, metadata balance, and processing constraints before making broader claims.
+- Publish the outputs as reusable figures, tables, README/report surfaces, and release assets across both R and Python entrypoints.
+
+## What It Cannot Yet Do
+
+- It does not perform chapter-level or scene-level story forecasting.
+- It does not provide a personalized reader model.
+- It does not offer validated pedagogy scoring, reading-level scoring, or curriculum suitability labels.
+- It does not predict market success, sales potential, or literary quality.
+
+## MVP Product Shape
+
+- A searchable children’s literature dashboard.
+- A similar-title panel for related-book navigation.
+- A theme profile panel for reading-list and shelf design.
+- A sentiment arc viewer for narrative pacing comparison.
+- A corpus bias and provenance audit panel for collection review.
+
+## Primary User Workflow
+
+1. Start from a known title, author, or reading theme.
+2. Inspect neighboring books, theme profiles, character prominence, and sentiment pacing.
+3. Compare titles before building a reading list, recommendation surface, or classroom collection.
+4. Export or reuse the evidence in discovery, curation, and collection-audit workflows.
+
+## Roadmap
+
+- Phase 1: ship the current dashboard MVP using the existing similarity, theme, sentiment, entity, and corpus-audit outputs.
+- Phase 2: add institution-facing tooling such as filters, cohort comparison, exportable reading lists, and stronger collection views.
+- Phase 3: add sequence-aware modeling only after chapter-level structure, labels, and evaluation data exist.
+
+## Why Not Story Prediction Yet
+
+Story prediction is a different task from similarity, theme profiling, and pacing comparison. It would require chapter- or scene-level sequence data, explicit labels, and an evaluation loop that measures whether the model actually predicts future narrative events instead of just describing books retrospectively. The current repo does not have that validation layer yet, so it should not be marketed as a story-forecasting system.
+
 ## Shared entrypoints
 
 ```bash
@@ -57,41 +102,81 @@ Rscript scripts/run_targets.R modern
 
 ![Timeline](../results/figures/corpus_timeline.png)
 
+- Signal: historical concentration in the current corpus.
+- Decision: whether the collection is balanced enough for discovery or classroom use.
+- Limit: this reflects the curated public-domain corpus, not the whole field.
+
 ### Provenance coverage
 
 ![Provenance](../results/figures/provenance_coverage.png)
+
+- Signal: source reliability and reconstruction transparency.
+- Decision: whether a title is stable enough to expose in benchmark or dashboard views.
+- Limit: provenance quality does not guarantee interpretive quality.
 
 ### Length distribution
 
 ![Length](../results/figures/core_book_lengths.png)
 
+- Signal: which titles are large enough to distort naive comparisons.
+- Decision: whether to compare books as full texts, chapters, or windows.
+- Limit: length is an engineering and comparability factor, not a quality signal.
+
 ### Chunking risk
 
 ![Chunking](../results/figures/chunking_risk.png)
+
+- Signal: long-context processing pressure per title.
+- Decision: which segmentation strategy is safe for a live dashboard pipeline.
+- Limit: chunk counts depend on preprocessing and model context windows.
 
 ### Metadata balance
 
 ![Metadata](../results/figures/author_gender_mix.png)
 
+- Signal: representational imbalance in the current catalog.
+- Decision: where to rebalance or qualify the collection before making broader claims.
+- Limit: this depends on the available metadata fields and corpus scope.
+
 ### Sentiment trajectories
 
 ![Sentiment](../results/figures/sentiment_trajectories.png)
+
+- Signal: narrative pacing over the course of a book.
+- Decision: compare calmer versus more turbulent reading experiences for list building or classroom use.
+- Limit: this is a pacing feature, not a literary-quality score.
 
 ### Guided theme heatmap
 
 ![Themes](../results/figures/topic_prevalence_heatmap.png)
 
+- Signal: title-level theme profiles for reading-list and discovery work.
+- Decision: which books fit friendship, family, growth, fantasy, adventure, animals, or moral-emotion collections.
+- Limit: the view is seed-guided, so it reflects the configured theme vocabulary.
+
 ### Semantic neighborhood
 
 ![Neighborhood](../results/figures/embedding_book_map.png)
+
+- Signal: related-title neighborhoods beyond flat subject tags.
+- Decision: which adjacent books a library or reading platform should surface next.
+- Limit: this is not personalized recommendation and depends on the embedding backend.
 
 ### Entity network
 
 ![Entities](../results/figures/entity_network.png)
 
+- Signal: whether a book is strongly character-driven and which names dominate it.
+- Decision: which books are especially useful for character-centered discussion or comparison.
+- Limit: fallback extraction is heuristic when the stronger local NER backend is unavailable.
+
 ### Auxiliary validation
 
 ![Auxiliary](../results/figures/auxiliary_validation_panel.png)
+
+- Signal: how the core corpus compares with local reference corpora.
+- Decision: whether a new dashboard corpus looks unusually narrow or skewed before productization.
+- Limit: these are calibration references, not replacements for the core benchmark.
 
 ## Legacy baseline
 
@@ -144,14 +229,14 @@ Rscript scripts/run_targets.R modern
 
 | path                                         | exists | bytes  |
 | -------------------------------------------- | ------ | ------ |
-| README.md                                    | True   | 35044  |
+| README.md                                    | True   | 37138  |
 | data/manifests/corpus_manifest.csv           | True   | 7317   |
 | data/manifests/local_assets.csv              | True   | 129404 |
 | data/manifests/legacy_summary.csv            | True   | 142    |
 | results/tables/benchmark_overview.csv        | True   | 229    |
 | results/tables/benchmark_sota_comparison.csv | True   | 982    |
 | results/tables/dependency_license_audit.csv  | True   | 1019   |
-| docs/report.qmd                              | True   | 7762   |
+| docs/report.qmd                              | True   | 8127   |
 | docs/index.html                              | True   | 6517   |
 | results/assets/hero.gif                      | True   | 525945 |
 | results/assets/hero.mp4                      | True   | 318171 |

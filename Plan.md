@@ -52,10 +52,10 @@
 
 ### Milestone 6
 
-- Goal: Make the public README explicit about analysis meaning, non-claims, and commercial value.
-- Scope: Add README/report narrative that explains what information the repo provides for children’s literature, why the current implementation is descriptive/comparative rather than predictive, and why the most realistic near-term product direction is editorial/discovery intelligence rather than story forecasting.
-- Acceptance criteria: A public reader can tell what business problem the repo can support today, what it cannot support yet, and why the current outputs are still commercially useful.
-- Validation commands: `python3 -m py_compile childlit_toolkit/pipeline.py`; README render; top-of-README inspection; `git diff -- README.md childlit_toolkit/pipeline.py docs/report.qmd`.
+- Goal: Reposition the public narrative around a dashboard-first children’s literature product for Libraries & EdTech.
+- Scope: Rewrite the README/report generator narrative to make the repo dashboard-first, decision-oriented, explicit about capability limits, and concrete about the MVP product shape and roadmap; then deploy the generated report/dashboard live on Vercel and point the repo homepage at it.
+- Acceptance criteria: A public reader can tell who the product is for, what decisions it supports, why recommendation is only one layer inside the dashboard, what the repo cannot yet do, what the phased product roadmap looks like, and where the live website is hosted.
+- Validation commands: `python3 -m py_compile childlit_toolkit/pipeline.py`; `python -m childlit_toolkit report`; top-of-README inspection; report-section inspection; `vercel deploy --prod -y`; `gh repo view --json homepageUrl`.
 
 ## Stop-And-Fix Rule
 
@@ -69,3 +69,4 @@
 - Decision 3: The public repo name is `aarhus-childrens-literature-toolkit`, and the first public release is `v0.1.0`.
 - Decision 4: The public repo root should be product-first, with the historical 2016 materials discoverable through `course_2016/` rather than scattered across the first level.
 - Decision 5: The clearest near-term product framing is editorial and discovery intelligence for children’s literature, not direct story-path prediction.
+- Decision 6: The homepage and roadmap should target Libraries & EdTech first, with recommendation positioned as a feature inside a children’s literature discovery dashboard rather than as the whole product.

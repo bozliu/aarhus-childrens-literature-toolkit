@@ -2,14 +2,14 @@
 
 ## Status
 
-- Current milestone: Milestone 6 - clarify analytical meaning and commercial positioning
+- Current milestone: Milestone 6 - dashboard-first commercial repositioning and Vercel live deployment
 - Completed milestones:
   - Milestone 1: durable memory, config, bootstrap contracts, and dual-runtime repo metadata aligned to the approved plan
   - Milestone 2: Python CLI surface and shared R wrappers implemented
   - Milestone 3: expanded analytics, README/report generation, demo media, and release-facing tables/figures implemented
   - Milestone 4: CI/release scaffolding validated, public repo created, `main` pushed, and `v0.1.0` released
   - Milestone 5: repo root cleaned into a product-first layout, `course_2016/` published as a structured archive, and the public README refreshed with a repository tree plus workflow architecture diagram
-- Next milestone: update README/report narrative to explain what the repo can tell users, what it cannot yet do, and why the current commercial path is editorial/discovery intelligence
+- Next milestone: commit and push the dashboard-first narrative plus Vercel deployment config, then confirm the repo homepage points at the live site
 - Last updated: 2026-03-26
 
 ## Decisions
@@ -34,6 +34,12 @@
   Why: public users should be able to understand both the file layout and the end-to-end children’s literature workflow at a glance.
 - Decision: frame the repo’s near-term business value as editorial/discovery intelligence rather than story-path prediction.
   Why: the current outputs are descriptive, comparative, and retrieval-oriented; they support editorial and recommendation workflows today, but they do not yet justify a strong forecasting claim about plot outcomes.
+- Decision: make Libraries & EdTech the primary audience for the commercial narrative, with researchers/teachers and publishers/editors presented as secondary reuse audiences.
+  Why: the current outputs already support title discovery, themed list building, similarity navigation, and catalog audit workflows more directly than they support manuscript prediction or market forecasting.
+- Decision: position recommendation as one capability inside a broader dashboard product rather than as the entire product identity.
+  Why: the repo already has multiple decision surfaces beyond similarity, including theme profiles, sentiment arcs, entity structure, and corpus bias audit panels.
+- Decision: deploy the live website as a thin Vercel static surface over the generated `docs/index.html` report rather than rebuilding the repo into a new frontend app.
+  Why: the current product is already most honest as a generated report/dashboard, so Vercel can expose it quickly without inventing a fake SaaS layer.
 
 ## Validation Log
 
@@ -100,6 +106,15 @@
 - Command: `python3 -m py_compile childlit_toolkit/pipeline.py && python -m childlit_toolkit render`
   Result: succeeded after the README commercial-positioning pass; the README/report sources were regenerated with explicit sections about what the repo can tell users, what it cannot yet predict, and why the strongest current product framing is editorial/discovery intelligence.
   Follow-up: commit the updated public narrative together with the generator source and project-memory files so the GitHub repo and durable-memory log stay aligned.
+- Command: `python3 -m py_compile childlit_toolkit/pipeline.py` and `python -m childlit_toolkit report`
+  Result: succeeded after the dashboard-first rewrite; `README.md`, `docs/report.qmd`, and the fallback `docs/index.html` now all describe the repo as a Libraries & EdTech children’s literature discovery dashboard with a concrete MVP and phased roadmap.
+  Follow-up: deploy this generated report surface live rather than shipping only GitHub-hosted documentation.
+- Command: `vercel project add aarhus-childrens-literature-toolkit --scope bozlius-projects`, `vercel link --yes --project aarhus-childrens-literature-toolkit --scope bozlius-projects`, and `vercel deploy --prod -y --scope bozlius-projects --logs`
+  Result: succeeded; the live production alias is `https://aarhus-childrens-literature-toolkit.vercel.app`.
+  Follow-up: set the GitHub repo homepage to the Vercel alias and keep `.vercelignore`/`vercel.json` in the repo so future deploys preserve the same public URL.
+- Command: `gh repo edit bozliu/aarhus-childrens-literature-toolkit --homepage https://aarhus-childrens-literature-toolkit.vercel.app`
+  Result: succeeded; the GitHub repo homepage now points at the live Vercel site.
+  Follow-up: future public references can use the stable alias instead of the one-off deployment URL.
 
 ## How To Run Or Demo
 
@@ -136,6 +151,8 @@
   Impact: that historical run used the old workflow definition from the tag commit, so it cannot inherit the repaired permissions; the practical fix is to dispatch a new successful release run from `main`.
 - Issue 5: `course_2016/slides/supplementary/latent_variables.pdf` is larger than GitHub’s recommended file size.
   Impact: the file is published successfully, but it may be worth replacing with a smaller archival copy or Git LFS if the repo should minimize clone weight.
+- Issue 6: the first Vercel production attempt uploaded only `vercel.json` because the initial `.vercelignore` allowlist was too aggressive.
+  Impact: the issue was fixed in the same session by switching `.vercelignore` to a blacklist-style deploy filter and redeploying the same production alias.
 
 ## Follow-Ups
 
