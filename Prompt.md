@@ -10,7 +10,7 @@
 ## Goal
 
 - Primary objective: Rebuild the 2016 Aarhus Summer University children’s literature text-mining project into a dual-runtime public repository where R and Python are equal first-class entrypoints over the same manifests, results, and release assets.
-- Current implementation objective: Reorganize the public repository into a product-first root layout, add explicit children’s literature research framing to the public README, and publish the 2016 Aarhus course materials as a structured `course_2016/` archive.
+- Current implementation objective: Clarify the analytical meaning and commercial positioning of the repo in the public README, including what information the project provides for children’s literature, what it does not claim to do, and which near-term commercial use case is most realistic.
 - Intended audience or user: Public GitHub users, digital humanities researchers, text mining practitioners, and commercial teams who want a reusable SOP for analyzing children’s literature corpora with local methods.
 
 ## Deliverables
@@ -44,6 +44,7 @@
 - [ ] The repo root is cleaned up into a product-first public layout with historical materials moved out of the first level.
 - [ ] `README.md` explicitly explains the project aim, why children’s literature was chosen, what the analysis contributes to the field, and where the `course_2016/` archive lives.
 - [ ] `README.md` includes a public-friendly repository tree and a visual architecture/process diagram for the children’s literature workflow.
+- [ ] `README.md` clearly explains what information the repo provides, why it is not yet a story-trajectory predictor, and what realistic commercial value/use case it supports today.
 - [ ] `course_2016/README.md` provides a detailed course archive guide with slide deck table of contents and navigation indexes.
 
 ## Fixed Assumptions

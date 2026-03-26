@@ -1189,6 +1189,21 @@ This repo modernizes a 2016 Aarhus Summer University final project on children�
 - Entity and theme outputs confirm that children’s literature in this corpus is strongly character-centered and plot-driven. The entity leaderboard is dominated by recurring named characters such as Dorothy, Wendy, Polly, and Mowgli, while the guided theme layer makes it easy to contrast family, growth, fantasy, adventure, animals, and moral-emotion signals book by book.
 - Sentiment trajectories are more informative than one global score. The analysis shows that these books move through distinct narrative arcs, which makes the repo useful for teaching plot structure, comparing storytelling patterns, and building downstream discovery or recommendation prototypes.
 
+## What This Repo Can And Cannot Tell You
+
+- It **can** tell you how books compare across theme, sentiment movement, recurring entities, lexical patterns, and semantic similarity. In other words, it is already useful as a children’s literature comparison and discovery layer.
+- It **can** help you inspect corpus bias and benchmark a new title or corpus against a historically grounded public-domain baseline.
+- It **cannot yet** reliably predict future story events, endings, or “what happens next” in a strong forecasting sense. The current pipeline is descriptive, comparative, and retrieval-oriented rather than trained as a chapter-by-chapter predictive model.
+- It **does not** claim to score literary quality, educational value, or sales potential directly. Those would require new labels, user data, and product-specific evaluation loops that are outside the present repo.
+
+## Commercial Value And Product Direction
+
+- The most realistic near-term commercial value is **editorial and discovery intelligence for children’s literature**, not a general story-trajectory predictor.
+- For publishers or content studios, the repo can work as a manuscript benchmarking surface: compare a new story against canonical works by theme balance, emotional pacing, character density, and neighborhood similarity.
+- For edtech, library, and recommendation teams, the same outputs can support title discovery, related-book navigation, themed reading lists, and corpus exploration interfaces.
+- For research groups, museums, and digital-humanities labs, the repo already functions as a reusable analysis SOP and evidence surface: corpus manifest, bias audit, interpretable figures, and reproducible narrative analytics.
+- If this repo is turned into a product, the clearest MVP is a **children’s literature editorial/discovery dashboard** with searchable books, similarity lookup, theme profiles, sentiment arcs, and corpus-level audit panels. That fits the current implementation honestly and can later expand toward stronger predictive features if chapter-level sequence modeling is added.
+
 ## 2016 Course Archive
 
 The historical Aarhus course materials now live in [`course_2016/README.md`](course_2016/README.md). That folder keeps the 2016 slides, teaching code, project work, supporting resources, and raw archives in one browsable place so the public repo can stay product-first at the top level without losing provenance.
@@ -1616,6 +1631,8 @@ format:
 This report is the deeper public-release companion to `README.md`. It keeps the GitHub front page dense and practical while offering more context, larger tables, and a fuller explanation of how the rebuilt children’s literature workflow can be reused.
 
 The children’s literature focus is intentional rather than incidental: the corpus offers interpretable narrative structure, recurring characters, theme-rich plots, and public-domain availability that make it unusually useful for transparent text-mining workflows.
+
+The current stack should be read as editorial and discovery intelligence rather than as a full story-forecasting system. It is already useful for comparing books, auditing corpora, surfacing thematic neighborhoods, and supporting recommendation/editorial workflows, but it does not yet justify a strong claim that it can predict plot outcomes or literary success.
 
 The original 2016 teaching materials now live in [`../course_2016/README.md`](../course_2016/README.md), while this report stays focused on the modern public toolkit surface.
 

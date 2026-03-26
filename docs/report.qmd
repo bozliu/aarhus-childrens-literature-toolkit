@@ -15,6 +15,8 @@ This report is the deeper public-release companion to `README.md`. It keeps the 
 
 The children’s literature focus is intentional rather than incidental: the corpus offers interpretable narrative structure, recurring characters, theme-rich plots, and public-domain availability that make it unusually useful for transparent text-mining workflows.
 
+The current stack should be read as editorial and discovery intelligence rather than as a full story-forecasting system. It is already useful for comparing books, auditing corpora, surfacing thematic neighborhoods, and supporting recommendation/editorial workflows, but it does not yet justify a strong claim that it can predict plot outcomes or literary success.
+
 The original 2016 teaching materials now live in [`../course_2016/README.md`](../course_2016/README.md), while this report stays focused on the modern public toolkit surface.
 
 ## Shared entrypoints
@@ -142,7 +144,7 @@ Rscript scripts/run_targets.R modern
 
 | path                                         | exists | bytes  |
 | -------------------------------------------- | ------ | ------ |
-| README.md                                    | True   | 32326  |
+| README.md                                    | True   | 35044  |
 | data/manifests/corpus_manifest.csv           | True   | 7317   |
 | data/manifests/local_assets.csv              | True   | 129404 |
 | data/manifests/legacy_summary.csv            | True   | 142    |

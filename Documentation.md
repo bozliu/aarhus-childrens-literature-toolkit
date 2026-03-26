@@ -2,15 +2,15 @@
 
 ## Status
 
-- Current milestone: Milestone 5 - completed product-first cleanup and 2016 archive packaging
+- Current milestone: Milestone 6 - clarify analytical meaning and commercial positioning
 - Completed milestones:
   - Milestone 1: durable memory, config, bootstrap contracts, and dual-runtime repo metadata aligned to the approved plan
   - Milestone 2: Python CLI surface and shared R wrappers implemented
   - Milestone 3: expanded analytics, README/report generation, demo media, and release-facing tables/figures implemented
   - Milestone 4: CI/release scaffolding validated, public repo created, `main` pushed, and `v0.1.0` released
   - Milestone 5: repo root cleaned into a product-first layout, `course_2016/` published as a structured archive, and the public README refreshed with a repository tree plus workflow architecture diagram
-- Next milestone: no new milestone scheduled; see follow-ups for optional polish work
-- Last updated: 2026-03-25
+- Next milestone: update README/report narrative to explain what the repo can tell users, what it cannot yet do, and why the current commercial path is editorial/discovery intelligence
+- Last updated: 2026-03-26
 
 ## Decisions
 
@@ -32,6 +32,8 @@
   Why: the repo homepage should read like a public toolkit first, while the 2016 course archive remains available in a dedicated, browsable surface.
 - Decision: add a repository tree and a process/architecture diagram to the main README.
   Why: public users should be able to understand both the file layout and the end-to-end children’s literature workflow at a glance.
+- Decision: frame the repo’s near-term business value as editorial/discovery intelligence rather than story-path prediction.
+  Why: the current outputs are descriptive, comparative, and retrieval-oriented; they support editorial and recommendation workflows today, but they do not yet justify a strong forecasting claim about plot outcomes.
 
 ## Validation Log
 
@@ -95,6 +97,9 @@
 - Command: `git push origin main`
   Result: succeeded; commit `cc97667` is now on `origin/main` for `bozliu/aarhus-childrens-literature-toolkit`.
   Follow-up: GitHub accepted the push, but warned that `course_2016/slides/supplementary/latent_variables.pdf` is 51.86 MB, which is above the recommended 50 MB threshold while still below the hard 100 MB limit.
+- Command: `python3 -m py_compile childlit_toolkit/pipeline.py && python -m childlit_toolkit render`
+  Result: succeeded after the README commercial-positioning pass; the README/report sources were regenerated with explicit sections about what the repo can tell users, what it cannot yet predict, and why the strongest current product framing is editorial/discovery intelligence.
+  Follow-up: commit the updated public narrative together with the generator source and project-memory files so the GitHub repo and durable-memory log stay aligned.
 
 ## How To Run Or Demo
 

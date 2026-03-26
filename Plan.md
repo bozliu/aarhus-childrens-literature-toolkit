@@ -4,6 +4,7 @@
 
 - Convert the current rebuild into a dual-runtime, public-release repository with shared manifests/results, deeper visual analytics, a Quarto report, CI, and a GitHub release.
 - Complete a post-release productization pass that cleans the repo root, adds explicit children’s literature framing, and packages the 2016 Aarhus course materials into a structured archive.
+- Clarify the repo’s analytical meaning and commercial value so the public README explains what the project does today, what it does not do, and which product direction best fits the current implementation.
 
 ## Architecture Notes
 
@@ -49,6 +50,13 @@
 - Acceptance criteria: The root is clean, the archive is browsable on GitHub, README framing is field-specific, the repo tree and workflow diagram are visible on the public homepage, and generated manifests/docs reflect the new paths.
 - Validation commands: `git status --short`; root directory inspection; asset/render commands; link checks by inspection; `git ls-files course_2016`.
 
+### Milestone 6
+
+- Goal: Make the public README explicit about analysis meaning, non-claims, and commercial value.
+- Scope: Add README/report narrative that explains what information the repo provides for children’s literature, why the current implementation is descriptive/comparative rather than predictive, and why the most realistic near-term product direction is editorial/discovery intelligence rather than story forecasting.
+- Acceptance criteria: A public reader can tell what business problem the repo can support today, what it cannot support yet, and why the current outputs are still commercially useful.
+- Validation commands: `python3 -m py_compile childlit_toolkit/pipeline.py`; README render; top-of-README inspection; `git diff -- README.md childlit_toolkit/pipeline.py docs/report.qmd`.
+
 ## Stop-And-Fix Rule
 
 - If a validation step fails, fix it before starting the next milestone.
@@ -60,3 +68,4 @@
 - Decision 2: The `dl` conda environment remains the default managed runtime for both languages.
 - Decision 3: The public repo name is `aarhus-childrens-literature-toolkit`, and the first public release is `v0.1.0`.
 - Decision 4: The public repo root should be product-first, with the historical 2016 materials discoverable through `course_2016/` rather than scattered across the first level.
+- Decision 5: The clearest near-term product framing is editorial and discovery intelligence for children’s literature, not direct story-path prediction.
