@@ -12,6 +12,7 @@
 - Primary objective: Rebuild the 2016 Aarhus Summer University children’s literature text-mining project into a dual-runtime public repository where R and Python are equal first-class entrypoints over the same manifests, results, and release assets.
 - Current implementation objective: Reposition the public repo narrative around a dashboard-first children’s literature product for Libraries & EdTech, make the generated report/dashboard live on Vercel, and keep recommendation/discovery as a feature layer inside that dashboard while preserving research/DH value as a secondary proof surface.
 - Current implementation objective: Reconnect to the user-owned Figma Make file, use it as the canonical UI reference, and restyle the live Vercel dashboard so it matches the Figma information architecture and visual direction while preserving the repo’s real-data routes, analytics features, and public-product framing.
+- Current implementation objective: Correct the remaining homepage drift from Figma by restoring a white-background dashboard landing page and reintroducing the Figma-style `Publication Timeline` and `Theme Distribution` visualizations on the main route.
 - Intended audience or user: Libraries, reading platforms, curriculum/reading products, and title-discovery teams first; researchers, teachers, publishers, and editors second.
 
 ## Deliverables
@@ -54,6 +55,8 @@
 - [ ] `course_2016/README.md` provides a detailed course archive guide with slide deck table of contents and navigation indexes.
 - [ ] The live Vercel site visually aligns with the latest accessible Figma Make design while keeping current real-data functionality.
 - [ ] The reported frontend overflow problems on the Theme Analysis and Book Explorer routes are fixed.
+- [ ] The live homepage follows the Figma dashboard’s white-background baseline rather than the previous warm editorial background treatment.
+- [ ] The live homepage includes the Figma-style `Publication Timeline` and `Theme Distribution` charts, populated from real repo data.
 - [ ] README hero media is regenerated from the updated website flows.
 
 ## Fixed Assumptions

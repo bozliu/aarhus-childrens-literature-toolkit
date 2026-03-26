@@ -216,88 +216,100 @@ function renderPage(page, data) {
 }
 
 function renderHomePage(data) {
+  const authorCount = new Set(data.books.map((book) => book.author)).size;
+  const authorDiversity = (authorCount / Math.max(data.summary.nBooks, 1)) * 100;
+  const yearRange = data.summary.maxYear - data.summary.minYear;
+  const avgVolatility = data.books.reduce((sum, book) => sum + Number(book.sentiment.volatility || 0), 0) / Math.max(data.books.length, 1);
   const featuredBooks = data.books.slice(0, 4);
   return `
-    <section class="hero-panel reveal" style="--delay:0">
-      <div class="hero-grid">
-        <div class="stack">
-          <p class="eyebrow">Dashboard-first public release</p>
-          <h1 class="display-title">Turn children’s literature into a discovery surface, not just a pile of texts.</h1>
-          <p class="lead">This site turns the rebuilt Aarhus corpus into a real comparison and curation interface: title lookup, similar books, theme-led reading lists, sentiment pacing, and collection audit in one place.</p>
-          <div class="hero-actions">
-            <a class="cta" href="/dashboard">Open the dashboard</a>
-            <a class="ghost-cta" href="/explorer">Search titles</a>
-            <a class="ghost-cta" href="/report">Methodology report</a>
-          </div>
-          <div class="pill-row">
-            <span class="tag">Not a story predictor</span>
-            <span class="tag subtle">Built on real repo data</span>
-            <span class="tag subtle">Designed for Libraries & EdTech</span>
-          </div>
-        </div>
-        <div class="stack">
-          <div class="floating-card reveal" style="--delay:1">
-            <p class="metric-label">Collection snapshot</p>
-            <div class="metric-grid">
-              ${metricCard("Books", formatNumber(data.summary.nBooks), "Public-domain titles in the current live catalog.", { compact: true })}
-              ${metricCard("Words", formatCompactNumber(data.summary.totalWords), "Shared across the same R and Python outputs. Exact totals stay visible deeper in the dashboard.", { compact: true })}
-              ${metricCard("Legacy core", formatNumber(data.summary.legacyBooks), "Canonical 2016 benchmark titles kept intact.", { compact: true })}
-              ${metricCard("Year span", `${data.summary.minYear}-${data.summary.maxYear}`, "Makes historical clustering visible rather than hidden.", { compact: true })}
-            </div>
-          </div>
-          <div class="panel reveal" style="--delay:2">
-            <h2 class="mini-title">What this helps you decide</h2>
-            <div class="signal-list">
-              ${data.insights
-                .map(
-                  (item) => `
-                    <div class="signal-item">
-                      <strong>${escapeHtml(item.title)}</strong>
-                      <span>${escapeHtml(item.detail)}</span>
-                    </div>
-                  `
-                )
-                .join("")}
-            </div>
-          </div>
+    <section class="dashboard-landing reveal" style="--delay:0">
+      <div class="stack">
+        <h1 class="dashboard-title">Children's Literature Discovery Dashboard</h1>
+        <p class="dashboard-subtitle">Analyze, compare, and explore children's literature through data-driven insights.</p>
+        <div class="hero-actions">
+          <a class="cta" href="/explorer">Open Explorer</a>
+          <a class="ghost-cta" href="/dashboard">Extended dashboard</a>
+          <a class="ghost-cta" href="/report">Methodology report</a>
         </div>
       </div>
     </section>
 
-    <section class="panel reveal" style="--delay:1">
-      <div class="page-header">
-        <div class="page-header-copy">
-          <p class="eyebrow">Quick start</p>
-          <h2 class="section-title">Choose the workflow that matches the decision you need to make.</h2>
-          <p class="section-copy">This mirrors the public product surface: start from a known title, a theme, a pacing question, or the collection itself.</p>
+    <section class="stat-cards-grid reveal" style="--delay:1">
+      ${dashboardStatCard("Total Books", formatNumber(data.summary.nBooks), "In the collection", "dashboard", "book")}
+      ${dashboardStatCard("Author Diversity", `${formatFloat(authorDiversity, 0)}%`, "Unique authors ratio", "explorer", "growth")}
+      ${dashboardStatCard("Year Range", formatNumber(yearRange), `${data.summary.minYear} - ${data.summary.maxYear}`, "corpus", "fantasy")}
+      ${dashboardStatCard("Avg Volatility", formatFloat(avgVolatility, 2), "Narrative complexity", "sentiment", "warm")}
+    </section>
+
+    <section class="two-column">
+      <article class="panel reveal" style="--delay:2">
+        <div class="dashboard-chart-header">
+          <h2 class="dashboard-panel-title">Publication Timeline</h2>
+          <p class="dashboard-panel-copy">Books by decade</p>
         </div>
+        <div class="chart-shell dashboard-chart-shell">
+          ${renderPublicationTimelineBars(data.corpus.timeline)}
+        </div>
+      </article>
+      <article class="panel reveal" style="--delay:3">
+        <div class="dashboard-chart-header">
+          <h2 class="dashboard-panel-title">Theme Distribution</h2>
+          <p class="dashboard-panel-copy">Average theme strength across corpus</p>
+        </div>
+        <div class="chart-shell dashboard-chart-shell">
+          ${renderThemeDistributionRadar(data.themes)}
+        </div>
+      </article>
+    </section>
+
+    <section class="panel reveal" style="--delay:4">
+      <div class="dashboard-chart-header">
+        <h2 class="dashboard-panel-title">Quick Start</h2>
+        <p class="dashboard-panel-copy">Explore different aspects of the collection</p>
+      </div>
+      <div class="quick-start-grid">
+        <a class="quick-start-card" href="/explorer">
+          <strong>Find Similar Books</strong>
+          <span>Discover related titles based on semantic neighborhood and theme overlap.</span>
+        </a>
+        <a class="quick-start-card" href="/themes">
+          <strong>Explore Themes</strong>
+          <span>Filter and compare books by family, growth, fantasy, adventure, animals, and moral emotion.</span>
+        </a>
+        <a class="quick-start-card" href="/sentiment">
+          <strong>Analyze Sentiment</strong>
+          <span>View narrative arcs and emotional pacing across multiple books.</span>
+        </a>
+        <a class="quick-start-card" href="/corpus">
+          <strong>Corpus Insights</strong>
+          <span>Examine collection bias, historical clustering, and representation gaps.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel reveal" style="--delay:5">
+      <div class="dashboard-chart-header">
+        <h2 class="dashboard-panel-title">Use Cases</h2>
+        <p class="dashboard-panel-copy">How librarians, educators, and researchers can use this corpus dashboard</p>
       </div>
       <div class="feature-grid">
         <article class="signal-item">
-          <strong>Find Similar Books</strong>
-          <span>Start from one title and move through explainable semantic neighbors for recommendation, shelf extension, and discovery.</span>
-          <a class="inline-link" href="/explorer">Open Book Explorer</a>
+          <strong>For Libraries</strong>
+          <span>Build themed collections, create reading lists, and provide related-title discovery from interpretable similarity signals.</span>
         </article>
         <article class="signal-item">
-          <strong>Explore Themes</strong>
-          <span>Build friendship, family, growth, fantasy, or adventure reading lists using transparent theme profiles instead of weak tags.</span>
-          <a class="inline-link" href="/themes">Open Theme Analysis</a>
+          <strong>For Educators</strong>
+          <span>Choose books by theme mix, narrative pacing, and character-centered structure for classroom comparison and discussion design.</span>
         </article>
         <article class="signal-item">
-          <strong>Analyze Sentiment</strong>
-          <span>Compare calmer and more turbulent narrative pacing to support classroom sequencing and reading-path design.</span>
-          <a class="inline-link" href="/sentiment">Open Sentiment Arcs</a>
-        </article>
-        <article class="signal-item">
-          <strong>Audit the Corpus</strong>
-          <span>Check provenance, authorship balance, and historical clustering before you make a public-facing catalog claim.</span>
-          <a class="inline-link" href="/corpus">Open Corpus Insights</a>
+          <strong>For Researchers</strong>
+          <span>Analyze corpus representation, study temporal clustering, and identify gaps in the children’s literature canon.</span>
         </article>
       </div>
     </section>
 
     <section class="two-column">
-      <article class="panel reveal" style="--delay:2">
+      <article class="panel reveal" style="--delay:6">
         <div class="page-header">
           <div class="page-header-copy">
             <p class="eyebrow">Current capability</p>
@@ -310,7 +322,7 @@ function renderHomePage(data) {
           <div class="signal-item"><strong>Collection review</strong><span>Audit provenance, historical concentration, and metadata balance before turning the corpus into a public-facing recommendation layer.</span></div>
         </div>
       </article>
-      <article class="panel reveal" style="--delay:3">
+      <article class="panel reveal" style="--delay:7">
         <div class="page-header">
           <div class="page-header-copy">
             <p class="eyebrow">Capability boundary</p>
@@ -325,31 +337,7 @@ function renderHomePage(data) {
       </article>
     </section>
 
-    <section class="panel reveal" style="--delay:4">
-      <div class="page-header">
-        <div class="page-header-copy">
-          <p class="eyebrow">Use cases</p>
-          <h2 class="section-title">Who this dashboard is most useful for right now.</h2>
-          <p class="section-copy">The current MVP is strongest when people need explainable discovery, comparison, and curation signals rather than opaque recommendation scores.</p>
-        </div>
-      </div>
-      <div class="feature-grid">
-        <article class="signal-item">
-          <strong>For Libraries</strong>
-          <span>Build themed reading lists, identify adjacent titles, and make canon bias visible before turning the corpus into a recommendation layer.</span>
-        </article>
-        <article class="signal-item">
-          <strong>For Educators</strong>
-          <span>Choose books by theme mix, narrative pacing, and character density to support classroom comparison and discussion design.</span>
-        </article>
-        <article class="signal-item">
-          <strong>For Researchers</strong>
-          <span>Use the corpus as a transparent, auditable benchmark for studying clustering, theme distribution, and historical representation.</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel reveal" style="--delay:5">
+    <section class="panel reveal" style="--delay:8">
       <div class="page-header">
         <div class="page-header-copy">
           <p class="eyebrow">Featured titles</p>
@@ -948,6 +936,19 @@ function renderFeaturedBook(book, index) {
   `;
 }
 
+function dashboardStatCard(label, value, copy, icon, tone = "book") {
+  return `
+    <article class="dashboard-stat-card reveal">
+      <div class="dashboard-stat-head">
+        <span class="dashboard-stat-label">${escapeHtml(label)}</span>
+        <span class="dashboard-stat-icon tone-${escapeHtml(tone)}" aria-hidden="true">${renderStatIcon(icon)}</span>
+      </div>
+      <div class="dashboard-stat-value">${escapeHtml(value)}</div>
+      <div class="dashboard-stat-copy">${escapeHtml(copy)}</div>
+    </article>
+  `;
+}
+
 function metricCard(label, value, copy, options = {}) {
   const text = String(value ?? "");
   const inferredTextual = /[A-Za-z]/.test(text) || text.includes("/") || text.length > 14;
@@ -963,6 +964,10 @@ function metricCard(label, value, copy, options = {}) {
       <div class="metric-copy">${escapeHtml(copy)}</div>
     </div>
   `;
+}
+
+function renderStatIcon(icon) {
+  return renderNavIcon(icon);
 }
 
 function renderMixList(title, rows, labelKey) {
@@ -1104,6 +1109,123 @@ function renderThemeScatter(points, xTheme, yTheme) {
   `;
 }
 
+function renderPublicationTimelineBars(rows) {
+  const width = 760;
+  const height = 300;
+  const margin = { top: 18, right: 18, bottom: 42, left: 36 };
+  const maxBooks = Math.max(...rows.map((row) => row.nBooks), 1);
+  const niceMax = Math.max(3, Math.ceil(maxBooks / 3) * 3);
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
+  const barSlot = innerWidth / Math.max(rows.length, 1);
+  const barWidth = Math.min(36, barSlot * 0.62);
+  const yScale = (value) => margin.top + ((niceMax - value) / niceMax) * innerHeight;
+  const xScale = (index) => margin.left + index * barSlot + (barSlot - barWidth) / 2;
+  const ticks = Array.from({ length: 5 }, (_, index) => (niceMax / 4) * index);
+
+  const grid = ticks
+    .map(
+      (tick) => `
+        <g>
+          <line x1="${margin.left}" x2="${width - margin.right}" y1="${yScale(tick)}" y2="${yScale(tick)}" stroke="rgba(25,41,42,0.1)" stroke-dasharray="4 6"></line>
+          <text x="${margin.left - 10}" y="${yScale(tick) + 4}" text-anchor="end" font-size="11" fill="#7a857f">${formatFloat(tick, tick % 1 === 0 ? 0 : 1)}</text>
+        </g>
+      `
+    )
+    .join("");
+
+  const bars = rows
+    .map((row, index) => {
+      const x = xScale(index);
+      const y = yScale(row.nBooks);
+      const barHeight = height - margin.bottom - y;
+      const label = index % 2 === 0 || rows.length <= 8 ? `${row.decade}s` : "";
+      return `
+        <g>
+          <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="8" fill="#11151c"></rect>
+          ${label ? `<text x="${x + barWidth / 2}" y="${height - 14}" text-anchor="middle" font-size="11" fill="#7a857f">${label}</text>` : ""}
+        </g>
+      `;
+    })
+    .join("");
+
+  return `
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Publication timeline chart">
+      ${grid}
+      <line x1="${margin.left}" x2="${width - margin.right}" y1="${height - margin.bottom}" y2="${height - margin.bottom}" stroke="rgba(25,41,42,0.22)"></line>
+      ${bars}
+    </svg>
+  `;
+}
+
+function renderThemeDistributionRadar(themes) {
+  const width = 760;
+  const height = 300;
+  const centerX = width / 2;
+  const centerY = height / 2 + 8;
+  const radius = 96;
+  const levels = [25, 50, 75, 100];
+  const maxMean = Math.max(...themes.map((theme) => Number(theme.stats.mean || 0)), 1);
+  const labelOverrides = { moral_emotion: "Moral Emotion" };
+  const angleStep = (Math.PI * 2) / themes.length;
+
+  const pointFor = (value, index) => {
+    const angle = -Math.PI / 2 + index * angleStep;
+    const scaled = (value / 100) * radius;
+    return {
+      x: centerX + Math.cos(angle) * scaled,
+      y: centerY + Math.sin(angle) * scaled,
+    };
+  };
+
+  const grid = levels
+    .map((level) => {
+      const polygon = themes
+        .map((_, index) => {
+          const point = pointFor(level, index);
+          return `${point.x},${point.y}`;
+        })
+        .join(" ");
+      return `<polygon points="${polygon}" fill="none" stroke="rgba(25,41,42,0.12)"></polygon>`;
+    })
+    .join("");
+
+  const axes = themes
+    .map((theme, index) => {
+      const outer = pointFor(100, index);
+      const label = labelOverrides[theme.id] || labelizeTheme(theme.id);
+      const labelPoint = pointFor(116, index);
+      return `
+        <g>
+          <line x1="${centerX}" y1="${centerY}" x2="${outer.x}" y2="${outer.y}" stroke="rgba(25,41,42,0.12)"></line>
+          <text x="${labelPoint.x}" y="${labelPoint.y}" text-anchor="middle" font-size="12" fill="#7a857f">${escapeHtml(label)}</text>
+        </g>
+      `;
+    })
+    .join("");
+
+  const polygonPoints = themes
+    .map((theme, index) => {
+      const normalized = (Number(theme.stats.mean || 0) / maxMean) * 100;
+      const point = pointFor(normalized, index);
+      return `${point.x},${point.y}`;
+    })
+    .join(" ");
+
+  const tickLabels = levels
+    .map((level) => `<text x="${centerX}" y="${centerY - (level / 100) * radius + 4}" text-anchor="middle" font-size="11" fill="#7a857f">${level}</text>`)
+    .join("");
+
+  return `
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Theme distribution radar chart">
+      ${grid}
+      ${axes}
+      <polygon points="${polygonPoints}" fill="rgba(17,21,28,0.68)" stroke="#11151c" stroke-width="2"></polygon>
+      ${tickLabels}
+    </svg>
+  `;
+}
+
 function renderTimelineChart(rows) {
   const maxBooks = Math.max(...rows.map((row) => row.nBooks), 1);
   return `
@@ -1159,6 +1281,7 @@ function updateQuery(bookId, extra = {}) {
 }
 
 function isActiveRoute(page, href) {
+  if (page === "home" && href === "/dashboard") return true;
   if (href === "/" && page === "home") return true;
   if (href === "/report") return false;
   return href === `/${page}`;

@@ -61,8 +61,8 @@
 ### Milestone 7
 
 - Goal: Bring the live dashboard into closer parity with the accessible Figma Make design and fix the current frontend overflow bugs.
-- Scope: Pull layout and route guidance from the Figma Make resources plus the public `figma.site`, refactor the shared shell and page sections, fix theme/explorer metric overflow, regenerate hero media from the updated site, and redeploy.
-- Acceptance criteria: The public Vercel site uses the Figma-aligned navigation and page hierarchy, the reported overflow issues are resolved, the real-data routes/features remain intact, and the README hero media shows the updated website.
+- Scope: Pull layout and route guidance from the Figma Make resources plus the public `figma.site`, refactor the shared shell and page sections, fix theme/explorer metric overflow, restore a white-background dashboard landing page, add the homepage `Publication Timeline` and `Theme Distribution` charts, regenerate hero media from the updated site, and redeploy.
+- Acceptance criteria: The public Vercel site uses the Figma-aligned navigation and page hierarchy, the reported overflow issues are resolved, the homepage follows the Figma white-background dashboard style, the real-data homepage includes `Publication Timeline` and `Theme Distribution`, the real-data routes/features remain intact, and the README hero media shows the updated website.
 - Validation commands: `python3 -m py_compile childlit_toolkit/pipeline.py`; `node --check site/assets/app.js`; browser screenshot inspection of `/`, `/explorer`, `/themes`; `python -m childlit_toolkit report`; `vercel deploy --prod -y`; GitHub/README visual inspection.
 
 ## Stop-And-Fix Rule

@@ -8,8 +8,8 @@
 | data/manifests/local_assets.csv              | True   | 129404  |
 | data/manifests/legacy_summary.csv            | True   | 142     |
 | site/index.html                              | True   | 1010    |
-| site/assets/app.css                          | True   | 15626   |
-| site/assets/app.js                           | True   | 53853   |
+| site/assets/app.css                          | True   | 18157   |
+| site/assets/app.js                           | True   | 57875   |
 | site/assets/favicon.svg                      | True   | 723     |
 | public/index.html                            | True   | 1010    |
 | public/dashboard/index.html                  | True   | 812     |
@@ -19,5 +19,5 @@
 | results/tables/dependency_license_audit.csv  | True   | 1019    |
 | docs/report.qmd                              | True   | 14071   |
 | docs/index.html                              | True   | 12399   |
-| results/assets/hero.gif                      | True   | 2424074 |
-| results/assets/hero.mp4                      | True   | 559429  |
+| results/assets/hero.gif                      | True   | 1939739 |
+| results/assets/hero.mp4                      | True   | 501244  |

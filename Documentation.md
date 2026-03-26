@@ -48,6 +48,8 @@
   Why: landing-page KPI cards need to stay legible at common desktop widths; `1.33M` communicates scale cleanly while the exact count remains one click deeper.
 - Decision: generate README hero media from real dashboard routes first, with the old analysis-figure carousel only as a fallback.
   Why: the public README should show the actual website product surface and key workflows rather than a disconnected rotation of analysis plots.
+- Decision: follow the Figma dashboard’s white-background baseline more literally on the homepage and restore the two core dashboard visuals that were missing from the last pass.
+  Why: the previous implementation kept too much of the editorial landing-page treatment, and the user explicitly called out the drift from the Figma homepage plus the missing `Publication Timeline` and `Theme Distribution` charts.
 
 ## Validation Log
 
@@ -150,6 +152,9 @@
 - Command: Chrome DevTools screenshot inspection on `https://aarhus-childrens-literature-toolkit.vercel.app/`, `/themes`, and `/explorer?book=sleepy-hollow`
   Result: confirmed that the new light app shell is live, the Figma-inspired navigation hierarchy is in place, `Family` theme metrics no longer overflow, and `Sleepy Hollow` pacing/metric cards now wrap cleanly instead of colliding with their containers.
   Follow-up: no further emergency frontend repair is required before pushing the GitHub update.
+- Command: Chrome DevTools inspection on `https://swarm-flower-21555203.figma.site/?home_ref=dashboard`, local preview at `http://127.0.0.1:8125/`, `python -m childlit_toolkit report`, `python -m childlit_toolkit smoke`, and `vercel deploy --prod -y --scope bozlius-projects` from `public/`
+  Result: the homepage was re-aligned with the Figma dashboard aesthetic by restoring a predominantly white background, promoting the dashboard layout to the root route, and reinstating the missing `Publication Timeline` and `Theme Distribution` panels. The regenerated `site/`, mirrored `public/`, and hero media all validated cleanly, and production deploy `https://aarhus-childrens-literature-toolkit-76uk4nuq2-bozlius-projects.vercel.app` was aliased back to `https://aarhus-childrens-literature-toolkit.vercel.app`.
+  Follow-up: keep the root route dashboard-first unless the product intentionally decides to restore a separate marketing landing page.
 
 ## How To Run Or Demo
 
@@ -188,8 +193,8 @@
   Impact: the file is published successfully, but it may be worth replacing with a smaller archival copy or Git LFS if the repo should minimize clone weight.
 - Issue 6: the first Vercel production attempt uploaded only `vercel.json` because the initial `.vercelignore` allowlist was too aggressive.
   Impact: the issue was fixed in the same session by switching `.vercelignore` to a blacklist-style deploy filter and redeploying the same production alias.
-- Issue 7: the live home route still keeps a more editorial hero than the stricter Figma Make dashboard homepage.
-  Impact: the current release is already closer to the Figma shell and route hierarchy, but a future polish pass could make `/` even more like the Figma dashboard if the product direction prefers a less editorial landing page.
+- Issue 7: Figma MCP access is not consistently available in the current tool surface, even though the public Figma site is reachable.
+  Impact: the implementation can still track the published Figma site precisely via browser inspection, but deeper Make-file extraction may occasionally require a separate authenticated MCP session.
 
 ## Follow-Ups
 
