@@ -1,6 +1,6 @@
 # introduction to R as a programming language
 rm(list = ls())
-wd = 'C:/Users/KLN/some_r'
+wd = '<course-root>'
 setwd(wd)
 dir()
 drseuss.v <- scan("dr_seuss.txt", what = "character", sep=" ")

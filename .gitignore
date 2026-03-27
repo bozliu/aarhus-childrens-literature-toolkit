@@ -43,3 +43,7 @@ renv/python/
 /latent_variables.pdf
 -.r
 .vercel
+Prompt.md
+Plan.md
+Implement.md
+Documentation.md

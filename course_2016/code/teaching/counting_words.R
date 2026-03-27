@@ -1,7 +1,7 @@
 # word counting
 rm(list = ls())
 
-wd <- 'C:/Users/KLN/some_r'
+wd <- '<course-root>'
 setwd(wd)
 source('util_fun.R')
 load('kjv.RData')

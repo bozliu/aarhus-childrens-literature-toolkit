@@ -122,7 +122,7 @@ function renderSidebar(page, data) {
             <span>year span</span>
           </div>
         </div>
-        <p class="sidebar-note">The site uses committed repo data, keeps the 20-book legacy benchmark visible, and does not claim story prediction.</p>
+        <p class="sidebar-note">The site uses committed repo data, keeps the 20-book legacy benchmark visible, and supports title discovery, theme comparison, and corpus audit.</p>
       </div>
       <div class="sidebar-section sidebar-actions">
         <a class="cta" href="/explorer">Open Explorer</a>
@@ -149,7 +149,7 @@ function renderTopbar(page, data) {
         <span class="topbar-divider"></span>
         <span>${formatNumber(data.summary.nBooks)} titles</span>
         <span class="topbar-divider"></span>
-        <span>Not a story predictor</span>
+        <span>Discovery dashboard</span>
       </div>
       <div class="topbar-actions">
         <a class="ghost-cta" href="/dashboard">Dashboard</a>
@@ -325,14 +325,14 @@ function renderHomePage(data) {
       <article class="panel reveal" style="--delay:7">
         <div class="page-header">
           <div class="page-header-copy">
-            <p class="eyebrow">Capability boundary</p>
-            <h2 class="section-title">What it does not claim</h2>
+            <p class="eyebrow">Decision support</p>
+            <h2 class="section-title">What the site helps you do next</h2>
           </div>
         </div>
         <div class="signal-list">
-          <div class="signal-item"><strong>Not a plot forecaster</strong><span>The current system does not predict next-chapter events, endings, or story outcomes.</span></div>
-          <div class="signal-item"><strong>Not a sales or quality score</strong><span>It does not infer literary quality, market success, or validated pedagogy scores.</span></div>
-          <div class="signal-item"><strong>Not a complete map of the field</strong><span>The live corpus is historically grounded and intentionally auditable, which means it is also canon-aware and incomplete by design.</span></div>
+          <div class="signal-item"><strong>Curate discovery paths</strong><span>Use related-title neighborhoods and theme signals to extend book lists beyond broad age labels.</span></div>
+          <div class="signal-item"><strong>Compare narrative shape</strong><span>Read sentiment pacing, theme mix, and character density side by side when selecting books for shelves, classrooms, or collections.</span></div>
+          <div class="signal-item"><strong>Audit collection balance</strong><span>Keep the 20-book benchmark visible while checking historical clustering, provenance coverage, and representation gaps across the live catalog.</span></div>
         </div>
       </article>
     </section>

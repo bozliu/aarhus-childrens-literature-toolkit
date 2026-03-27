@@ -3,7 +3,7 @@
 #you can check the environment path for Java and your R libraries by entering these codes into the R console at anytime:
 
 Sys.getenv('R_LIBS_USER')
-#should read out: /Users/YOURUSERNAMEDETAILS/Library/R/3.3 (your version of R)/library/
+#should read out: <home-directory>/Library/R/3.3 (your version of R)/library/
 Sys.getenv("JAVA_HOME")
 #should be similar to this, depending on your version of Java: Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/
 Sys.getenv("LD_LIBRARY_PATH")
@@ -50,6 +50,5 @@ sudo R CMD javareconf
 #If you have questions about these steps then please ask! I also find just trying these steps and restarting the computer and restarting R, and reinstalling packages each time, is helpful. ALSO, when doing this and installing packages, do it directly through the R console, not hte RStudio GUI easy paths. This does seem to make a difference, for some people.
 
 #Hope you find this helpful! Good luck!
-
 
 

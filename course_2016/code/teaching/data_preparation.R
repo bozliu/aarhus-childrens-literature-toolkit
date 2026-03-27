@@ -1,6 +1,6 @@
 # preprocessing
 rm(list = ls())
-wd <- 'C:/Users/KLN/some_r'
+wd <- '<course-root>'
 #wd = '~/courses/au_summer_university/summer_u2016/classes/tutorials'
 setwd(wd)
 getwd()
@@ -159,7 +159,7 @@ resave(text.cor, file = 'kjv.RData')
 # scale to multiple documents with tm
 library(tm)
 sessionInfo()# check attached packages
-dd = "C:/Users/KLN/some_r/data/kjv_books";
+dd = "<local-kjv-books-directory>";
 setwd(dd)
 # import plain text files in the directory dd containing Latin (lat) texts
 books.cor  <- Corpus(DirSource(dd, encoding = "UTF-8"), readerControl = list(language = "lat"))

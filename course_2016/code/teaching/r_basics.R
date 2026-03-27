@@ -3,7 +3,7 @@
 ### navigating directories
 getwd()# current working directory
 dir()# files in directory
-wd = 'C:/Users/KLN/some_r'
+wd = '<course-root>'
 # wd = '~/courses/au_summer_university/summer_u2016/classes/tutorials'
 setwd(wd)
 

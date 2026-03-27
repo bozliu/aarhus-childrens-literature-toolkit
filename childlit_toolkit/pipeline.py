@@ -1776,7 +1776,7 @@ Libraries and EdTech teams do not buy a topic model for its own sake. They buy b
 
 ## 2016 Course Archive
 
-The historical Aarhus course materials now live in [`course_2016/README.md`](course_2016/README.md). That folder keeps the 2016 slides, teaching code, project work, supporting resources, and raw archives in one browsable place so the public repo can stay product-first at the top level without losing provenance.
+The historical Aarhus course materials now live in [`course_2016/README.md`](course_2016/README.md). That folder keeps the 2016 slides, teaching code, project work, supporting resources, and legacy outputs in one browsable place so the public repo can stay product-first at the top level without losing provenance.
 
 ## Workflow Architecture
 
@@ -2080,10 +2080,6 @@ What this means:
 .
 ├── README.md                  # generated public homepage for the GitHub repo
 ├── README.Rmd                 # R-facing note pointing to the shared README generation flow
-├── Prompt.md                  # durable memory: current task specification
-├── Plan.md                    # durable memory: milestone plan and acceptance criteria
-├── Implement.md               # durable memory: execution runbook
-├── Documentation.md           # durable memory: live status, decisions, and validation log
 ├── LICENSE                    # Apache-2.0 license for the repository source
 ├── NOTICE                     # release notice and attribution surface
 ├── CITATION.cff               # machine-readable citation metadata
@@ -2691,10 +2687,6 @@ def bootstrap_python() -> None:
 
 def smoke() -> None:
     required = [
-        ROOT / "Prompt.md",
-        ROOT / "Plan.md",
-        ROOT / "Implement.md",
-        ROOT / "Documentation.md",
         ROOT / "config" / "corpus_seed.csv",
         ROOT / "config" / "theme_seeds.yml",
         ROOT / "childlit_toolkit" / "pipeline.py",

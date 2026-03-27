@@ -6,7 +6,7 @@ This folder is the historical archive for the 2016 Aarhus Summer University cour
 
 `Data Intensive Methods and Digital Tools for Analysis of Text Mining in R`
 
-It keeps the original lecture materials, teaching code, project-work scripts, supporting resources, legacy result files, and raw archives in one browsable place so the repo root can stay focused on the modern public toolkit.
+It keeps the original lecture materials, teaching code, project-work scripts, supporting resources, and legacy result files in one browsable place so the repo root can stay focused on the modern public toolkit.
 
 ## How To Use This Archive
 
@@ -15,7 +15,7 @@ It keeps the original lecture materials, teaching code, project-work scripts, su
 - Go to [`code/project_work/`](code/project_work/) if you want the project-era scripts behind the children’s literature analysis.
 - Go to [`resources/`](resources/) if you want the corpus specification documents and course-support files.
 - Go to [`legacy_outputs/`](legacy_outputs/) if you want the archived result summaries from the original project workflow.
-- Go to [`archives/raw/`](archives/raw/) if you want the original zip archives exactly as they were preserved locally.
+- The extracted slides, code, resources, and legacy outputs are the canonical public archive surface in this repo; redundant raw zip bundles are intentionally omitted from the public release.
 
 ## Program Map
 
@@ -188,14 +188,9 @@ The program overview is recoverable from [`legacy_repo/tm_the_great_unread_maste
 | [`legacy_outputs/english1.dat`](legacy_outputs/english1.dat) | Legacy auxiliary data file used in the original analysis context |
 | [`legacy_outputs/loading_the_directory_and_most_cleaning.txt`](legacy_outputs/loading_the_directory_and_most_cleaning.txt) | Working notes on loading directories and performing the bulk of legacy cleaning |
 
-## Raw Archives Index
+## Archive Note
 
-| File | Purpose |
-| --- | --- |
-| [`archives/raw/slides-2016-07-26.zip`](archives/raw/slides-2016-07-26.zip) | Original archived slide bundle from July 2016 |
-| [`archives/raw/code-2016-07-26.zip`](archives/raw/code-2016-07-26.zip) | Original archived teaching-code bundle from July 2016 |
-| [`archives/raw/data-2016-07-26.zip`](archives/raw/data-2016-07-26.zip) | Original archived course data bundle from July 2016 |
-| [`archives/raw/other_resources-2016-07-26.zip`](archives/raw/other_resources-2016-07-26.zip) | Original archived support-resource bundle from July 2016 |
+The public repo keeps the extracted 2016 materials rather than shipping the original raw zip bundles. This avoids redundant download weight and removes duplicate legacy files that do not add new instructional value beyond the extracted slide, code, and resource folders above.
 
 ## Legacy Repo Snapshot
 

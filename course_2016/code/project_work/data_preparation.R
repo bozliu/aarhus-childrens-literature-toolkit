@@ -1,6 +1,6 @@
 # preprocessing
 rm(list = ls())
-wd <- 'C:/Users/sampsonliu/Test'
+wd <- '<local-course-workspace>'
 #wd = '~/courses/au_summer_university/summer_u2016/classes/tutorials'
 setwd(wd)
 getwd()
@@ -162,7 +162,7 @@ resave(text.cor, file = 'kjv.RData')
 rm(list = ls())
 library(tm)
 sessionInfo()# check attached packages
-dd <- "/Users/sampsonliu/Test /data/kjv_books"
+dd <- "<local-kjv-books-directory>"
 setwd(dd)
 # import plain text files in the directory dd containing Latin (lat) texts
 books.cor  <- Corpus(DirSource(dd, encoding = "UTF-8"), readerControl = list(language = "lat"))
@@ -217,4 +217,3 @@ nt.cor <- books.cor[idx]# new testament
 # append corpus to save file
 resave(books.cor, file = 'kjv.RData')
 names(books.cor) <- gsub("\\..*","",names(books.cor))
-
