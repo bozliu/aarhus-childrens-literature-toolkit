@@ -956,6 +956,7 @@ tr:last-child td {
 
 @media (max-width: 1180px) {
   .topbar {
+    position: static;
     grid-template-columns: auto 1fr;
   }
 
